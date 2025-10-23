@@ -3,37 +3,63 @@ using System;
 
 public partial class CharacterBody2d : CharacterBody2D
 {
-	public const float Speed = 300.0f;
-	public const float JumpVelocity = -400.0f;
+	// Mudei de 'const' para '[Export]' para que possamos mudá-la
+	// e também para que ela apareça no Inspetor do Godot.
+	[Export]
+	public float Speed = 200.0f;
+	[Export]
+	public float SprintMultiplier = 2.0f; // Multiplicador da corrida
+	[Export]
+	public float JumpVelocity = -350.0f;
+
+	// Pega a gravidade das configurações do projeto
+	public float Gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
 
-		// Add the gravity.
+		// 1. Adiciona a gravidade (se não estiver no chão)
 		if (!IsOnFloor())
 		{
-			velocity += GetGravity() * (float)delta;
+			// Usamos a gravidade das configurações do projeto
+			velocity.Y += Gravity * (float)delta;
 		}
 
-		// Handle Jump.
+		// 2. Handle Jump (Pulo)
+		// (Você pode querer mudar "ui_accept" para sua própria ação "pular")
 		if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
 		{
 			velocity.Y = JumpVelocity;
 		}
 
-		// Get the input direction and handle the movement/deceleration.
-		// As good practice, you should replace UI actions with custom gameplay actions.
-		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-		if (direction != Vector2.Zero)
+		// 3. Handle Corrida (Sprint) 💡
+		float currentSpeed = Speed; // Começa com a velocidade normal
+		
+		// Verifica se a ação "ui_corrida" (Shift) está SENDO PRESSIONADA
+		if (Input.IsActionPressed("ui_corrida"))
 		{
-			velocity.X = direction.X * Speed;
+			// Multiplica a velocidade normal pelo multiplicador
+			currentSpeed = Speed * SprintMultiplier;
+		}
+
+		// 4. Handle Movimento Esquerda/Direita
+		// Usamos GetAxis para jogos de plataforma (retorna -1, 0, ou 1)
+		float horizontalDirection = Input.GetAxis("ui_left", "ui_right");
+
+		if (horizontalDirection != 0)
+		{
+			// Aplica a velocidade (normal OU de corrida)
+			velocity.X = horizontalDirection * currentSpeed;
 		}
 		else
 		{
+			// Desaceleração (atrito)
+			// Usamos a velocidade base para desacelerar
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 		}
 
+		// 5. Aplica a velocidade e move o personagem
 		Velocity = velocity;
 		MoveAndSlide();
 	}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bqpmxgkb5nfkc"]
+[gd_scene load_steps=15 format=3 uid="uid://bqpmxgkb5nfkc"]
 
 [ext_resource type="Script" uid="uid://70uyjvnvfpi" path="res://CharacterBody2d.cs" id="2_0hol4"]
 [ext_resource type="Texture2D" uid="uid://br4orn1ngxqjd" path="res://Imagens/sprites erika/Crianca_parada-Sheet.png" id="2_epypp"]
@@ -59,44 +59,63 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
-size = Vector2(36.875, 53)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
+size = Vector2(24, 53)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hqns4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
+size = Vector2(71, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
+size = Vector2(73, 141.25)
 
 [node name="Node2D" type="Node2D"]
 metadata/_edit_vertical_guides_ = [-319.0]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(2762, -158)
 script = ExtResource("2_0hol4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(902, 459.03568)
+position = Vector2(0, 1.7857361)
 scale = Vector2(0.27142873, 0.2714287)
 sprite_frames = SubResource("SpriteFrames_ir8iy")
 animation = &"parada"
 autoplay = "parada"
 frame_progress = 0.10083541
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(900.5625, 458.5)
-shape = SubResource("RectangleShape2D_0e48y")
-
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(904, 460)
-zoom = Vector2(2, 2)
+zoom = Vector2(2.5, 2.5)
 position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(4, 3)
+shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(1413, -223)
 physics_material_override = SubResource("PhysicsMaterial_hqns4")
 
 [node name="Cenario11_0" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(-257, 427)
+position = Vector2(0, 1)
 scale = Vector2(1.7639999, 1.764)
 texture = ExtResource("3_0hol4")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(709, 517, 949, 516, 964, 523, 975, 532, 986, 542, 999, 546, 1148, 544, 1152, 647, 711, 644)
+polygon = PackedVector2Array(1411, 117, 1249, 116, 1209, 88, 966, 87, 967, 221, 1410, 220)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(931.5, 207.5)
+shape = SubResource("RectangleShape2D_epypp")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-318, 461, 56, 461, 294, 457, 313, 467, 325, 476, 339, 485, 365, 484, 447, 484, 496, 486, 507, 493, 516, 500, 525, 507, 542, 512, 639, 515, 642, 648, -316, 647)
+polygon = PackedVector2Array(898, 90, 898, 222, -724, 222, -728, -22, -511, -22, -480, 5, -262, 6, -229, 35, 559, 35, 594, 61, 752, 61, 795, 91)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-1410, -53, -1410, 221, -799, 220, -799, -25, -939, -26, -939, -52)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-762.5, 151.625)
+shape = SubResource("RectangleShape2D_q6r6c")
