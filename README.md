@@ -1,55 +1,55 @@
-# Sazsazan cite: 3
+# Sazsazan 
 
-Este projeto é um Jogo Digital cite: 1 desenvolvido pelos alunos do 1º Técnico de Programação de Jogos Digitais cite: 6 do **INSTITUTO FEDERAL Triângulo Mineiro - Campus Uberlândia** cite: 4.
+Este projeto é um Jogo Digital desenvolvido pelos alunos do 1º Técnico de Programação de Jogos Digitais do **Instituto Federal do Triângulo Mineiro - Campus Uberlândia Centro**.
 
-O projeto faz parte da disciplina de Língua Portuguesa cite: 2, sob orientação da Professora Gyzely Suely Lima cite: 5.
+O projeto faz parte da disciplina de Língua Portuguesa, sob orientação da Professora Gyzely Suely Lima.
 
-## 🎯 Sobre o Projeto cite: 32
+## 🎯 Sobre o Projeto 
 
-O objetivo principal deste trabalho é a criação de um jogo que gira em torno do povo indígena Wapichana, um povo tradicional da cultura brasileira do norte do Amazonas cite: 35.
+O objetivo principal deste trabalho é a criação de um jogo que gira em torno do povo indígena Wapichana, um povo tradicional da cultura brasileira do norte do Amazonas.
 
 Com este jogo, buscamos:
 
-* Passar os costumes, histórias e cultura dessa etnia cite: 36.
-* Criar um jogo educativo que conterá uma história divertida cite: 36.
-* Alcançar alta acessibilidade para o público geral cite: 36.
-* Conscientizar o público sobre as queimadas, que grande influenciam a natureza e na vida desses povos originários cite: 37.
+* Passar os costumes, histórias e cultura dessa etnia.
+* Criar um jogo educativo que conterá uma história divertida.
+* Alcançar alta acessibilidade para o público geral.
+* Conscientizar o público sobre as queimadas, que grande influenciam a natureza e na vida desses povos originários.
 
-## 🎮 Sobre o Jogo cite: 42
+## 🎮 Sobre o Jogo
 
-### Visão Geral cite: 44
+### Visão Geral
 
-Sazsazan se trata de um jogo digital com as seguintes características cite: 45:
+Sazsazan se trata de um jogo digital com as seguintes características:
 
-* **Gênero:** Plataforma 2D cite: 45.
-* **Estilo:** Pixel art simples cite: 45.
-* **Modo:** Single-player cite: 45.
-* **Controles:** Controles simples cite: 45.
+* **Gênero:** Plataforma 2D.
+* **Estilo:** Pixel art simples.
+* **Modo:** Single-player.
+* **Controles:** Controles simples.
 
-## 💻 Detalhes Técnicos cite: 55
+## 💻 Detalhes Técnicos
 
-* **Público Alvo:** Pretendemos alcançar um público geral cite: 58.
-* **Plataformas:** Desktop e Windows cite: 60.
+* **Público Alvo:** Pretendemos alcançar um público geral.
+* **Plataformas:** Desktop e Windows.
 
-## 👥 Equipe (Colaboradores Principais) cite: 10
+## 👥 Equipe (Colaboradores Principais)
 
-### Organização Geral cite: 11
-* **Líder do Projeto:** Fellipe Gabriel Santiago de Oliveira cite: 12.
+### Organização Geral
+* **Líder do Projeto:** Fellipe Gabriel Santiago de Oliveira.
 
-### Programação cite: 13
-* **Diretor:** Diego Pereira Stoque cite: 14.
-* Caio Borges Fernandes cite: 15.
-* Gabriel Franklin Ferreira cite: 16.
-* Mateus Amaral Maciel cite: 17.
+### Programação 
+* **Diretor:** Diego Pereira Stoque.
+* Caio Borges Fernandes.
+* Gabriel Franklin Ferreira.
+* Mateus Amaral Maciel.
 
-### Arte e Design cite: 18
-* **Diretor:** Rafael Siqueira de Freitas ferreira cite: 19.
-* Alexander Medeiros Filho cite: 20.
-* Ana Laura Caetano Lamonier cite: 21.
+### Arte e Design
+* **Diretor:** Rafael Siqueira de Freitas ferreira.
+* Alexander Medeiros Filho.
+* Ana Laura Caetano Lamonier.
 
-### História cite: 22
-* Ana Laura Caetano Lamonier cite: 23.
-* Rafael Siqueira de Freitas Ferreira cite: 24.
+### História
+* Ana Laura Caetano Lamonier.
+* Rafael Siqueira de Freitas Ferreira.
 
 ### Cutscenes cite: 25
 * Kauê Borges Fernandes cite: 26.
