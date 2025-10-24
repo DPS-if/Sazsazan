@@ -1,61 +1,57 @@
-# Sazsazan
+# Sazsazan cite: 3
 
-[cite_start]Este projeto é um Jogo Digital [cite: 45] [cite_start]desenvolvido pelos alunos do 1º Técnico de Programação de Jogos Digitais [cite: 6] [cite_start]do **INSTITUTO FEDERAL Triângulo Mineiro - Campus Uberlândia**[cite: 4].
+Este projeto é um Jogo Digital cite: 1 desenvolvido pelos alunos do 1º Técnico de Programação de Jogos Digitais cite: 6 do **INSTITUTO FEDERAL Triângulo Mineiro - Campus Uberlândia** cite: 4.
 
-[cite_start]O projeto faz parte da disciplina de Língua Portuguesa [cite: 2][cite_start], sob orientação da Professora Gyzely Suely Lima[cite: 5].
+O projeto faz parte da disciplina de Língua Portuguesa cite: 2, sob orientação da Professora Gyzely Suely Lima cite: 5.
 
-## 🎯 Sobre o Projeto
+## 🎯 Sobre o Projeto cite: 32
 
-[cite_start]O objetivo principal deste trabalho é a criação de um jogo que gira em torno do povo indígena Wapichana [cite: 35][cite_start], um povo tradicional da cultura brasileira do norte do Amazonas[cite: 35].
+O objetivo principal deste trabalho é a criação de um jogo que gira em torno do povo indígena Wapichana, um povo tradicional da cultura brasileira do norte do Amazonas cite: 35.
 
 Com este jogo, buscamos:
 
-* [cite_start]Passar os costumes, histórias e cultura dessa etnia[cite: 36].
-* [cite_start]Criar um jogo educativo que conterá uma história divertida[cite: 36].
-* [cite_start]Alcançar alta acessibilidade para o público geral[cite: 36].
-* [cite_start]Conscientizar o público sobre as queimadas, que grande influenciam a natureza e na vida desses povos originários[cite: 37].
+* Passar os costumes, histórias e cultura dessa etnia cite: 36.
+* Criar um jogo educativo que conterá uma história divertida cite: 36.
+* Alcançar alta acessibilidade para o público geral cite: 36.
+* Conscientizar o público sobre as queimadas, que grande influenciam a natureza e na vida desses povos originários cite: 37.
 
-## 🎮 Sobre o Jogo
+## 🎮 Sobre o Jogo cite: 42
 
-### Visão Geral
+### Visão Geral cite: 44
 
-[cite_start]Sazsazan se trata de um jogo digital com as seguintes características[cite: 43, 45]:
+Sazsazan se trata de um jogo digital com as seguintes características cite: 45:
 
-* [cite_start]**Gênero:** Plataforma 2D[cite: 45].
-* [cite_start]**Estilo:** Pixel art simples[cite: 45].
-* [cite_start]**Modo:** Single-player[cite: 45].
-* [cite_start]**Controles:** Controles simples[cite: 45].
+* **Gênero:** Plataforma 2D cite: 45.
+* **Estilo:** Pixel art simples cite: 45.
+* **Modo:** Single-player cite: 45.
+* **Controles:** Controles simples cite: 45.
 
-## 💻 Detalhes Técnicos
+## 💻 Detalhes Técnicos cite: 55
 
-* [cite_start]**Público Alvo:** Pretendemos alcançar um público geral[cite: 58].
-* [cite_start]**Plataformas:** Desktop e Windows[cite: 60].
+* **Público Alvo:** Pretendemos alcançar um público geral cite: 58.
+* **Plataformas:** Desktop e Windows cite: 60.
 
-## 👥 Equipe (Colaboradores Principais)
+## 👥 Equipe (Colaboradores Principais) cite: 10
 
-### Organização Geral
-* [cite_start]**Líder do Projeto:** Fellipe Gabriel Santiago de Oliveira[cite: 12].
+### Organização Geral cite: 11
+* **Líder do Projeto:** Fellipe Gabriel Santiago de Oliveira cite: 12.
 
-### Programação
-* [cite_start]**Diretor:** Diego Pereira Stoque[cite: 14].
-* [cite_start]Caio Borges Fernandes[cite: 15].
-* [cite_start]Gabriel Franklin Ferreira[cite: 16].
-* [cite_start]Mateus Amaral Maciel[cite: 17].
+### Programação cite: 13
+* **Diretor:** Diego Pereira Stoque cite: 14.
+* Caio Borges Fernandes cite: 15.
+* Gabriel Franklin Ferreira cite: 16.
+* Mateus Amaral Maciel cite: 17.
 
-### Arte e Design
-* [cite_start]**Diretor:** Rafael Siqueira de Freitas ferreira[cite: 19].
-* [cite_start]Alexander Medeiros Filho[cite: 20].
-* [cite_start]Ana Laura Caetano Lamonier[cite: 21].
+### Arte e Design cite: 18
+* **Diretor:** Rafael Siqueira de Freitas ferreira cite: 19.
+* Alexander Medeiros Filho cite: 20.
+* Ana Laura Caetano Lamonier cite: 21.
 
-### História
-* [cite_start]Ana Laura Caetano Lamonier[cite: 23].
-* [cite_start]Rafael Siqueira de Freitas Ferreira[cite: 24].
+### História cite: 22
+* Ana Laura Caetano Lamonier cite: 23.
+* Rafael Siqueira de Freitas Ferreira cite: 24.
 
-### Cutscenes
-* [cite_start]Kauê Borges Fernandes[cite: 26].
+### Cutscenes cite: 25
+* Kauê Borges Fernandes cite: 26.
 
-### Pesquisa
-* [cite_start]Deyvid Rodrigo da Silva Nogueira[cite: 28].
-
-### Música
-* [cite_start]Antônio Botelho Salgado[cite: 30].
+### Pesquisa cite
