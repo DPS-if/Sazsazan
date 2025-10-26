@@ -10,6 +10,7 @@ public partial class Erika : CharacterBody2D
 	public float SprintMultiplier = 2.0f;
 	[Export]
 	public float JumpVelocity = -350.0f;
+	public int ndepulo = 1;
 
 	// --- Variáveis de Stats ---
 	[Export]
@@ -51,9 +52,14 @@ public partial class Erika : CharacterBody2D
 		}
 
 		// 2. Pulo
-		if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
+		if (Input.IsActionJustPressed("ui_accept") && ndepulo > 0)
 		{
+			ndepulo -= 1; 
 			velocity.Y = JumpVelocity;
+		}
+		if (IsOnFloor())
+		{
+			ndepulo = 1;
 		}
 
 		// --- (LÓGICA DE ESTAMINA E CORRIDA TOTALMENTE ATUALIZADA) ---
