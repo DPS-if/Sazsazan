@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://cgcergo8oj4yw"]
+
+[ext_resource type="Script" uid="uid://cw3otflf47idt" path="res://Cenas Complementares/Hub/HUD.cs" id="1_ipnuo"]
+[ext_resource type="Texture2D" uid="uid://408aklbd4m2f" path="res://Imagens/Sprites Hud/Red/Border.png" id="1_kk1u2"]
+[ext_resource type="Texture2D" uid="uid://bl3wuijv2rehy" path="res://Imagens/Sprites Hud/Red/Colors.png" id="2_ipnuo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yup8n"]
+atlas = ExtResource("2_ipnuo")
+region = Rect2(56, 224, 40, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kk1u2"]
+atlas = ExtResource("2_ipnuo")
+region = Rect2(111, 322, 28, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipnuo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwf3m"]
+atlas = ExtResource("2_ipnuo")
+region = Rect2(64, 328, 40, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srfa3"]
+atlas = ExtResource("2_ipnuo")
+region = Rect2(111, 329, 23, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_puhwt"]
+atlas = ExtResource("1_kk1u2")
+region = Rect2(96, 320, 45, 15)
+
+[node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_ipnuo")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = 85.00001
+offset_top = 20.000002
+offset_right = 133.0
+offset_bottom = 60.0
+scale = Vector2(5, 5)
+value = 100.0
+texture_over = SubResource("AtlasTexture_yup8n")
+texture_progress = SubResource("AtlasTexture_kk1u2")
+
+[node name="StaminaBar" type="TextureProgressBar" parent="."]
+offset_left = 85.00001
+offset_top = 55.0
+offset_right = 125.00001
+offset_bottom = 95.0
+scale = Vector2(5, 5)
+value = 100.0
+texture_under = SubResource("AtlasTexture_ipnuo")
+texture_over = SubResource("AtlasTexture_lwf3m")
+texture_progress = SubResource("AtlasTexture_srfa3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 10.0
+offset_top = 10.000001
+offset_right = 55.0
+offset_bottom = 25.0
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_puhwt")
