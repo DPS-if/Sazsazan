@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddmdtbpymgdta"]
+[gd_scene load_steps=2 format=3 uid="uid://cwwtti7lbej8h"]
 
-[ext_resource type="Texture2D" uid="uid://dxn8wgspssck5" path="res://icon.svg" id="1_l3vtf"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bt5i7"]
+load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
 
 [node name="Node2D" type="Node2D"]
 
@@ -11,4 +12,4 @@ motion_mode = 1
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(515, 288)
 scale = Vector2(6.54688, 1.04688)
-texture = ExtResource("1_l3vtf")
+texture = SubResource("CompressedTexture2D_bt5i7")
