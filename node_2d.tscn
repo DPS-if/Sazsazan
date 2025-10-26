@@ -1,91 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://bqpmxgkb5nfkc"]
+[gd_scene load_steps=4 format=3 uid="uid://bqpmxgkb5nfkc"]
 
-[ext_resource type="Script" uid="uid://70uyjvnvfpi" path="res://CharacterBody2d.cs" id="2_0hol4"]
-[ext_resource type="Texture2D" uid="uid://br4orn1ngxqjd" path="res://Imagens/sprites erika/Crianca_parada-Sheet.png" id="2_epypp"]
+[ext_resource type="PackedScene" uid="uid://ctjhsgil40l7h" path="res://Cenas Complementares/Erika/Erika.tscn" id="2_0e48y"]
+[ext_resource type="PackedScene" uid="uid://cgcergo8oj4yw" path="res://Cenas Complementares/Hub/HUD.tscn" id="2_epypp"]
 [ext_resource type="Texture2D" uid="uid://2dsha06ftf81" path="res://Imagens/Terreno/Mapa Base 2.0.png" id="3_epypp"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q6r6c"]
-atlas = ExtResource("2_epypp")
-region = Rect2(0, 0, 140, 190)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kdubu"]
-atlas = ExtResource("2_epypp")
-region = Rect2(140, 0, 140, 190)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d21ai"]
-atlas = ExtResource("2_epypp")
-region = Rect2(280, 0, 140, 190)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rj586"]
-atlas = ExtResource("2_epypp")
-region = Rect2(420, 0, 140, 190)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4d7sh"]
-atlas = ExtResource("2_epypp")
-region = Rect2(560, 0, 140, 190)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ir8iy"]
-atlas = ExtResource("2_epypp")
-region = Rect2(700, 0, 140, 190)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ir8iy"]
-animations = [{
-"frames": [],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q6r6c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kdubu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d21ai")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rj586")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4d7sh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ir8iy")
-}],
-"loop": true,
-"name": &"parada",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
-size = Vector2(24, 53)
-
 [node name="Node2D" type="Node2D"]
+position = Vector2(-1, 0)
 metadata/_edit_vertical_guides_ = [-319.0]
 
-[node name="Erika" type="CharacterBody2D" parent="."]
-position = Vector2(3193, -258)
-script = ExtResource("2_0hol4")
+[node name="Erika" parent="." instance=ExtResource("2_0e48y")]
+position = Vector2(2817, -524)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Erika"]
-position = Vector2(0, 1.7857361)
-scale = Vector2(0.27142873, 0.2714287)
-sprite_frames = SubResource("SpriteFrames_ir8iy")
-animation = &"parada"
-autoplay = "parada"
-frame_progress = 0.10083541
-
-[node name="Camera2D" type="Camera2D" parent="Erika"]
-zoom = Vector2(1.5, 1.5)
-limit_enabled = false
-position_smoothing_enabled = true
-position_smoothing_speed = 6.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Erika"]
-position = Vector2(4, 3)
-shape = SubResource("RectangleShape2D_0hol4")
+[node name="Hud" parent="." instance=ExtResource("2_epypp")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(1713, -327)
@@ -100,3 +26,5 @@ polygon = PackedVector2Array(1711, 111, 1711, 327, -346, 326, -346, 54, -338, 46
 
 [node name="colisão 2" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-1712, -176, -1497, -175, -1492, -170, -1492, -63, -1480, -49, -1308, -48, -1301, -42, -1300, 15, -786, 16, -730, 46, -452, 49, -447, 55, -449, 327, -1712, 327)
+
+[connection signal="StatsChanged" from="Erika" to="Hud" method="OnPlayerStatsChanged"]
