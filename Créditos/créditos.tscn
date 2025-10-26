@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://2q1gvlovqvdb"]
+
+[ext_resource type="Texture2D" uid="uid://c8e8wcps3xswk" path="res://Créditos/download.png" id="1_auf2r"]
+[ext_resource type="Script" uid="uid://dmtc4t1fdbo0q" path="res://Créditos/Creditos.cs" id="1_pxs2t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa8mb"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="Theme" id="Theme_4a7y3"]
+Button/styles/normal = SubResource("StyleBoxFlat_oa8mb")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_pxs2t")
+
+[node name="créditos" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="créditos"]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 647.0
+mouse_filter = 2
+texture = ExtResource("1_auf2r")
+
+[node name="Label" type="Label" parent="créditos"]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 651.0
+theme_override_font_sizes/font_size = 20
+text = "                                                                                                         Créditos
+
+Organização geral:                                        Arte e design:                                          Cutscenes:
+
+Fellipe Gabriel Santiago                               Rafael Siqueira (diretor)                       Kauê Borges
+
+Programação:                                                 Alexander Medeiros                             Pesquisa:
+
+Caio Borges                                                     Ana Laura Caetano                               Deyvid Rodrigo
+
+Diego Pereira (Líder)                                     História:                                                   Música:
+
+Gabriel Franklin                                            Rafael Siqueira                                        Antônio Botelho
+
+Mateus Amaral                                              Ana Laura Caetano
+"
+
+[node name="voltar_btn" type="Button" parent="créditos"]
+layout_mode = 0
+offset_left = 879.0
+offset_top = 499.0
+offset_right = 1078.0
+offset_bottom = 576.0
+theme = SubResource("Theme_4a7y3")
+theme_override_font_sizes/font_size = 45
+text = "VOLTAR"

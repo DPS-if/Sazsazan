@@ -1,2 +1,29 @@
-res://Cenas Complementares/Hub/HUD.cs
+res://tela inicial/title_screen.tscn
+res://tela inicial/temabotao.tres
+res://tela inicial/TitleScreen.cs
+res://tela inicial/TitleScreen.tscn
+res://tela inicial/title_screen.cs
 res://Cenas Complementares/Erika/Erika.cs
+res://Cenas Complementares/Hub/HUD.cs
+res://title_screen.cs
+res://tela inicial/Creditos.cs
+res://incio.cs
+res://tela inicial/new_theme.tres
+res://tela inicial/telaDeInicio.cs
+res://Créditos/creditos.tscn
+res://Créditos/Creditos.cs
+res://node_2d.tscn
+res://telaInicial/title_screen.tscn
+res://telaInicial/new_theme.tres
+res://telaInicial/telaDeInicio.cs
+res://tela inicial.tscn
+res://Creditos.cs
+res://telaDeInicio.cs
+res://créditos.tscn
+res://telaInicial.tscn
+res://TelaInicial/title_screen.tscn
+res://TelaInicial/new_theme.tres
+res://TelaInicial/TelaDeInicio.cs
+res://Créditos/créditos.tscn
+res://TelaInicial/PrimeiraTela.cs
+res://TelaInicial/node_2d.tscn
