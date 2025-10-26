@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdt4ttt08oc1p"]
+
+[ext_resource type="Script" uid="uid://cr1r23jo2b1x0" path="res://TitleScreen.cs" id="1_hafda"]
+[ext_resource type="Texture2D" uid="uid://byox5yxfdu53j" path="res://title-screen.jpg" id="1_ig5kc"]
+[ext_resource type="Texture2D" uid="uid://dlcvdf8p22p3i" path="res://game_logo.png" id="2_05l2w"]
+[ext_resource type="Theme" uid="uid://bartbc26eg1m8" path="res://new_theme.tres" id="3_05l2w"]
+[ext_resource type="Texture2D" uid="uid://bbgx73eav2isf" path="res://Fall (32x32).png" id="3_hafda"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00382, 1)
+mouse_filter = 2
+script = ExtResource("1_hafda")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 2.9885838
+offset_top = -8.0
+offset_right = 1143.6313
+offset_bottom = 646.0
+mouse_filter = 2
+texture = ExtResource("1_ig5kc")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.969556
+offset_right = -0.62231445
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.927565, 0.933198)
+mouse_filter = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+mouse_filter = 2
+
+[node name="Logo" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_05l2w")
+
+[node name="start_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_05l2w")
+text = "COMEÇAR"
+
+[node name="credits_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_05l2w")
+text = "CRÉDITOS"
+
+[node name="quit_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_05l2w")
+toggle_mode = true
+keep_pressed_outside = true
+text = "SAIR"
+
+[node name="Mochi" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3_hafda")
+expand_mode = 2
+flip_h = true

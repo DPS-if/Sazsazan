@@ -1,0 +1,97 @@
+[gd_scene load_steps=9 format=3 uid="uid://k8jr57kf01j1"]
+
+[ext_resource type="Script" uid="uid://clwvpgxvk0x3s" path="res://Créditos.cs" id="1_7v4ru"]
+[ext_resource type="Texture2D" uid="uid://n1j7rga5nxdb" path="res://download.png" id="1_36lty"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_7v4ru"]
+script/source = "using Godot;
+using System;
+
+public partial class Control : Godot.Control
+{
+	public override void _Ready()
+	{
+		var voltarBtn = GetNode<Button>(\"Control/voltar_btn\");
+		voltarBtn.Pressed += () =>
+		{
+			GetTree().ChangeSceneToFile(\"res://title_screen.tscn\");
+		};
+	}
+}
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7v4ru"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njy8y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvkgi"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vnml6"]
+
+[sub_resource type="Theme" id="Theme_o03va"]
+Button/styles/disabled = SubResource("StyleBoxFlat_7v4ru")
+Button/styles/hover = SubResource("StyleBoxFlat_njy8y")
+Button/styles/normal = SubResource("StyleBoxFlat_bvkgi")
+Button/styles/pressed = SubResource("StyleBoxFlat_vnml6")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_7v4ru")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = SubResource("CSharpScript_7v4ru")
+
+[node name="bg" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_top = -7.0
+offset_right = 1152.0
+offset_bottom = 641.0
+mouse_filter = 2
+texture = ExtResource("1_36lty")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 1138.0
+offset_bottom = 652.0
+theme_override_font_sizes/font_size = 17
+text = "                                                                                                               CRÉDITOS
+
+ Programadores:                                 Arte:	                                                            História:                                            Cutscenes:
+                            
+ Caio Borges                                         Alexander Medeiros	                                Ana Laura Medeiros                       Kauê Borges
+
+ Diego Stoque (Líder)                         Ana Laura Caetano                                  Rafael Siqueira
+
+ Gabriel Franklin                                 Rafael Siqueira
+
+ Mateus Amaral
+
+
+Pesquisa:                                            Organização geral:                                    Música:
+
+Deyvid Rodrigo da Silva                  Fellipe Gabriel Santiago                           Antônio Botelho 
+
+
+"
+
+[node name="voltar_btn" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 887.0
+offset_top = 504.0
+offset_right = 1057.0
+offset_bottom = 593.0
+theme = SubResource("Theme_o03va")
+theme_override_font_sizes/font_size = 30
+text = "VOLTAR"
