@@ -1,2 +1,2 @@
-﻿51809
-C:/Users/User/Downloads/Godot_v4.5-stable_mono_win64/Godot_v4.5-stable_mono_win64/Godot_v4.5-stable_mono_win64.exe
+﻿56766
+D:/Projeto Godot/Godot_v4.5.1-stable_mono_win64/Godot_v4.5.1-stable_mono_win64.exe
