@@ -20,6 +20,9 @@ public partial class Erika : CharacterBody2D
     // 1 = Pulo disponível, 0 = Pulo Duplo disponível, -1 = Nenhum pulo disponível.
     public int ndepulo = 1; 
 
+	//salve salve safadão, dps do quick time event que ela aprende o pulo duplo, essa variavel tem q ser true se n ela n pula duas vez igual tu sentado nessa cadeira ai, que Deus te abençoe.
+	public bool sabepular2 = false;
+
     // --- Variáveis de Stats ---
     [Export]
     public float MaxHealth = 100.0f;
@@ -73,7 +76,7 @@ public partial class Erika : CharacterBody2D
         if (Input.IsActionJustPressed("ui_accept"))
         {
             // Pulo Normal (só acontece se ndepulo == 1, que foi setado acima)
-            if (ndepulo == 1) 
+            if (ndepulo == 1 && IsOnFloor()) 
             {
                 ndepulo = 0; // Prepara para o pulo duplo
                 velocity.Y = JumpVelocity;
@@ -83,7 +86,7 @@ public partial class Erika : CharacterBody2D
             // a) ndepulo for 0 (Pulo Duplo disponível)
             // b) O delay de regeneração de estamina não estiver ativo (_staminaRegenTimer <= 0)
             // c) Tiver estamina suficiente (CurrentStamina >= DoubleJumpStaminaCost)
-            else if (ndepulo == 0 && _staminaRegenTimer <= 0 && CurrentStamina >= DoubleJumpStaminaCost)
+            else if (sabepular2 && ((ndepulo == 0 && _staminaRegenTimer <= 0 && CurrentStamina >= DoubleJumpStaminaCost) || (!IsOnFloor() && _staminaRegenTimer <= 0 && CurrentStamina >= DoubleJumpStaminaCost && ndepulo != -1)))
             {
                 ndepulo = -1; // Desativa o pulo duplo
                 

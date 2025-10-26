@@ -4,12 +4,12 @@ node_2d.tscn::PackedScene::3541177856059713618::1761513420::0::1::::<><><>0<>0<>
 README.md::TextFile::-1::1761513420::0::1::::<><><>0<>0<><>::
 ::res://Cenas Complementares/::1761513420
 ::res://Cenas Complementares/Erika/::1761518961
-Erika.cs::CSharpScript::1707424495648821197::1761519611::0::1::::<>CharacterBody2D<><>0<>0<><>::
+Erika.cs::CSharpScript::1707424495648821197::1761520369::0::1::::<>CharacterBody2D<><>0<>0<><>::
 Erika.tscn::PackedScene::6125466287573084779::1761513420::0::1::::<><><>0<>0<><>::uid://yldbc8fmsnon::::res://Cenas Complementares/Erika/Erika.cs<>uid://br4orn1ngxqjd::::res://Imagens/sprites erika/Crianca_parada-Sheet.png
 ::res://Cenas Complementares/Hub/::1761513420
 HUD.cs::CSharpScript::6375682752396309065::1761513420::0::1::::<>CanvasLayer<><>0<>0<><>::
 HUD.tscn::PackedScene::5198376749475793538::1761513420::0::1::::<><><>0<>0<><>::uid://cw3otflf47idt::::res://Cenas Complementares/Hub/HUD.cs<>uid://408aklbd4m2f::::res://Imagens/Sprites Hud/Red/Border.png<>uid://bl3wuijv2rehy::::res://Imagens/Sprites Hud/Red/Colors.png
-::res://Créditos/::1761518963
+::res://Créditos/::1761519616
 Creditos.cs::CSharpScript::8040925612411412466::1761518963::0::1::::<>Node2D<><>0<>0<><>::
 créditos.tscn::PackedScene::1929719299515202059::1761518963::0::1::::<><><>0<>0<><>::uid://c8e8wcps3xswk::::res://Créditos/download.png<>uid://dmtc4t1fdbo0q::::res://Créditos/Creditos.cs
 download.png::CompressedTexture2D::7099373795759658038::1761518963::1761519616::1::::<><><>0<>0<>e80fd59ff07d61f30940787d40073c20<>res://.godot/imported/download.png-b7ba5525652fdb6718d494284729cdda.ctex::
@@ -47,10 +47,11 @@ Colors.png::CompressedTexture2D::3217672465625030062::1761513420::1761513714::1:
 Border.png::CompressedTexture2D::4632604894827387355::1761513420::1761513714::1::::<><><>0<>0<>d7605bb35b4040280197539cf47ab2ab<>res://.godot/imported/Border.png-165ebdd018e72805d3ffcfb0af47002d.ctex::
 BorderBG.png::CompressedTexture2D::6863532088164175351::1761513420::1761513714::1::::<><><>0<>0<>cf9bc2372e367ec7aa22901af8964ad7<>res://.godot/imported/BorderBG.png-daba05b0a6548bfadb3deae0c3c04c73.ctex::
 Colors.png::CompressedTexture2D::5075986040749398060::1761513420::1761513714::1::::<><><>0<>0<>08c9a18cfd67743b83452db2a41ddfab<>res://.godot/imported/Colors.png-a5e06e98c39fa93b2c9c239768acda65.ctex::
-::res://Imagens/Terreno/::1761513420
+::res://Imagens/Terreno/::1761520451
 Cenario1 1.0.png::CompressedTexture2D::1676867995404119337::1761513420::1761513420::1::::<><><>0<>0<>dd1d9380710d0f1dbe445770cf4b5b07<>res://.godot/imported/Cenario1 1.0.png-b3e7b9b608a72f876dcd18a4eea467fd.ctex::
+Espinhos.png::CompressedTexture2D::7030812624842584287::1761520451::1761520485::1::::<><><>0<>0<>2fcd38f5cb21ffad7e334bf5258a9344<>res://.godot/imported/Espinhos.png-99ace2182e29590313889feb4a7c4dc0.ctex::
 Mapa Base 2.0.png::CompressedTexture2D::1902397357952228248::1761513420::1761513420::1::::<><><>0<>0<>1b3686dc6f7808b3e1a0b46040d7649b<>res://.godot/imported/Mapa Base 2.0.png-0a619dcc98bf009837549b7f1967dbd2.ctex::
-::res://TelaInicial/::1761518963
+::res://TelaInicial/::1761519616
 Fall (32x32).png::CompressedTexture2D::1137027040217487157::1761518963::1761519616::1::::<><><>0<>0<>c991dea94afa92359f5495dba99836fb<>res://.godot/imported/Fall (32x32).png-1489565a724a13a37cddea399ae79eca.ctex::
 game_logo.png::CompressedTexture2D::4734007189877996987::1761518963::1761519616::1::::<><><>0<>0<>9f001bf107ef41ed1a363bfc004734bd<>res://.godot/imported/game_logo.png-363c2deedde5f9f0606a95e73a44f084.ctex::
 new_theme.tres::Theme::2422670662339114289::1761518963::0::1::::<><><>0<>0<><>::
