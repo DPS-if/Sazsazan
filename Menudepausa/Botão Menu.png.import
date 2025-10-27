@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc1q2shvbbw33"
-path="res://.godot/imported/Botão Resume.png-3473850db9d1ced44d787f6d8a6a53d7.ctex"
+uid="uid://cyv8r1thyl05x"
+path="res://.godot/imported/Botão Menu.png-07c18915e42fdd37a3ae2aa2f634a6f5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imagens/Menu de pausa/Botão Resume.png"
-dest_files=["res://.godot/imported/Botão Resume.png-3473850db9d1ced44d787f6d8a6a53d7.ctex"]
+source_file="res://Menudepausa/Botão Menu.png"
+dest_files=["res://.godot/imported/Botão Menu.png-07c18915e42fdd37a3ae2aa2f634a6f5.ctex"]
 
 [params]
 

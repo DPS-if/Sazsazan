@@ -46,10 +46,27 @@ public partial class Erika : CharacterBody2D
 	
 	public float Gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
+	// --- Menu de Pausa ---
+	private MenuPause PauseMenu;
+
 	public override void _Ready()
 	{
 		CurrentHealth = MaxHealth;
 		CurrentStamina = MaxStamina;
+		var pauseScene = GD.Load<PackedScene>("res://Menudepausa/MenuPause.tscn");
+		PauseMenu = pauseScene.Instantiate<MenuPause>();
+		AddChild(PauseMenu);
+		PauseMenu.Visible = false;
+	}
+
+	public override void _Input(InputEvent @event)
+	{
+		var keyEvent = @event as InputEventKey;
+		if (keyEvent?.Pressed == true && keyEvent.Keycode == Key.Escape)
+		{
+			GetTree().Paused = !GetTree().Paused;
+			PauseMenu.Visible = GetTree().Paused;
+		}
 	}
 
 	public override void _PhysicsProcess(double delta)
