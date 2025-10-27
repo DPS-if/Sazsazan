@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqpmxgkb5nfkc"]
+[gd_scene load_steps=7 format=3 uid="uid://bqpmxgkb5nfkc"]
 
 [ext_resource type="PackedScene" uid="uid://ctjhsgil40l7h" path="res://Cenas Complementares/Erika/Erika.tscn" id="2_0e48y"]
 [ext_resource type="PackedScene" uid="uid://cgcergo8oj4yw" path="res://Cenas Complementares/Hub/HUD.tscn" id="2_epypp"]
 [ext_resource type="Texture2D" uid="uid://2dsha06ftf81" path="res://Imagens/Terreno/Mapa Base 2.0.png" id="3_epypp"]
+[ext_resource type="Texture2D" uid="uid://c7f1pr712lo76" path="res://Imagens/Terreno/Espinhos.png" id="4_0hol4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
+size = Vector2(46, 30.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
+size = Vector2(41, 20)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(-1, 0)
@@ -13,18 +20,46 @@ position = Vector2(2817, -524)
 
 [node name="Hud" parent="." instance=ExtResource("2_epypp")]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="mapaBase" type="StaticBody2D" parent="."]
 position = Vector2(1713, -327)
 
-[node name="MapaBase2_0" type="Sprite2D" parent="StaticBody2D"]
+[node name="MapaBase2_0" type="Sprite2D" parent="mapaBase"]
 position = Vector2(0, 70)
 scale = Vector2(2.4395738, 2.4395735)
 texture = ExtResource("3_epypp")
 
-[node name="Colisão 1" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="Colisão 1" type="CollisionPolygon2D" parent="mapaBase"]
 polygon = PackedVector2Array(1711, 111, 1711, 327, -346, 326, -346, 54, -338, 46, -61, 46, -5, 15, 514, 16, 563, 46, 828, 47, 880, 78, 957, 79, 1009, 110)
 
-[node name="colisão 2" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="colisão 2" type="CollisionPolygon2D" parent="mapaBase"]
 polygon = PackedVector2Array(-1712, -176, -1497, -175, -1492, -170, -1492, -63, -1480, -49, -1308, -48, -1301, -42, -1300, 15, -786, 16, -730, 46, -452, 49, -447, 55, -449, 327, -1712, 327)
+
+[node name="espinho1" type="StaticBody2D" parent="."]
+position = Vector2(737, -322)
+
+[node name="Sprite2D" type="Sprite2D" parent="espinho1"]
+position = Vector2(-16.500017, -10.000005)
+scale = Vector2(3.0625014, 3.0000007)
+texture = ExtResource("4_0hol4")
+region_enabled = true
+region_rect = Rect2(-0.10816574, -0.27027988, 16.350792, 10.26992)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="espinho1"]
+position = Vector2(-16, -9.75)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho2" type="StaticBody2D" parent="."]
+position = Vector2(770, -320)
+
+[node name="Sprite2D" type="Sprite2D" parent="espinho2"]
+position = Vector2(-4.5, -8.5)
+scale = Vector2(2.5624995, 3.8333337)
+texture = ExtResource("4_0hol4")
+region_enabled = true
+region_rect = Rect2(0, 13.918426, 16, 6.0815744)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="espinho2"]
+position = Vector2(-4.5, -7)
+shape = SubResource("RectangleShape2D_0hol4")
 
 [connection signal="StatsChanged" from="Erika" to="Hud" method="OnPlayerStatsChanged"]
