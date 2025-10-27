@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bgdobcmmtfqc0"]
 
 [ext_resource type="Script" uid="uid://difyrknxdn0f2" path="res://TelaInicial/PrimeiraTela.cs" id="1_d2spq"]
-[ext_resource type="Texture2D" uid="uid://5g1ytwmvxrkh" path="res://Imagens/Menu inicial/Fundo Basico menu.png" id="2_6fxdv"]
+[ext_resource type="Texture2D" uid="uid://dsx4wm781utaj" path="res://TelaInicial/Cenário 1.png" id="2_6fxdv"]
 [ext_resource type="Theme" uid="uid://bartbc26eg1m8" path="res://TelaInicial/new_theme.tres" id="3_05l2w"]
 [ext_resource type="Texture2D" uid="uid://bqkw0imv6r3if" path="res://Imagens/Menu inicial/Título Sazsazan.png" id="3_lvy7t"]
 [ext_resource type="Texture2D" uid="uid://dfhjygvyss58d" path="res://Imagens/Menu inicial/Botão Começar.png" id="5_yb0jr"]
