@@ -8,55 +8,102 @@ public partial class Erika : CharacterBody2D
 	public float Speed = 200.0f;
 	[Export]
 	public float SprintMultiplier = 2.0f;
+	public float Gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
+
+	// --- Variáveis de Pulo ---
 	[Export]
 	public float JumpVelocity = -350.0f;
-	
-	// --- NOVAS VARIÁVEIS PARA O PULO DUPLO ---
 	[Export]
-	public float DoubleJumpVelocityMultiplier = 1.2f; // Pulo Duplo é 20% mais alto que o primeiro
-	[Export]
-	public float DoubleJumpStaminaCost = 25.0f;       // Custo de estamina do Pulo Duplo
-	
-	// 1 = Pulo disponível, 0 = Pulo Duplo disponível, -1 = Nenhum pulo disponível.
-	public int ndepulo = 1; 
+	public float DoubleJumpVelocityMultiplier = 1.2f;
 
-	//salve salve safadão, dps do quick time event que ela aprende o pulo duplo, essa variavel tem q ser true se n ela n pula duas vez igual tu sentado nessa cadeira ai, que Deus te abençoe.
-	public bool sabepular2 = false;
-
-	// --- Variáveis de Stats ---
+	// --- Variáveis de Stats e Estamina ---
 	[Export]
 	public float MaxHealth = 100.0f;
 	[Export]
 	public float MaxStamina = 100.0f;
 	[Export]
-	public float StaminaDrainRate = 20.0f; 
+	public float StaminaDrainRate = 20.0f;
 	[Export]
-	public float StaminaRegenRate = 15.0f; 
+	public float StaminaRegenRate = 15.0f;
 	[Export]
-	public float StaminaRegenDelay = 2.0f; // O delay de 2s quando acaba
+	public float StaminaRegenDelay = 2.0f;
+	[Export]
+	public float DoubleJumpStaminaCost = 25.0f;
+
+	// --- VARIÁVEIS DE DANO/REGENERAÇÃO/KNOCKBACK ---
+	[Export]
+	public float DamagePercentage = 0.20f; 
+	[Export]
+	public float RegenPercentage = 0.05f; 
+	[Export]
+	public float RegenInterval = 2.0f; 	  
+	[Export]
+	public float DamageCooldownTime = 1.0f; 
+	
+	[Export]
+	public float KnockbackHorizontalForce = 200.0f;
+	[Export]
+	public float KnockbackVerticalForce = -200.0f; 
+	
+	private float _regenTimer = 0.0f;
+	private float _damageCooldownTimer = 0.0f; 
+	private Vector2 _knockbackVelocity = Vector2.Zero; 
 	
 	public float CurrentHealth { get; private set; }
 	public float CurrentStamina { get; private set; }
-	
-	private float _staminaRegenTimer = 0.0f; // Timer interno
-	
+
+	// --- Controle do Pulo ---
+	private bool _canDoubleJump = false;
+	public bool sabepular2 = false; 
+
+	private float _staminaRegenTimer = 0.0f;
+
 	// --- SINAL PARA AVISAR O HUD ---
 	[Signal]
 	public delegate void StatsChangedEventHandler(float currentHealth, float maxHealth, float currentStamina, float maxStamina);
-	
-	public float Gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
-	// --- Menu de Pausa ---
+	// --- Menu de Pausa e Dicas ---
 	private MenuPause PauseMenu;
+	private bool dentroAreaDuplo = false;
+	private Label dicaPuloDuplo;
+	private bool mostrouDica = false;
 
 	public override void _Ready()
 	{
 		CurrentHealth = MaxHealth;
 		CurrentStamina = MaxStamina;
+		
 		var pauseScene = GD.Load<PackedScene>("res://Menudepausa/MenuPause.tscn");
 		PauseMenu = pauseScene.Instantiate<MenuPause>();
 		AddChild(PauseMenu);
 		PauseMenu.Visible = false;
+
+		var areaPuloDuplo = GetTree().Root.FindChild("AreaAprendePDuplo", true, false);
+		if (areaPuloDuplo is Area2D area)
+		{
+			area.BodyEntered += OnDuploAreaBodyEntered;
+			area.BodyExited += OnDuploAreaBodyExited;
+		}
+
+		dicaPuloDuplo = new Label
+		{
+			Text = "Aperte duas vezes ESPAÇO para usar o pulo duplo",
+			Visible = false,
+			Position = new Vector2(200, 50) 
+		};
+		AddChild(dicaPuloDuplo);
+
+		EmitSignal(SignalName.StatsChanged, CurrentHealth, MaxHealth, CurrentStamina, MaxStamina);
+	}
+
+	private void OnDuploAreaBodyEntered(Node body)
+	{
+		if (body == this) { dentroAreaDuplo = true; } 
+	}
+
+	private void OnDuploAreaBodyExited(Node body)
+	{
+		if (body == this) { dentroAreaDuplo = false; }
 	}
 
 	public override void _Input(InputEvent @event)
@@ -71,128 +118,208 @@ public partial class Erika : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		Vector2 velocity = Velocity;
+		// --- 1. Lógica de Tempo e Timers ---
+		if (_staminaRegenTimer > 0) { _staminaRegenTimer -= (float)delta; }
+		if (_damageCooldownTimer > 0) { _damageCooldownTimer -= (float)delta; }
 
-		// 1. Gravidade
-		if (!IsOnFloor())
+		// --- Lógica de Regeneração de Vida ---
+		_regenTimer += (float)delta;
+		if (_regenTimer >= RegenInterval)
 		{
-			velocity.Y += Gravity * (float)delta;
+			Heal(MaxHealth * RegenPercentage);
+			_regenTimer = 0.0f;
 		}
 
-		// 2. Reset do Pulo (CORRIGIDO: Veio para antes do Input)
-		// Se o personagem ESTÁ no chão, ele SEMPRE tem o pulo 1 disponível.
+		// --- 2. Lógica de Movimento e Pulo ---
+		Vector2 velocity = Velocity;
+		
+		if (!IsOnFloor()) { velocity.Y += Gravity * (float)delta; }
+
+		// Reset do Pulo e Lógica de Aprendizado
 		if (IsOnFloor())
 		{
-			// (ndepulo = 1) significa Pulo Normal disponível
-			// (ndepulo = 0) significa Pulo Duplo disponível
-			// (ndepulo = -1) significa Sem pulos
-			ndepulo = 1;
-		}
-
-		// 3. Pulo e Pulo Duplo (LÓGICA CORRIGIDA)
-		if (Input.IsActionJustPressed("ui_accept"))
-		{
-			// Pulo Normal (só acontece se ndepulo == 1, que foi setado acima)
-			if (ndepulo == 1 && IsOnFloor()) 
+			_canDoubleJump = true;
+			if (dentroAreaDuplo && !sabepular2)
 			{
-				ndepulo = 0; // Prepara para o pulo duplo
-				velocity.Y = JumpVelocity;
-			}
-			// Pulo Duplo
-			// Só executa se:
-			// a) ndepulo for 0 (Pulo Duplo disponível)
-			// b) O delay de regeneração de estamina não estiver ativo (_staminaRegenTimer <= 0)
-			// c) Tiver estamina suficiente (CurrentStamina >= DoubleJumpStaminaCost)
-			else if (sabepular2 && ((ndepulo == 0 && _staminaRegenTimer <= 0 && CurrentStamina >= DoubleJumpStaminaCost) || (!IsOnFloor() && _staminaRegenTimer <= 0 && CurrentStamina >= DoubleJumpStaminaCost && ndepulo != -1)))
-			{
-				ndepulo = -1; // Desativa o pulo duplo
-				
-				// Pulo mais alto
-				velocity.Y = JumpVelocity * DoubleJumpVelocityMultiplier; 
-				
-				// Gasta Estamina
-				CurrentStamina -= DoubleJumpStaminaCost;
-				
-				// Trava no 0 se ficou negativo
-				CurrentStamina = Mathf.Max(CurrentStamina, 0); 
-				
-				// (OPCIONAL: Ativar o delay se o pulo duplo zerar a estamina)
-				if (CurrentStamina <= 0)
+				sabepular2 = true;
+				if (!mostrouDica)
 				{
-					_staminaRegenTimer = StaminaRegenDelay;
+					dicaPuloDuplo.Text = "Aperte duas vezes ESPAÇO para usar o pulo duplo";
+					dicaPuloDuplo.Visible = true;
+					mostrouDica = true;
 				}
 			}
 		}
-		
-		// --- (LÓGICA DE ESTAMINA E CORRIDA TOTALMENTE ATUALIZADA) ---
-		
-		bool wantsToSprint = Input.IsActionPressed("ui_corrida");
-		float currentSpeed = Speed; // Começa com a velocidade NORMAL
 
-		// 4. Contar o timer de delay (se estiver ativo)
-		if (_staminaRegenTimer > 0)
+		if (Input.IsActionJustPressed("ui_accept"))
 		{
-			_staminaRegenTimer -= (float)delta;
+			if (IsOnFloor())
+			{
+				velocity.Y = JumpVelocity;
+			}
+			else if (sabepular2 && _canDoubleJump)
+			{
+				if (CurrentStamina >= DoubleJumpStaminaCost)
+				{
+					_canDoubleJump = false; 
+					velocity.Y = JumpVelocity * DoubleJumpVelocityMultiplier;
+					CurrentStamina -= DoubleJumpStaminaCost;
+					CurrentStamina = Mathf.Max(CurrentStamina, 0);
+					if (CurrentStamina <= 0) 
+					{ 
+						_staminaRegenTimer = StaminaRegenDelay; 
+					}
+					if (dicaPuloDuplo.Visible) { dicaPuloDuplo.Visible = false; }
+				}
+			}
 		}
 
-		// 5. Lógica de Corrida (Gastar Estamina)
-		// O jogador PODE tentar correr? (Se o delay de 2s não estiver ativo)
-		bool canSprint = _staminaRegenTimer <= 0;
+		// --- 3. Lógica de Estamina e Sprint (Inalterada) ---
+		bool wantsToSprint = Input.IsActionPressed("ui_corrida");
+		float currentSpeed = Speed;
+		bool canSprint = _staminaRegenTimer <= 0 && CurrentStamina > 0;
 
 		if (wantsToSprint && canSprint)
 		{
-			// Calcula o gasto ANTES de verificar
 			float staminaToDrain = StaminaDrainRate * (float)delta;
-
-			// Verifica se temos estamina SUFICIENTE para este frame
 			if (CurrentStamina > staminaToDrain)
 			{
-				// Sim, temos. Corra.
 				currentSpeed = Speed * SprintMultiplier;
 				CurrentStamina -= staminaToDrain;
 			}
 			else
 			{
-				// Não temos estamina suficiente.
-				// Define a estamina como 0 e ATIVA o delay de 2s
 				CurrentStamina = 0;
 				_staminaRegenTimer = StaminaRegenDelay;
-				// Nota: currentSpeed continua sendo a 'Speed' normal. O personagem para de correr.
 			}
 		}
 		else
 		{
-			// 6. Lógica de Regeneração
-			// REGENERA se:
-			// A. O timer de delay acabou (<= 0)
-			// B. A estamina não está cheia
-			// C. O JOGADOR NÃO ESTÁ SEGURANDO O BOTÃO DE CORRIDA (!wantsToSprint)
 			if (_staminaRegenTimer <= 0 && CurrentStamina < MaxStamina && !wantsToSprint)
 			{
 				CurrentStamina += StaminaRegenRate * (float)delta;
-				CurrentStamina = Mathf.Min(CurrentStamina, MaxStamina); // Trava no máximo
+				CurrentStamina = Mathf.Min(CurrentStamina, MaxStamina);
 			}
 		}
-		
-		// 7. Handle Movimento Esquerda/Direita
-		float horizontalDirection = Input.GetAxis("ui_left", "ui_right");
 
-		if (horizontalDirection != 0)
+		// 4. Aplica Movimento e Knockback
+		float horizontalDirection = Input.GetAxis("ui_left", "ui_right");
+		
+		_knockbackVelocity = _knockbackVelocity.MoveToward(Vector2.Zero, 1000 * (float)delta); 
+
+		if (_knockbackVelocity.LengthSquared() > 0)
 		{
-			// Aplica a velocidade (que será 'Speed' normal ou 'Sprint Speed')
-			velocity.X = horizontalDirection * currentSpeed;
+			velocity.X = _knockbackVelocity.X;
+			velocity.Y += _knockbackVelocity.Y; 
+			_knockbackVelocity.Y = 0; 
 		}
 		else
 		{
-			// Desaceleração (atrito)
-			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
+			if (horizontalDirection != 0) { velocity.X = horizontalDirection * currentSpeed; }
+			else { velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed); }
 		}
-
-		// 8. Aplica a velocidade e move o personagem
+		
 		Velocity = velocity;
 		MoveAndSlide();
 		
-		// 9. Emitir o Sinal (sempre no final)
+		// 5. Emitir o Sinal
 		EmitSignal(SignalName.StatsChanged, CurrentHealth, MaxHealth, CurrentStamina, MaxStamina);
+	}
+	
+	// MÉTODOS DE DANO/CURA/RESTART
+	
+	public void ApplyKnockback(Vector2 damageSourcePosition)
+	{
+		float directionX = (GlobalPosition.X - damageSourcePosition.X) > 0 ? 1.0f : -1.0f;
+		
+		_knockbackVelocity = new Vector2(
+			directionX * KnockbackHorizontalForce, 
+			KnockbackVerticalForce
+		);
+	}
+
+	public void Heal(float amount)
+	{
+		CurrentHealth += amount;
+		CurrentHealth = Mathf.Min(CurrentHealth, MaxHealth);
+	}
+
+	public void TakeDamage(float amount, Node2D damageSource)
+	{
+		if (_damageCooldownTimer > 0)
+		{
+			return;
+		}
+
+		CurrentHealth -= amount;
+		CurrentHealth = Mathf.Max(CurrentHealth, 0); 
+		
+		_damageCooldownTimer = DamageCooldownTime; 
+		
+		ApplyKnockback(damageSource.GlobalPosition); 
+		
+		GD.Print($"Dano recebido de {amount}! Vida restante: {CurrentHealth}");
+
+		if (CurrentHealth <= 0)
+		{
+			RestartGame();
+		}
+	}
+	
+	public void RestartGame()
+	{
+		GD.Print("Erika morreu! Reiniciando o jogo...");
+		GetTree().ReloadCurrentScene();
+	}
+	
+	// MÉTODO DE RECEBIMENTO DO SINAL DO ESPINHO 1
+	private void _on_espinho_1_body_entered(Node2D body)
+	{
+		if (body == this) 
+		{
+			float damageAmount = MaxHealth * DamagePercentage; 
+			
+			var espinho1 = GetTree().Root.FindChild("espinho1", true, false) as Node2D;
+
+			if (espinho1 != null)
+			{
+				TakeDamage(damageAmount, espinho1);
+			}
+			else
+			{
+				TakeDamage(damageAmount, new Node2D() { GlobalPosition = GlobalPosition + new Vector2(100, 0) });
+			}
+		}
+	}
+	
+	// MÉTODO DE RECEBIMENTO DO SINAL DO ESPINHO 2
+	private void _on_espinho_2_body_entered(Node2D body)
+	{
+		if (body == this) 
+		{
+			float damageAmount = MaxHealth * DamagePercentage; 
+			
+			var espinho2 = GetTree().Root.FindChild("espinho2", true, false) as Node2D;
+
+			if (espinho2 != null)
+			{
+				TakeDamage(damageAmount, espinho2);
+			}
+			else
+			{
+				TakeDamage(damageAmount, new Node2D() { GlobalPosition = GlobalPosition + new Vector2(100, 0) });
+			}
+		}
+	}
+
+	// --- MÉTODO: VOID (VAZIO) ---
+	private void _on_void_body_entered(Node2D body)
+	{
+		// Reinicia a fase instantaneamente se o corpo que entrou for a Erika
+		if (body == this) 
+		{
+			GD.Print("Erika caiu no Void. Reiniciando a fase.");
+			RestartGame();
+		}
 	}
 }
