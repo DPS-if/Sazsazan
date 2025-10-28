@@ -21,4 +21,4 @@ public partial class PrimeiraTela : Control
 			GetTree().ChangeSceneToFile("res://node_2d.tscn");
 		};
 	}
-} 
+}
