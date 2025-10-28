@@ -113,7 +113,6 @@ public partial class Erika : CharacterBody2D
 		PauseMenu = pauseScene.Instantiate<MenuPause>();
 		AddChild(PauseMenu);
 		PauseMenu.Visible = false;
-
 		var areaPuloDuplo = GetTree().Root.FindChild("AreaAprendePDuplo", true, false);
 		if (areaPuloDuplo is Area2D area)
 		{

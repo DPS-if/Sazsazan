@@ -1,69 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6t5g16xmw4y4"]
+[gd_scene format=3 uid="uid://c6t5g16xmw4y4"]
 
-[ext_resource type="Script" uid="uid://c0u4geib85klo" path="res://Inventário/Inventário.cs" id="1_8di7g"]
-[ext_resource type="Texture2D" uid="uid://b8pgn3hxv14ah" path="res://TelaInicial/game_logo.png" id="2_ql2wh"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3b5x"]
-bg_color = Color(0.6, 0.6, 0.6, 0.35686275)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-
-[node name="InventarioUI" type="CanvasLayer"]
-script = ExtResource("1_8di7g")
+[node name="Inventory" type="CanvasLayer"]
 
 [node name="Panel" type="Panel" parent="."]
-custom_minimum_size = Vector2(300, 400)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -200.0
-offset_right = 150.0
-offset_bottom = 200.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_i3b5x")
+mouse_filter = 2
 
-[node name="ConteudoInventario" type="VBoxContainer" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 0
-offset_right = 299.0
-offset_bottom = 394.0
+offset_left = 41.0
+offset_top = 4.0
+offset_right = 81.0
+offset_bottom = 44.0
 
-[node name="GridItens" type="GridContainer" parent="Panel/ConteudoInventario"]
-layout_mode = 2
-columns = 5
-
-[node name="TextureButton" type="TextureButton" parent="Panel/ConteudoInventario/GridItens"]
-layout_mode = 2
-texture_normal = ExtResource("2_ql2wh")
-
-[node name="TextureButton2" type="TextureButton" parent="Panel/ConteudoInventario/GridItens"]
+[node name="GridContainer" type="GridContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureButton3" type="TextureButton" parent="Panel/ConteudoInventario/GridItens"]
+[node name="Button" type="Button" parent="Panel/VBoxContainer/GridContainer"]
 layout_mode = 2
 
-[node name="TextureButton4" type="TextureButton" parent="Panel/ConteudoInventario/GridItens"]
-layout_mode = 2
-
-[node name="TextureButton5" type="TextureButton" parent="Panel/ConteudoInventario/GridItens"]
-layout_mode = 2
-
-[node name="TextureButton6" type="TextureButton" parent="Panel/ConteudoInventario/GridItens"]
-layout_mode = 2
-
-[node name="TextureButton7" type="TextureButton" parent="Panel/ConteudoInventario/GridItens"]
-layout_mode = 2
-
-[node name="TextureButton8" type="TextureButton" parent="Panel/ConteudoInventario/GridItens"]
-layout_mode = 2
-
-[node name="TextureButton9" type="TextureButton" parent="Panel/ConteudoInventario/GridItens"]
-layout_mode = 2
-
-[node name="TextureButton10" type="TextureButton" parent="Panel/ConteudoInventario/GridItens"]
+[node name="Button" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2

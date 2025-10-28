@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duy32qy5ekngi"
-path="res://.godot/imported/Ícone de inventario.png-dc0692bf289a0950dde69a74eaf09d3e.ctex"
+uid="uid://xnho0xl8xdtr"
+path="res://.godot/imported/Layout Inventário.png-b4f6f12ec9772b31ca9b5ebeaf9f3e4e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imagens/Sprites Hud/Hud/Ícone de inventario.png"
-dest_files=["res://.godot/imported/Ícone de inventario.png-dc0692bf289a0950dde69a74eaf09d3e.ctex"]
+source_file="res://Inventário/Layout Inventário.png"
+dest_files=["res://.godot/imported/Layout Inventário.png-b4f6f12ec9772b31ca9b5ebeaf9f3e4e.ctex"]
 
 [params]
 
