@@ -1,18 +1,12 @@
-[gd_scene load_steps=45 format=3 uid="uid://cgcergo8oj4yw"]
+[gd_scene load_steps=46 format=3 uid="uid://cgcergo8oj4yw"]
 
 [ext_resource type="Script" uid="uid://cw3otflf47idt" path="res://Cenas Complementares/Hub/HUD.cs" id="1_ipnuo"]
-[ext_resource type="Texture2D" uid="uid://bl3wuijv2rehy" path="res://Imagens/Sprites Hud/Red/Colors.png" id="2_ipnuo"]
 [ext_resource type="Texture2D" uid="uid://dsi2750v3yj4e" path="res://Imagens/Sprites Hud/Hud/Estamina Hud/Animação 3_3 para 2_3.png" id="3_yup8n"]
 [ext_resource type="Texture2D" uid="uid://ce3e7cs82cccv" path="res://Imagens/Sprites Hud/Hud/Estamina Hud/Animação 2_3 para 1_3.png" id="4_lwf3m"]
+[ext_resource type="Texture2D" uid="uid://cpep0qiybhcaw" path="res://Imagens/Sprites Hud/Hud/Vida hud/Vida 1_3.png" id="5_47yvp"]
 [ext_resource type="Texture2D" uid="uid://bf5dduuejejgk" path="res://Imagens/Sprites Hud/Hud/Estamina Hud/Animação 1_3 para 0_1.png" id="5_srfa3"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yup8n"]
-atlas = ExtResource("2_ipnuo")
-region = Rect2(56, 224, 40, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kk1u2"]
-atlas = ExtResource("2_ipnuo")
-region = Rect2(111, 322, 28, 5)
+[ext_resource type="Texture2D" uid="uid://nc6dntdxb1fo" path="res://Imagens/Sprites Hud/Hud/Vida hud/Vida 2_3.png" id="6_xvugv"]
+[ext_resource type="Texture2D" uid="uid://d10i2y8eswdld" path="res://Imagens/Sprites Hud/Hud/Vida hud/Vida 3_3.png" id="7_han2u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_47yvp"]
 atlas = ExtResource("3_yup8n")
@@ -270,27 +264,38 @@ animations = [{
 "texture": SubResource("AtlasTexture_anypw")
 }],
 "loop": false,
-"name": &"level",
+"name": &"level_estamina",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k8e4c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_han2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xvugv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_47yvp")
+}],
+"loop": false,
+"name": &"level_vida",
 "speed": 5.0
 }]
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_ipnuo")
 
-[node name="HealthBar" type="TextureProgressBar" parent="."]
-offset_left = 85.00001
-offset_top = 20.000002
-offset_right = 133.0
-offset_bottom = 60.0
-scale = Vector2(5, 5)
-value = 100.0
-texture_over = SubResource("AtlasTexture_yup8n")
-texture_progress = SubResource("AtlasTexture_kk1u2")
-
 [node name="StaminaBarAnimated" type="AnimatedSprite2D" parent="."]
-position = Vector2(36.75, 48.98649)
+position = Vector2(35.000004, 118)
 scale = Vector2(1.9594594, 1.9594595)
 sprite_frames = SubResource("SpriteFrames_xksf6")
-animation = &"level"
-frame = 35
-frame_progress = 1.0
+animation = &"level_estamina"
+
+[node name="HealthBarAnimated" type="AnimatedSprite2D" parent="."]
+position = Vector2(32, 32)
+scale = Vector2(2.5400004, 2.5400004)
+sprite_frames = SubResource("SpriteFrames_k8e4c")
+animation = &"level_vida"

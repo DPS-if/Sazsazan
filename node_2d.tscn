@@ -80,8 +80,8 @@ shape = SubResource("RectangleShape2D_kdubu")
 position = Vector2(-10, 215)
 shape = SubResource("RectangleShape2D_d21ai")
 
-[connection signal="StatsChanged" from="Erika" to="Hud" method="OnPlayerStatsChanged"]
 [connection signal="StatsChanged" from="Erika" to="Hud" method="_on_erika_stats_changed"]
+[connection signal="StatsChanged" from="Erika" to="Hud" method="OnPlayerStatsChanged"]
 [connection signal="body_entered" from="espinho1" to="Erika" method="_on_espinho_1_body_entered"]
 [connection signal="body_entered" from="espinho2" to="Erika" method="_on_espinho_2_body_entered"]
 [connection signal="body_entered" from="Void" to="Erika" method="_on_void_body_entered"]

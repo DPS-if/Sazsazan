@@ -17,8 +17,11 @@ public partial class Erika : CharacterBody2D
 	public float DoubleJumpVelocityMultiplier = 1.2f;
 
 	// --- Variáveis de Stats e Estamina ---
+	
+	// (ALTERADO) A vida máxima agora é 3!
 	[Export]
-	public float MaxHealth = 100.0f;
+	public float MaxHealth = 3.0f; 
+	
 	[Export]
 	public float MaxStamina = 100.0f;
 	[Export]
@@ -31,12 +34,14 @@ public partial class Erika : CharacterBody2D
 	public float DoubleJumpStaminaCost = 25.0f;
 
 	// --- VARIÁVEIS DE DANO/REGENERAÇÃO/KNOCKBACK ---
+	// (AVISO) Essas porcentagens não são mais usadas para dano/cura
 	[Export]
 	public float DamagePercentage = 0.20f; 
 	[Export]
 	public float RegenPercentage = 0.05f; 
+	
 	[Export]
-	public float RegenInterval = 2.0f; 	  
+	public float RegenInterval = 10.0f; 	  
 	[Export]
 	public float DamageCooldownTime = 1.0f; 
 	
@@ -70,7 +75,7 @@ public partial class Erika : CharacterBody2D
 
 	public override void _Ready()
 	{
-		CurrentHealth = MaxHealth;
+		CurrentHealth = MaxHealth; // Começa com 3 de vida
 		CurrentStamina = MaxStamina;
 		
 		var pauseScene = GD.Load<PackedScene>("res://Menudepausa/MenuPause.tscn");
@@ -126,7 +131,8 @@ public partial class Erika : CharacterBody2D
 		_regenTimer += (float)delta;
 		if (_regenTimer >= RegenInterval)
 		{
-			Heal(MaxHealth * RegenPercentage);
+			// (ALTERADO) Agora cura 1 de vida, em vez de porcentagem
+			Heal(1.0f); 
 			_regenTimer = 0.0f;
 		}
 
@@ -277,7 +283,8 @@ public partial class Erika : CharacterBody2D
 	{
 		if (body == this) 
 		{
-			float damageAmount = MaxHealth * DamagePercentage; 
+			// (ALTERADO) Dano agora é 1.0, em vez de porcentagem
+			float damageAmount = 1.0f; 
 			
 			var espinho1 = GetTree().Root.FindChild("espinho1", true, false) as Node2D;
 
@@ -297,7 +304,8 @@ public partial class Erika : CharacterBody2D
 	{
 		if (body == this) 
 		{
-			float damageAmount = MaxHealth * DamagePercentage; 
+			// (ALTERADO) Dano agora é 1.0, em vez de porcentagem
+			float damageAmount = 1.0f; 
 			
 			var espinho2 = GetTree().Root.FindChild("espinho2", true, false) as Node2D;
 
