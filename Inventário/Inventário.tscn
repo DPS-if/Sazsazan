@@ -1,4 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6t5g16xmw4y4"]
+[gd_scene load_steps=4 format=3 uid="uid://c6t5g16xmw4y4"]
+
+[ext_resource type="Script" uid="uid://c0u4geib85klo" path="res://Inventário/Inventário.cs" id="1_8di7g"]
+[ext_resource type="Texture2D" uid="uid://b8pgn3hxv14ah" path="res://TelaInicial/game_logo.png" id="2_ql2wh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3b5x"]
 bg_color = Color(0.6, 0.6, 0.6, 0.35686275)
@@ -8,6 +11,7 @@ border_width_right = 5
 border_width_bottom = 5
 
 [node name="InventarioUI" type="CanvasLayer"]
+script = ExtResource("1_8di7g")
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(300, 400)
@@ -35,6 +39,7 @@ columns = 5
 
 [node name="TextureButton" type="TextureButton" parent="Panel/ConteudoInventario/GridItens"]
 layout_mode = 2
+texture_normal = ExtResource("2_ql2wh")
 
 [node name="TextureButton2" type="TextureButton" parent="Panel/ConteudoInventario/GridItens"]
 layout_mode = 2
