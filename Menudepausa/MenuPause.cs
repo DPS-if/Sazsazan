@@ -6,8 +6,8 @@ public partial class MenuPause : CanvasLayer
 	public override void _Ready()
 	{
 		Visible = false;
-		var resume_btn = GetNode<Button>("Panel/resume_btn");
-		var quit_btn = GetNode<Button>("Panel/quit_btn");
+		var resume_btn = GetNode<TextureButton>("Panel/MarginContainer/HBoxContainer/VBoxContainer/resume_btn");
+		var quit_btn = GetNode<TextureButton>("Panel/MarginContainer/HBoxContainer/VBoxContainer/quit_btn");
 		resume_btn.ProcessMode = Node.ProcessModeEnum.WhenPaused;
 		quit_btn.ProcessMode = Node.ProcessModeEnum.WhenPaused;
 		resume_btn.Pressed += () =>
