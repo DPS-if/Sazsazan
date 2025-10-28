@@ -1,9 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqpmxgkb5nfkc"]
+[gd_scene load_steps=13 format=3 uid="uid://bqpmxgkb5nfkc"]
 
 [ext_resource type="PackedScene" uid="uid://ctjhsgil40l7h" path="res://Cenas Complementares/Erika/Erika.tscn" id="2_0e48y"]
 [ext_resource type="PackedScene" uid="uid://cgcergo8oj4yw" path="res://Cenas Complementares/Hub/HUD.tscn" id="2_epypp"]
 [ext_resource type="Texture2D" uid="uid://2dsha06ftf81" path="res://Imagens/Terreno/Mapa Base 2.0.png" id="3_epypp"]
 [ext_resource type="Texture2D" uid="uid://c7f1pr712lo76" path="res://Imagens/Terreno/Espinhos.png" id="4_0hol4"]
+[ext_resource type="Texture2D" uid="uid://44k5ivjf8snw" path="res://Imagens/Terreno/Cenario1 2.1.png" id="5_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://dx0po1yg01a60" path="res://Imagens/Terreno/Cenario1 2.2.png" id="6_kdubu"]
+[ext_resource type="Texture2D" uid="uid://daw12ggookton" path="res://Imagens/Terreno/Cenario2 2.0.png" id="7_d21ai"]
+[ext_resource type="Texture2D" uid="uid://dt7rkmys8g0nd" path="res://Imagens/Terreno/Cenario2 2.1.png" id="8_rj586"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
 size = Vector2(46, 23.5)
@@ -22,7 +26,7 @@ position = Vector2(-1, 0)
 metadata/_edit_vertical_guides_ = [-319.0]
 
 [node name="Erika" parent="." instance=ExtResource("2_0e48y")]
-position = Vector2(2817, -524)
+position = Vector2(-10168, -963)
 
 [node name="Hud" parent="." instance=ExtResource("2_epypp")]
 
@@ -38,7 +42,39 @@ texture = ExtResource("3_epypp")
 polygon = PackedVector2Array(1711, 111, 1711, 327, -346, 326, -346, 54, -338, 46, -61, 46, -5, 15, 514, 16, 563, 46, 828, 47, 880, 78, 957, 79, 1009, 110)
 
 [node name="colisão 2" type="CollisionPolygon2D" parent="mapaBase"]
-polygon = PackedVector2Array(-1712, -176, -1497, -175, -1492, -170, -1492, -63, -1480, -49, -1308, -48, -1301, -42, -1300, 15, -786, 16, -730, 46, -452, 49, -447, 55, -449, 327, -1712, 327)
+polygon = PackedVector2Array(-1712, -174, -1497, -175, -1492, -170, -1492, -63, -1480, -49, -1308, -48, -1301, -42, -1300, 15, -786, 16, -730, 46, -452, 49, -447, 55, -449, 327, -1712, 324)
+
+[node name="primeiro cenario 1" type="Sprite2D" parent="mapaBase"]
+position = Vector2(-3425, -215.00003)
+scale = Vector2(2.44, 2.44)
+texture = ExtResource("5_q6r6c")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="mapaBase"]
+polygon = PackedVector2Array(-1712, -174, -2708, -174, -2764, -206, -3271, -206, -3271, -266, -3281, -271, -5138, -270, -1712, 42)
+
+[node name="primeiro cenario 2" type="Sprite2D" parent="mapaBase"]
+position = Vector2(-6848, -215)
+scale = Vector2(2.44, 2.44)
+texture = ExtResource("6_kdubu")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="mapaBase"]
+polygon = PackedVector2Array(-5135, -270, -6904, -268, -7087, -176, -8561, -176, -8560, 43, -5135, 44)
+
+[node name="segundo cenario 1" type="Sprite2D" parent="mapaBase"]
+position = Vector2(-10272.999, -120)
+scale = Vector2(2.44, 2.44)
+texture = ExtResource("7_d21ai")
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="mapaBase"]
+polygon = PackedVector2Array(-8560, -176, -10329, -176, -10504, -81, -10850, -81, -10864, -75, -10973, -75, -10982, -81, -11007, -81, -11016, -75, -11175, -75, -11191, -80, -11557, -80, -11569, -75, -11869, -75, -11881, -81, -11985, -81, -11986, 137, -8560, 137)
+
+[node name="Sprite2D" type="Sprite2D" parent="mapaBase"]
+position = Vector2(-13698.001, -120)
+scale = Vector2(2.44, 2.44)
+texture = ExtResource("8_rj586")
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="mapaBase"]
+polygon = PackedVector2Array(-11985, -81, -11999, -75, -12101, -75, -12116, -81, -12140, -81, -12152, -75, -12309, -75, -12323, -81, -12689, -81, -12703, -75, -13002, -75, -13012, -81, -13121, -81, -13133, -75, -13241, -75, -13250, -81, -13272, -81, -13284, -75, -13446, -75, -13458, -81, -15112, -81, -15228, -147, -15411, -147, -15411, 137, -11987, 137)
 
 [node name="espinho1" type="Area2D" parent="."]
 position = Vector2(737, -322)
