@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6t5g16xmw4y4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3b5x"]
+bg_color = Color(0.6, 0.6, 0.6, 0.35686275)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[node name="InventarioUI" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(300, 400)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -200.0
+offset_right = 150.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i3b5x")
+
+[node name="ConteudoInventario" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 299.0
+offset_bottom = 394.0
+
+[node name="GridItens" type="GridContainer" parent="Panel/ConteudoInventario"]
+layout_mode = 2
+columns = 5
+
+[node name="TextureButton" type="TextureButton" parent="Panel/ConteudoInventario/GridItens"]
+layout_mode = 2
+
+[node name="TextureButton2" type="TextureButton" parent="Panel/ConteudoInventario/GridItens"]
+layout_mode = 2
+
+[node name="TextureButton3" type="TextureButton" parent="Panel/ConteudoInventario/GridItens"]
+layout_mode = 2
+
+[node name="TextureButton4" type="TextureButton" parent="Panel/ConteudoInventario/GridItens"]
+layout_mode = 2
+
+[node name="TextureButton5" type="TextureButton" parent="Panel/ConteudoInventario/GridItens"]
+layout_mode = 2
+
+[node name="TextureButton6" type="TextureButton" parent="Panel/ConteudoInventario/GridItens"]
+layout_mode = 2
+
+[node name="TextureButton7" type="TextureButton" parent="Panel/ConteudoInventario/GridItens"]
+layout_mode = 2
+
+[node name="TextureButton8" type="TextureButton" parent="Panel/ConteudoInventario/GridItens"]
+layout_mode = 2
+
+[node name="TextureButton9" type="TextureButton" parent="Panel/ConteudoInventario/GridItens"]
+layout_mode = 2
+
+[node name="TextureButton10" type="TextureButton" parent="Panel/ConteudoInventario/GridItens"]
+layout_mode = 2

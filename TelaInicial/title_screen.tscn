@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://difyrknxdn0f2" path="res://TelaInicial/PrimeiraTela.cs" id="1_d2spq"]
 [ext_resource type="Texture2D" uid="uid://dsx4wm781utaj" path="res://TelaInicial/Cenário 1.png" id="2_6fxdv"]
-[ext_resource type="Theme" uid="uid://bartbc26eg1m8" path="res://TelaInicial/new_theme.tres" id="3_05l2w"]
 [ext_resource type="Texture2D" uid="uid://bqkw0imv6r3if" path="res://Imagens/Menu inicial/Título Sazsazan.png" id="3_lvy7t"]
+[ext_resource type="Texture2D" uid="uid://b37qlssqq0llb" path="res://Imagens/Menu inicial/Botão Créditos.png" id="5_6fxdv"]
 [ext_resource type="Texture2D" uid="uid://dfhjygvyss58d" path="res://Imagens/Menu inicial/Botão Começar.png" id="5_yb0jr"]
 [ext_resource type="Texture2D" uid="uid://dnxabxegv4i02" path="res://Imagens/Menu inicial/Botão Sair.png" id="6_ka6y6"]
 
@@ -19,50 +19,70 @@ script = ExtResource("1_d2spq")
 
 [node name="bg" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_top = -3.0
+offset_right = 1146.62
+offset_bottom = 647.0
+mouse_filter = 2
 texture = ExtResource("2_6fxdv")
 expand_mode = 2
 
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -236.09814
+offset_right = 236.09814
+offset_bottom = 205.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="Logo" type="TextureRect" parent="MarginContainer2"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3_lvy7t")
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -448.0
+offset_right = 100.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 scale = Vector2(0.927565, 0.933198)
+mouse_filter = 2
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_bottom = 20
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
+mouse_filter = 2
 
-[node name="Logo" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="start_btn" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 125)
 layout_mode = 2
-texture = ExtResource("3_lvy7t")
+texture_normal = ExtResource("5_yb0jr")
+stretch_mode = 0
 
-[node name="start_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="credits_btn" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 150)
 layout_mode = 2
-theme = ExtResource("3_05l2w")
-icon = ExtResource("5_yb0jr")
-flat = true
+texture_normal = ExtResource("5_6fxdv")
+stretch_mode = 0
 
-[node name="credits_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="quit_btn" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 125)
 layout_mode = 2
-theme = ExtResource("3_05l2w")
-text = "CRÉDITOS"
-
-[node name="quit_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("3_05l2w")
-toggle_mode = true
-action_mode = 0
-keep_pressed_outside = true
-icon = ExtResource("6_ka6y6")
-flat = true
+texture_normal = ExtResource("6_ka6y6")
+stretch_mode = 0

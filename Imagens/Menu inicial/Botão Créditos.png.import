@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt7rkmys8g0nd"
-path="res://.godot/imported/Cenario2 2.1.png-53f1067b6c4621fc94e28e60631b0101.ctex"
+uid="uid://b37qlssqq0llb"
+path="res://.godot/imported/Botão Créditos.png-f79927a120bd65b410d64f6d2f6d2e20.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imagens/Terreno/Cenario2 2.1.png"
-dest_files=["res://.godot/imported/Cenario2 2.1.png-53f1067b6c4621fc94e28e60631b0101.ctex"]
+source_file="res://Imagens/Menu inicial/Botão Créditos.png"
+dest_files=["res://.godot/imported/Botão Créditos.png-f79927a120bd65b410d64f6d2f6d2e20.ctex"]
 
 [params]
 
