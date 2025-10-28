@@ -10,7 +10,7 @@ public partial class PrimeiraTela : Control
 		{
 			GetTree().Quit();
 		};
-		var creditsBtn = GetNode<Button>("MarginContainer/HBoxContainer/VBoxContainer/credits_btn");
+		var creditsBtn = GetNode<TextureButton>("MarginContainer/HBoxContainer/VBoxContainer/credits_btn");
 		creditsBtn.Pressed += () =>
 		{
 			GetTree().ChangeSceneToFile("res://Créditos/créditos.tscn");
