@@ -76,6 +76,13 @@ texture = ExtResource("8_rj586")
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="mapaBase"]
 polygon = PackedVector2Array(-11985, -81, -11999, -75, -12101, -75, -12116, -81, -12140, -81, -12152, -75, -12309, -75, -12323, -81, -12689, -81, -12703, -75, -13002, -75, -13012, -81, -13121, -81, -13133, -75, -13241, -75, -13250, -81, -13272, -81, -13284, -75, -13446, -75, -13458, -81, -15112, -81, -15228, -147, -15411, -147, -15411, 137, -11987, 137)
 
+[node name="Sprite2D2" type="Sprite2D" parent="mapaBase"]
+position = Vector2(-3354.4402, 178.93)
+scale = Vector2(2.4564672, 8.003783)
+texture = ExtResource("5_q6r6c")
+region_enabled = true
+region_rect = Rect2(0, 173.5, 1404, 37.5)
+
 [node name="espinho1" type="Area2D" parent="."]
 position = Vector2(737, -322)
 
