@@ -1,17 +1,69 @@
-[gd_scene load_steps=15 format=3 uid="uid://bqpmxgkb5nfkc"]
+[gd_scene load_steps=24 format=3 uid="uid://bqpmxgkb5nfkc"]
 
 [ext_resource type="PackedScene" uid="uid://ctjhsgil40l7h" path="res://Cenas Complementares/Erika/Erika.tscn" id="2_0e48y"]
-[ext_resource type="PackedScene" uid="uid://w373fj5dgl3q" path="res://Cenas Complementares/veia/Veia.tscn" id="2_4d7sh"]
+[ext_resource type="Texture2D" uid="uid://dsx4wm781utaj" path="res://TelaInicial/Cenário 1.png" id="2_4d7sh"]
 [ext_resource type="PackedScene" uid="uid://cgcergo8oj4yw" path="res://Cenas Complementares/Hub/HUD.tscn" id="2_epypp"]
+[ext_resource type="Script" uid="uid://jdnrp3a52nhp" path="res://Sprite2d.cs" id="2_ir8iy"]
 [ext_resource type="Texture2D" uid="uid://2dsha06ftf81" path="res://Imagens/Terreno/Mapa Base 2.0.png" id="3_epypp"]
 [ext_resource type="Texture2D" uid="uid://c7f1pr712lo76" path="res://Imagens/Terreno/Espinhos.png" id="4_0hol4"]
+[ext_resource type="Texture2D" uid="uid://cea8vlkmjy20m" path="res://Imagens/Sprite veia/veeelinha_paradinha.png" id="4_hqns4"]
 [ext_resource type="Texture2D" uid="uid://44k5ivjf8snw" path="res://Imagens/Terreno/Cenario1 2.1.png" id="5_q6r6c"]
 [ext_resource type="Texture2D" uid="uid://dx0po1yg01a60" path="res://Imagens/Terreno/Cenario1 2.2.png" id="6_kdubu"]
 [ext_resource type="Texture2D" uid="uid://daw12ggookton" path="res://Imagens/Terreno/Cenario2 2.0.png" id="7_d21ai"]
 [ext_resource type="Texture2D" uid="uid://dt7rkmys8g0nd" path="res://Imagens/Terreno/Cenario2 2.1.png" id="8_rj586"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rj586"]
-size = Vector2(20, 382)
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0ka3"]
+atlas = ExtResource("4_hqns4")
+region = Rect2(0, 0, 270, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0h7mo"]
+atlas = ExtResource("4_hqns4")
+region = Rect2(270, 0, 270, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nr8wp"]
+atlas = ExtResource("4_hqns4")
+region = Rect2(540, 0, 270, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2bti"]
+atlas = ExtResource("4_hqns4")
+region = Rect2(810, 0, 270, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ta5nu"]
+atlas = ExtResource("4_hqns4")
+region = Rect2(1080, 0, 270, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flf07"]
+atlas = ExtResource("4_hqns4")
+region = Rect2(1350, 0, 270, 270)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k73cj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0ka3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0h7mo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nr8wp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2bti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ta5nu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flf07")
+}],
+"loop": true,
+"name": &"Veia parada",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjqkl"]
+size = Vector2(425, 301)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
 size = Vector2(46, 23.5)
@@ -29,14 +81,25 @@ size = Vector2(100000, 200)
 position = Vector2(-1, 0)
 metadata/_edit_vertical_guides_ = [-319.0]
 
-[node name="Erika" parent="." instance=ExtResource("2_0e48y")]
-position = Vector2(2511, 345)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
 
-[node name="Veia" parent="." instance=ExtResource("2_4d7sh")]
-position = Vector2(3070.0002, 562)
-scale = Vector2(0.28981492, 0.28981492)
-autoplay = "veia parada"
-frame_progress = 0.96939564
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(8.106232e-06, -134.00002)
+scale = Vector2(3.609375, 4.3388886)
+texture = ExtResource("2_4d7sh")
+centered = false
+script = ExtResource("2_ir8iy")
+
+[node name="Erika" parent="." instance=ExtResource("2_0e48y")]
+position = Vector2(2596, 335)
+
+[node name="veia" type="AnimatedSprite2D" parent="."]
+position = Vector2(3038.0002, 559)
+scale = Vector2(0.27, 0.27)
+sprite_frames = SubResource("SpriteFrames_k73cj")
+animation = &"Veia parada"
+autoplay = "Veia parada"
 flip_h = true
 
 [node name="Hud" parent="." instance=ExtResource("2_epypp")]
@@ -94,9 +157,9 @@ texture = ExtResource("5_q6r6c")
 region_enabled = true
 region_rect = Rect2(0, 173.5, 1404, 37.5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="mapaBase"]
-position = Vector2(1329, -80)
-shape = SubResource("RectangleShape2D_rj586")
+[node name="barrera veia" type="CollisionShape2D" parent="mapaBase"]
+position = Vector2(1496.5, -42.5)
+shape = SubResource("RectangleShape2D_rjqkl")
 
 [node name="espinhos" type="Area2D" parent="."]
 position = Vector2(737, 490)
@@ -365,7 +428,7 @@ shape = SubResource("RectangleShape2D_kdubu")
 position = Vector2(0, 812)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Void"]
-position = Vector2(-10, 215)
+position = Vector2(12, -60)
 shape = SubResource("RectangleShape2D_d21ai")
 
 [connection signal="StatsChanged" from="Erika" to="Hud" method="_on_erika_stats_changed"]
