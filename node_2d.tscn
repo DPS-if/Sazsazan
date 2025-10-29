@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://bqpmxgkb5nfkc"]
+[gd_scene load_steps=15 format=3 uid="uid://bqpmxgkb5nfkc"]
 
 [ext_resource type="PackedScene" uid="uid://ctjhsgil40l7h" path="res://Cenas Complementares/Erika/Erika.tscn" id="2_0e48y"]
 [ext_resource type="Texture2D" uid="uid://dsx4wm781utaj" path="res://TelaInicial/Cenário 1.png" id="2_4d7sh"]
 [ext_resource type="PackedScene" uid="uid://cgcergo8oj4yw" path="res://Cenas Complementares/Hub/HUD.tscn" id="2_epypp"]
+[ext_resource type="Script" uid="uid://jdnrp3a52nhp" path="res://Sprite2d.cs" id="2_ir8iy"]
 [ext_resource type="Texture2D" uid="uid://2dsha06ftf81" path="res://Imagens/Terreno/Mapa Base 2.0.png" id="3_epypp"]
 [ext_resource type="Texture2D" uid="uid://c7f1pr712lo76" path="res://Imagens/Terreno/Espinhos.png" id="4_0hol4"]
 [ext_resource type="Texture2D" uid="uid://44k5ivjf8snw" path="res://Imagens/Terreno/Cenario1 2.1.png" id="5_q6r6c"]
@@ -26,21 +27,18 @@ size = Vector2(100000, 200)
 position = Vector2(-1, 0)
 metadata/_edit_vertical_guides_ = [-319.0]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-follow_viewport_enabled = true
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.5, 0.5)
-motion_offset = Vector2(576, 324)
-motion_mirroring = Vector2(1152, 648)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2(3.6, 3.6)
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(8.106232e-06, -134.00002)
+scale = Vector2(3.609375, 4.3388886)
 texture = ExtResource("2_4d7sh")
 centered = false
+script = ExtResource("2_ir8iy")
 
 [node name="Erika" parent="." instance=ExtResource("2_0e48y")]
-position = Vector2(2937, 249)
+position = Vector2(-3, 2)
 
 [node name="Hud" parent="." instance=ExtResource("2_epypp")]
 
