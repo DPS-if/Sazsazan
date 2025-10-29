@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://bqpmxgkb5nfkc"]
+[gd_scene load_steps=14 format=3 uid="uid://bqpmxgkb5nfkc"]
 
 [ext_resource type="PackedScene" uid="uid://ctjhsgil40l7h" path="res://Cenas Complementares/Erika/Erika.tscn" id="2_0e48y"]
+[ext_resource type="Texture2D" uid="uid://dsx4wm781utaj" path="res://TelaInicial/Cenário 1.png" id="2_4d7sh"]
 [ext_resource type="PackedScene" uid="uid://cgcergo8oj4yw" path="res://Cenas Complementares/Hub/HUD.tscn" id="2_epypp"]
 [ext_resource type="Texture2D" uid="uid://2dsha06ftf81" path="res://Imagens/Terreno/Mapa Base 2.0.png" id="3_epypp"]
 [ext_resource type="Texture2D" uid="uid://c7f1pr712lo76" path="res://Imagens/Terreno/Espinhos.png" id="4_0hol4"]
@@ -25,13 +26,26 @@ size = Vector2(100000, 200)
 position = Vector2(-1, 0)
 metadata/_edit_vertical_guides_ = [-319.0]
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+follow_viewport_enabled = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_offset = Vector2(576, 324)
+motion_mirroring = Vector2(1152, 648)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("2_4d7sh")
+centered = false
+
 [node name="Erika" parent="." instance=ExtResource("2_0e48y")]
-position = Vector2(1167, -563)
+position = Vector2(2937, 249)
 
 [node name="Hud" parent="." instance=ExtResource("2_epypp")]
 
 [node name="mapaBase" type="StaticBody2D" parent="."]
-position = Vector2(1713, -327)
+position = Vector2(1713, 485)
 
 [node name="MapaBase2_0" type="Sprite2D" parent="mapaBase"]
 position = Vector2(0, 70)
@@ -83,272 +97,271 @@ texture = ExtResource("5_q6r6c")
 region_enabled = true
 region_rect = Rect2(0, 173.5, 1404, 37.5)
 
-[node name="espinho1" type="Area2D" parent="."]
-position = Vector2(737, -322)
+[node name="espinhos" type="Area2D" parent="."]
+position = Vector2(737, 490)
 
-[node name="espinho1_1" type="Sprite2D" parent="espinho1"]
+[node name="espinho1_1" type="Sprite2D" parent="espinhos"]
 position = Vector2(-16.500017, -10.000005)
 scale = Vector2(3.0625014, 3.0000007)
 texture = ExtResource("4_0hol4")
 region_enabled = true
 region_rect = Rect2(-0.10816574, -0.27027988, 16.350792, 10.26992)
 
-[node name="área de dano1" type="CollisionShape2D" parent="espinho1"]
+[node name="área de dano1" type="CollisionShape2D" parent="espinhos"]
 position = Vector2(-16, -6.25)
 shape = SubResource("RectangleShape2D_q6r6c")
 
-[node name="espinho1_2" type="Sprite2D" parent="espinho1"]
+[node name="espinho1_2" type="Sprite2D" parent="espinhos"]
 position = Vector2(-1544.5, -200)
 scale = Vector2(3.0625014, 3.0000007)
 texture = ExtResource("4_0hol4")
 region_enabled = true
 region_rect = Rect2(-0.10816574, -0.27027988, 16.350792, 10.26992)
 
-[node name="área de dano2" type="CollisionShape2D" parent="espinho1"]
+[node name="área de dano2" type="CollisionShape2D" parent="espinhos"]
 position = Vector2(-1544, -196.25)
 shape = SubResource("RectangleShape2D_q6r6c")
 
-[node name="espinho1_3" type="Sprite2D" parent="espinho1"]
+[node name="espinho1_3" type="Sprite2D" parent="espinhos"]
 position = Vector2(-1623.5, -200)
 scale = Vector2(3.0625014, 3.0000007)
 texture = ExtResource("4_0hol4")
 region_enabled = true
 region_rect = Rect2(-0.10816574, -0.27027988, 16.350792, 10.26992)
 
-[node name="área de dano3" type="CollisionShape2D" parent="espinho1"]
+[node name="área de dano3" type="CollisionShape2D" parent="espinhos"]
 position = Vector2(-1623, -196.25)
 shape = SubResource("RectangleShape2D_q6r6c")
 
-[node name="espinho1_4" type="Sprite2D" parent="espinho1"]
+[node name="espinho1_4" type="Sprite2D" parent="espinhos"]
 position = Vector2(-1577.5, -200)
 scale = Vector2(3.0625014, 3.0000007)
 texture = ExtResource("4_0hol4")
 region_enabled = true
 region_rect = Rect2(-0.10816574, -0.27027988, 16.350792, 10.26992)
 
-[node name="área de dano4" type="CollisionShape2D" parent="espinho1"]
+[node name="área de dano4" type="CollisionShape2D" parent="espinhos"]
 position = Vector2(-1577.0002, -196.25)
 shape = SubResource("RectangleShape2D_q6r6c")
 
-[node name="espinho1_5" type="Sprite2D" parent="espinho1"]
+[node name="espinho1_5" type="Sprite2D" parent="espinhos"]
 position = Vector2(-3877.5, -295)
 scale = Vector2(3.0625014, 3.0000007)
 texture = ExtResource("4_0hol4")
 region_enabled = true
 region_rect = Rect2(-0.10816574, -0.27027988, 16.350792, 10.26992)
 
-[node name="área de dano5" type="CollisionShape2D" parent="espinho1"]
+[node name="área de dano5" type="CollisionShape2D" parent="espinhos"]
 position = Vector2(-3877.0002, -291.25)
 shape = SubResource("RectangleShape2D_q6r6c")
 
-[node name="epinho 2_4" type="Sprite2D" parent="espinho1"]
+[node name="epinho 2_4" type="Sprite2D" parent="espinhos"]
 position = Vector2(-3931.496, -288.7)
 scale = Vector2(3.063, 3)
 texture = ExtResource("4_0hol4")
 region_enabled = true
 region_rect = Rect2(0, 13.918426, 16, 6.0815744)
 
-[node name="área de dano16" type="CollisionShape2D" parent="espinho1"]
+[node name="área de dano16" type="CollisionShape2D" parent="espinhos"]
 position = Vector2(-3932.496, -286)
 shape = SubResource("RectangleShape2D_0hol4")
 
-[node name="espinho1_6" type="Sprite2D" parent="espinho1"]
+[node name="espinho1_6" type="Sprite2D" parent="espinhos"]
 position = Vector2(-3906.5, -295)
 scale = Vector2(3.0625014, 3.0000007)
 texture = ExtResource("4_0hol4")
 region_enabled = true
 region_rect = Rect2(-0.10816574, -0.27027988, 16.350792, 10.26992)
 
-[node name="área de dano6" type="CollisionShape2D" parent="espinho1"]
+[node name="área de dano6" type="CollisionShape2D" parent="espinhos"]
 position = Vector2(-3905.0002, -291.25)
 shape = SubResource("RectangleShape2D_q6r6c")
 
-[node name="espinho1_7" type="Sprite2D" parent="espinho1"]
+[node name="espinho1_7" type="Sprite2D" parent="espinhos"]
 position = Vector2(-5450.5, -295)
 scale = Vector2(3.0625014, 3.0000007)
 texture = ExtResource("4_0hol4")
 region_enabled = true
 region_rect = Rect2(-0.10816574, -0.27027988, 16.350792, 10.26992)
 
-[node name="área de dano7" type="CollisionShape2D" parent="espinho1"]
+[node name="área de dano7" type="CollisionShape2D" parent="espinhos"]
 position = Vector2(-5449, -291.25)
 shape = SubResource("RectangleShape2D_q6r6c")
 
-[node name="espinho1_8" type="Sprite2D" parent="espinho1"]
+[node name="espinho1_8" type="Sprite2D" parent="espinhos"]
 position = Vector2(-5480.5, -295)
 scale = Vector2(3.0625014, 3.0000007)
 texture = ExtResource("4_0hol4")
 region_enabled = true
 region_rect = Rect2(-0.10816574, -0.27027988, 16.350792, 10.26992)
 
-[node name="área de dano8" type="CollisionShape2D" parent="espinho1"]
+[node name="área de dano8" type="CollisionShape2D" parent="espinhos"]
 position = Vector2(-5479, -291.25)
 shape = SubResource("RectangleShape2D_q6r6c")
 
-[node name="epinho 2_5" type="Sprite2D" parent="espinho1"]
+[node name="epinho 2_5" type="Sprite2D" parent="espinhos"]
 position = Vector2(-5393.4966, -288.70007)
 scale = Vector2(3.063, 3)
 texture = ExtResource("4_0hol4")
 region_enabled = true
 region_rect = Rect2(0, 13.918426, 16, 6.0815744)
 
-[node name="área de dano17" type="CollisionShape2D" parent="espinho1"]
+[node name="área de dano17" type="CollisionShape2D" parent="espinhos"]
 position = Vector2(-5394.496, -286)
 shape = SubResource("RectangleShape2D_0hol4")
 
-[node name="epinho 2_8" type="Sprite2D" parent="espinho1"]
+[node name="epinho 2_8" type="Sprite2D" parent="espinhos"]
 position = Vector2(-5503.496, -288.70007)
 scale = Vector2(3.063, 3)
 texture = ExtResource("4_0hol4")
 region_enabled = true
 region_rect = Rect2(0, 13.918426, 16, 6.0815744)
 
-[node name="área de dano20" type="CollisionShape2D" parent="espinho1"]
+[node name="área de dano20" type="CollisionShape2D" parent="espinhos"]
 position = Vector2(-5504.4956, -286)
 shape = SubResource("RectangleShape2D_0hol4")
 
-[node name="epinho 2_6" type="Sprite2D" parent="espinho1"]
+[node name="epinho 2_6" type="Sprite2D" parent="espinhos"]
 position = Vector2(-6201.496, -193.70007)
 scale = Vector2(3.063, 3)
 texture = ExtResource("4_0hol4")
 region_enabled = true
 region_rect = Rect2(0, 13.918426, 16, 6.0815744)
 
-[node name="área de dano18" type="CollisionShape2D" parent="espinho1"]
+[node name="área de dano18" type="CollisionShape2D" parent="espinhos"]
 position = Vector2(-6202.496, -191)
 shape = SubResource("RectangleShape2D_0hol4")
 
-[node name="epinho 2_7" type="Sprite2D" parent="espinho1"]
+[node name="epinho 2_7" type="Sprite2D" parent="espinhos"]
 position = Vector2(-7520.496, -193.70007)
 scale = Vector2(3.063, 3)
 texture = ExtResource("4_0hol4")
 region_enabled = true
 region_rect = Rect2(0, 13.918426, 16, 6.0815744)
 
-[node name="área de dano19" type="CollisionShape2D" parent="espinho1"]
+[node name="área de dano19" type="CollisionShape2D" parent="espinhos"]
 position = Vector2(-7514.496, -191)
 shape = SubResource("RectangleShape2D_0hol4")
 
-[node name="espinho1_9" type="Sprite2D" parent="espinho1"]
+[node name="espinho1_9" type="Sprite2D" parent="espinhos"]
 position = Vector2(-5420.5, -295)
 scale = Vector2(3.0625014, 3.0000007)
 texture = ExtResource("4_0hol4")
 region_enabled = true
 region_rect = Rect2(-0.10816574, -0.27027988, 16.350792, 10.26992)
 
-[node name="área de dano9" type="CollisionShape2D" parent="espinho1"]
+[node name="área de dano9" type="CollisionShape2D" parent="espinhos"]
 position = Vector2(-5419, -291.25)
 shape = SubResource("RectangleShape2D_q6r6c")
 
-[node name="espinho1_10" type="Sprite2D" parent="espinho1"]
+[node name="espinho1_10" type="Sprite2D" parent="espinhos"]
 position = Vector2(-6236.5, -200)
 scale = Vector2(3.0625014, 3.0000007)
 texture = ExtResource("4_0hol4")
 region_enabled = true
 region_rect = Rect2(-0.10816574, -0.27027988, 16.350792, 10.26992)
 
-[node name="área de dano10" type="CollisionShape2D" parent="espinho1"]
+[node name="área de dano10" type="CollisionShape2D" parent="espinhos"]
 position = Vector2(-6235.0005, -196.25)
 shape = SubResource("RectangleShape2D_q6r6c")
 
-[node name="espinho1_11" type="Sprite2D" parent="espinho1"]
+[node name="espinho1_11" type="Sprite2D" parent="espinhos"]
 position = Vector2(-6170.5, -200)
 scale = Vector2(3.0625014, 3.0000007)
 texture = ExtResource("4_0hol4")
 region_enabled = true
 region_rect = Rect2(-0.10816574, -0.27027988, 16.350792, 10.26992)
 
-[node name="área de dano11" type="CollisionShape2D" parent="espinho1"]
+[node name="área de dano11" type="CollisionShape2D" parent="espinhos"]
 position = Vector2(-6174, -196.25)
 shape = SubResource("RectangleShape2D_q6r6c")
 
-[node name="espinho1_12" type="Sprite2D" parent="espinho1"]
+[node name="espinho1_12" type="Sprite2D" parent="espinhos"]
 position = Vector2(-6308.5, -200)
 scale = Vector2(3.0625014, 3.0000007)
 texture = ExtResource("4_0hol4")
 region_enabled = true
 region_rect = Rect2(-0.10816574, -0.27027988, 16.350792, 10.26992)
 
-[node name="área de dano12" type="CollisionShape2D" parent="espinho1"]
+[node name="área de dano12" type="CollisionShape2D" parent="espinhos"]
 position = Vector2(-6307, -196.25)
 shape = SubResource("RectangleShape2D_q6r6c")
 
-[node name="espinho1_13" type="Sprite2D" parent="espinho1"]
+[node name="espinho1_13" type="Sprite2D" parent="espinhos"]
 position = Vector2(-6264.4995, -200)
 scale = Vector2(3.0625014, 3.0000007)
 texture = ExtResource("4_0hol4")
 region_enabled = true
 region_rect = Rect2(-0.10816574, -0.27027988, 16.350792, 10.26992)
 
-[node name="área de dano13" type="CollisionShape2D" parent="espinho1"]
+[node name="área de dano13" type="CollisionShape2D" parent="espinhos"]
 position = Vector2(-6263, -196.25)
 shape = SubResource("RectangleShape2D_q6r6c")
 
-[node name="espinho1_14" type="Sprite2D" parent="espinho1"]
+[node name="espinho1_14" type="Sprite2D" parent="espinhos"]
 position = Vector2(-7576.5, -200)
 scale = Vector2(3.0625014, 3.0000007)
 texture = ExtResource("4_0hol4")
 region_enabled = true
 region_rect = Rect2(-0.10816574, -0.27027988, 16.350792, 10.26992)
 
-[node name="área de dano14" type="CollisionShape2D" parent="espinho1"]
+[node name="área de dano14" type="CollisionShape2D" parent="espinhos"]
 position = Vector2(-7575, -196.25)
 shape = SubResource("RectangleShape2D_q6r6c")
 
-[node name="espinho1_15" type="Sprite2D" parent="espinho1"]
+[node name="espinho1_15" type="Sprite2D" parent="espinhos"]
 position = Vector2(-7554.5, -200)
 scale = Vector2(3.0625014, 3.0000007)
 texture = ExtResource("4_0hol4")
 region_enabled = true
 region_rect = Rect2(-0.10816574, -0.27027988, 16.350792, 10.26992)
 
-[node name="área de dano15" type="CollisionShape2D" parent="espinho1"]
+[node name="área de dano15" type="CollisionShape2D" parent="espinhos"]
 position = Vector2(-7553, -196.25)
 shape = SubResource("RectangleShape2D_q6r6c")
 
-[node name="espinho2" type="Area2D" parent="."]
-position = Vector2(770, -321)
-
-[node name="epinho 2_1" type="Sprite2D" parent="espinho2"]
-position = Vector2(-3.500183, -4.6000366)
+[node name="epinho 2_1" type="Sprite2D" parent="espinhos"]
+position = Vector2(29.499817, -3.6000366)
 scale = Vector2(3.063, 3)
 texture = ExtResource("4_0hol4")
 region_enabled = true
 region_rect = Rect2(0, 13.918426, 16, 6.0815744)
 
-[node name="área de dano1" type="CollisionShape2D" parent="espinho2"]
-position = Vector2(-4.5, -2.1)
+[node name="área de dano21" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(28.5, -1.1000061)
 shape = SubResource("RectangleShape2D_0hol4")
 
-[node name="epinho 2_2" type="Sprite2D" parent="espinho2"]
-position = Vector2(-1535.5, -194.6)
+[node name="epinho 2_2" type="Sprite2D" parent="espinhos"]
+position = Vector2(-1502.5, -193.59998)
 scale = Vector2(3.063, 3)
 texture = ExtResource("4_0hol4")
 region_enabled = true
 region_rect = Rect2(0, 13.918426, 16, 6.0815744)
 
-[node name="área de dano2" type="CollisionShape2D" parent="espinho2"]
-position = Vector2(-1536.5, -192.2)
+[node name="área de dano22" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-1503.5, -191.20001)
 shape = SubResource("RectangleShape2D_0hol4")
 
-[node name="epinho 2_3" type="Sprite2D" parent="espinho2"]
-position = Vector2(-3883.496, -289.7)
+[node name="epinho 2_3" type="Sprite2D" parent="espinhos"]
+position = Vector2(-3850.496, -288.7)
 scale = Vector2(3.063, 3)
 texture = ExtResource("4_0hol4")
 region_enabled = true
 region_rect = Rect2(0, 13.918426, 16, 6.0815744)
 
-[node name="área de dano3" type="CollisionShape2D" parent="espinho2"]
-position = Vector2(-3869.4963, -287)
+[node name="área de dano23" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-3836.4963, -286)
 shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="AreaAprendePDuplo" type="Area2D" parent="."]
+position = Vector2(0, 812)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAprendePDuplo"]
 position = Vector2(300, -418)
 shape = SubResource("RectangleShape2D_kdubu")
 
 [node name="Void" type="Area2D" parent="."]
+position = Vector2(0, 812)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Void"]
 position = Vector2(-10, 215)
@@ -356,6 +369,5 @@ shape = SubResource("RectangleShape2D_d21ai")
 
 [connection signal="StatsChanged" from="Erika" to="Hud" method="_on_erika_stats_changed"]
 [connection signal="StatsChanged" from="Erika" to="Hud" method="OnPlayerStatsChanged"]
-[connection signal="body_entered" from="espinho1" to="Erika" method="_on_espinho_1_body_entered"]
-[connection signal="body_entered" from="espinho2" to="Erika" method="_on_espinho_2_body_entered"]
+[connection signal="body_entered" from="espinhos" to="Erika" method="_on_espinho_1_body_entered"]
 [connection signal="body_entered" from="Void" to="Erika" method="_on_void_body_entered"]
