@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6t5g16xmw4y4"]
+[gd_scene load_steps=9 format=3 uid="uid://c6t5g16xmw4y4"]
 
 [ext_resource type="Texture2D" uid="uid://xnho0xl8xdtr" path="res://Inventário/Layout Inventário.png" id="1_8di7g"]
 [ext_resource type="Script" uid="uid://b28t75s5vgcaa" path="res://Inventário/Inventário.cs" id="1_jloir"]
 [ext_resource type="Texture2D" uid="uid://dnxabxegv4i02" path="res://Imagens/Menu inicial/Botão Sair.png" id="2_ql2wh"]
+[ext_resource type="Texture2D" uid="uid://bwi7i3s6hjqby" path="res://Imagens/Itens/item.Bolha.png" id="3_w6ich"]
+[ext_resource type="Texture2D" uid="uid://d1re3emq5ker0" path="res://Imagens/Itens/item.TiaraDeFlores.png" id="4_vt17b"]
+[ext_resource type="Texture2D" uid="uid://7yt30n648cbs" path="res://Imagens/Itens/item.Muruci.png" id="5_b2m2m"]
+[ext_resource type="Texture2D" uid="uid://b5naax8bjff4b" path="res://Imagens/Itens/item.Buriti.png" id="6_jpiyf"]
+[ext_resource type="Texture2D" uid="uid://cwh3gpmyaxcf0" path="res://Imagens/Itens/item.BrincoDaVovó.png" id="7_4jmcd"]
 
 [node name="Inventário" type="CanvasLayer"]
 script = ExtResource("1_jloir")
@@ -25,14 +30,18 @@ mouse_filter = 2
 texture = ExtResource("1_8di7g")
 
 [node name="A1" type="TextureButton" parent="Control/TextureRect"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.017
 anchor_bottom = 0.062000003
-offset_left = 107.0
-offset_top = 99.0
-offset_right = 127.416
-offset_bottom = 98.824
+offset_left = 102.0
+offset_top = 96.0
+offset_right = 131.416
+offset_bottom = 104.824
+disabled = true
+texture_normal = ExtResource("3_w6ich")
+stretch_mode = 0
 
 [node name="D6" type="TextureButton" parent="Control/TextureRect"]
 layout_mode = 1
@@ -225,44 +234,60 @@ offset_right = 679.416
 offset_bottom = 99.824
 
 [node name="A5" type="TextureButton" parent="Control/TextureRect"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.017
 anchor_bottom = 0.062000003
-offset_left = 548.0
-offset_top = 99.0
-offset_right = 568.416
-offset_bottom = 98.824
+offset_left = 547.0
+offset_top = 98.0
+offset_right = 570.416
+offset_bottom = 105.824
+disabled = true
+texture_normal = ExtResource("4_vt17b")
+stretch_mode = 0
 
 [node name="A4" type="TextureButton" parent="Control/TextureRect"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.017
 anchor_bottom = 0.062000003
-offset_left = 441.0
+offset_left = 437.0
 offset_top = 98.0
 offset_right = 461.416
-offset_bottom = 97.824
+offset_bottom = 107.824
+disabled = true
+texture_normal = ExtResource("5_b2m2m")
+stretch_mode = 0
 
 [node name="A3" type="TextureButton" parent="Control/TextureRect"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.017
 anchor_bottom = 0.062000003
-offset_left = 330.0
-offset_top = 100.0
+offset_left = 322.0
+offset_top = 93.0
 offset_right = 350.416
 offset_bottom = 99.824
+disabled = true
+texture_normal = ExtResource("6_jpiyf")
+stretch_mode = 0
 
 [node name="A2" type="TextureButton" parent="Control/TextureRect"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.017
 anchor_bottom = 0.062000003
 offset_left = 215.0
-offset_top = 102.0
-offset_right = 235.416
+offset_top = 100.0
+offset_right = 236.416
 offset_bottom = 101.824
+disabled = true
+texture_normal = ExtResource("7_4jmcd")
+stretch_mode = 0
 
 [node name="sair_btn" type="TextureButton" parent="Control"]
 custom_minimum_size = Vector2(100, 75)
