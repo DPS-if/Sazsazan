@@ -3,6 +3,7 @@ using System;
 
 public partial class Erika : CharacterBody2D
 {
+	private CanvasLayer _inventarioInstance;
 	// --- Variáveis de Movimento ---
 	[Export]
 	public float Speed = 200.0f;
@@ -151,9 +152,13 @@ public partial class Erika : CharacterBody2D
 		}
 		
 		// INPUT DO DASH COM A TECLA 'E'
-		if (keyEvent?.Pressed == true && keyEvent.Keycode == Key.E && !_isDashing && _dashCooldownTimer <= 0)
+		if (keyEvent?.Pressed == true && keyEvent.Keycode == Key.Q && !_isDashing && _dashCooldownTimer <= 0)
 		{
 			PerformDash();
+		}
+		if (@event.IsActionPressed("ui_inventory"))
+		{
+			GerenciarInventario();
 		}
 	}
 	
@@ -455,5 +460,17 @@ public partial class Erika : CharacterBody2D
 			GD.Print("Erika caiu no Void. Reiniciando a fase.");
 			RestartGame();
 		}
+	}
+	private void GerenciarInventario()
+	{
+		if (_inventarioInstance == null)
+		{
+		var inventarioScene = GD.Load<PackedScene>("res://inventário/Inventário.tscn");
+		_inventarioInstance = (CanvasLayer)inventarioScene.Instantiate();
+		_inventarioInstance.Visible = false;
+		AddChild(_inventarioInstance);
+		}
+	_inventarioInstance.Visible = !_inventarioInstance.Visible;
+	GetTree().Paused = _inventarioInstance.Visible;
 	}
 }

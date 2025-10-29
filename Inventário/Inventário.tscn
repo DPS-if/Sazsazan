@@ -1,8 +1,14 @@
-[gd_scene format=3 uid="uid://c6t5g16xmw4y4"]
+[gd_scene load_steps=4 format=3 uid="uid://c6t5g16xmw4y4"]
 
-[node name="Inventory" type="CanvasLayer"]
+[ext_resource type="Texture2D" uid="uid://xnho0xl8xdtr" path="res://Inventário/Layout Inventário.png" id="1_8di7g"]
+[ext_resource type="Script" uid="uid://b28t75s5vgcaa" path="res://Inventário/Inventário.cs" id="1_jloir"]
+[ext_resource type="Texture2D" uid="uid://dnxabxegv4i02" path="res://Imagens/Menu inicial/Botão Sair.png" id="2_ql2wh"]
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Inventário" type="CanvasLayer"]
+script = ExtResource("1_jloir")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -10,18 +16,260 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="TextureRect" type="TextureRect" parent="Control"]
+custom_minimum_size = Vector2(1152, 648)
 layout_mode = 0
-offset_left = 41.0
-offset_top = 4.0
-offset_right = 81.0
-offset_bottom = 44.0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("1_8di7g")
 
-[node name="GridContainer" type="GridContainer" parent="Panel/VBoxContainer"]
-layout_mode = 2
+[node name="A1" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.062000003
+offset_left = 107.0
+offset_top = 99.0
+offset_right = 127.416
+offset_bottom = 98.824
 
-[node name="Button" type="Button" parent="Panel/VBoxContainer/GridContainer"]
-layout_mode = 2
+[node name="D6" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.062000003
+offset_left = 658.0
+offset_top = 508.0
+offset_right = 678.416
+offset_bottom = 507.824
 
-[node name="Button" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
+[node name="D5" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.062000003
+offset_left = 548.0
+offset_top = 508.0
+offset_right = 568.416
+offset_bottom = 507.824
+
+[node name="D4" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.062000003
+offset_left = 438.0
+offset_top = 508.0
+offset_right = 458.416
+offset_bottom = 507.824
+
+[node name="D3" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.062000003
+offset_left = 330.0
+offset_top = 506.0
+offset_right = 350.416
+offset_bottom = 505.824
+
+[node name="D2" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.062000003
+offset_left = 219.0
+offset_top = 510.0
+offset_right = 239.416
+offset_bottom = 509.824
+
+[node name="D1" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.062000003
+offset_left = 109.0
+offset_top = 512.0
+offset_right = 129.416
+offset_bottom = 511.824
+
+[node name="C6" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.062000003
+offset_left = 665.0
+offset_top = 377.0
+offset_right = 685.416
+offset_bottom = 376.824
+
+[node name="C5" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.062000003
+offset_left = 548.0
+offset_top = 370.0
+offset_right = 568.416
+offset_bottom = 369.824
+
+[node name="C4" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.062000003
+offset_left = 440.0
+offset_top = 372.0
+offset_right = 460.416
+offset_bottom = 371.824
+
+[node name="C3" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.062000003
+offset_left = 327.0
+offset_top = 372.0
+offset_right = 347.416
+offset_bottom = 371.824
+
+[node name="C2" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.062000003
+offset_left = 217.0
+offset_top = 372.0
+offset_right = 237.416
+offset_bottom = 371.824
+
+[node name="C1" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.062000003
+offset_left = 105.0
+offset_top = 372.0
+offset_right = 125.416
+offset_bottom = 371.824
+
+[node name="B6" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.062000003
+offset_left = 658.0
+offset_top = 234.0
+offset_right = 678.416
+offset_bottom = 233.824
+
+[node name="B5" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.062000003
+offset_left = 548.0
+offset_top = 239.0
+offset_right = 568.416
+offset_bottom = 238.824
+
+[node name="B4" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.062000003
+offset_left = 329.0
+offset_top = 236.0
+offset_right = 349.416
+offset_bottom = 235.824
+
+[node name="B3" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.062000003
+offset_left = 438.0
+offset_top = 236.0
+offset_right = 458.416
+offset_bottom = 235.824
+
+[node name="B2" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.062000003
+offset_left = 217.0
+offset_top = 233.0
+offset_right = 237.416
+offset_bottom = 232.824
+
+[node name="B1" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.062000003
+offset_left = 106.0
+offset_top = 236.0
+offset_right = 126.416
+offset_bottom = 235.824
+
+[node name="A6" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.062000003
+offset_left = 659.0
+offset_top = 100.0
+offset_right = 679.416
+offset_bottom = 99.824
+
+[node name="A5" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.062000003
+offset_left = 548.0
+offset_top = 99.0
+offset_right = 568.416
+offset_bottom = 98.824
+
+[node name="A4" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.062000003
+offset_left = 441.0
+offset_top = 98.0
+offset_right = 461.416
+offset_bottom = 97.824
+
+[node name="A3" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.062000003
+offset_left = 330.0
+offset_top = 100.0
+offset_right = 350.416
+offset_bottom = 99.824
+
+[node name="A2" type="TextureButton" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.062000003
+offset_left = 215.0
+offset_top = 102.0
+offset_right = 235.416
+offset_bottom = 101.824
+
+[node name="sair_btn" type="TextureButton" parent="Control"]
+custom_minimum_size = Vector2(100, 75)
+layout_mode = 0
+offset_left = 978.0
+offset_top = 552.0
+offset_right = 1112.0
+offset_bottom = 627.0
+texture_normal = ExtResource("2_ql2wh")
+stretch_mode = 0
