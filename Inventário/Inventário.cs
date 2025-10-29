@@ -1,20 +1,17 @@
 using Godot;
 using System;
 
-public partial class Inventario : CanvasLayer
+public partial class Inventário : CanvasLayer
 {
 	public override void _Ready()
 	{
 		Visible = false;
-		ProcessMode = ProcessModeEnum.Always;
-		SetProcessInput(true);
-	}
-	public override void _Input(InputEvent @event)
-	{
-		if (@event is InputEventKey keyEvent && keyEvent.Pressed && keyEvent.Keycode == Key.E)
+		var Sair_btn = GetNode<TextureButton>("Control/sair_btn");
+		Sair_btn.ProcessMode = Node.ProcessModeEnum.WhenPaused;
+		Sair_btn.Pressed += () =>
 		{
-			Visible = !Visible;
-			GetTree().Paused = Visible;
-		}
+			GetTree().Paused = false;
+			Visible = false;
+		};
 	}
 }
