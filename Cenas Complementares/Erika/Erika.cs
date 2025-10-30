@@ -3,23 +3,23 @@ using System;
 
 public partial class Erika : CharacterBody2D
 {
-    private CanvasLayer _inventarioInstance;
-    // --- Variáveis de Movimento ---
-    [Export]
-    public float Speed = 200.0f;
-    [Export]
-    public float SprintMultiplier = 2.0f;
-    public float Gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
-    // --- VARIÁVEIS DE DASH ---
-    [Export(PropertyHint.Range, "100.0,2000.0,1.0")]
-    public float DashSpeed = 900.0f;
-    [Export(PropertyHint.Range, "0.1,0.5,0.01")]
-    public float DashDuration = 0.15f;
-    [Export]
-    public float DashCooldown = 1.2f;
-
-    // Calcula o custo com base no MaxStamina (AJUSTADO para 8.5%)
-    public float DashStaminaCost => MaxStamina * 0.085f;
+	private CanvasLayer _inventarioInstance;
+	// --- Variáveis de Movimento ---
+	[Export]
+	public float Speed = 200.0f;
+	[Export]
+	public float SprintMultiplier = 2.0f;
+	public float Gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
+	// --- VARIÁVEIS DE DASH ---
+	[Export(PropertyHint.Range, "100.0,2000.0,1.0")]
+	public float DashSpeed = 900.0f;          
+	[Export(PropertyHint.Range, "0.1,0.5,0.01")]
+	public float DashDuration = 0.15f;        
+	[Export]
+	public float DashCooldown = 1.2f;         
+	
+	// Calcula o custo com base no MaxStamina (AJUSTADO para 8.5%)
+	public float DashStaminaCost => MaxStamina * 0.085f; 
 
     // --- Variáveis de Pulo ---
     [Export]
@@ -42,42 +42,42 @@ public partial class Erika : CharacterBody2D
     [Export]
     public float DoubleJumpStaminaCost = 10.0f;
 
-    // --- VARIÁVEIS DE DANO/REGENERAÇÃO/KNOCKBACK/BLINK ---
-    [Export]
-    public float DamagePercentage = 0.20f;
-    [Export]
-    public float RegenPercentage = 0.05f;
-
-    [Export]
-    public float RegenInterval = 10.0f;
-    [Export]
-    public float DamageCooldownTime = 1.0f;
-
-    [Export]
-    public float KnockbackHorizontalForce = 200.0f;
-    [Export]
-    public float KnockbackVerticalForce = -200.0f;
-
-    [Export]
-    public float BlinkRate = 0.05f;
-
-    private float _regenTimer = 0.0f;
-    private float _damageCooldownTimer = 0.0f;
-    private Vector2 _knockbackVelocity = Vector2.Zero;
-    private bool _isRestarting = false;
-
-    // Variáveis de estado do Dash
-    private float _dashCooldownTimer = 0.0f;
-    private float _dashDurationTimer = 0.0f;
-    private bool _isDashing = false;
-	private float _dashDirection = 0.0f;
+	// --- VARIÁVEIS DE DANO/REGENERAÇÃO/KNOCKBACK/BLINK ---
+	[Export]
+	public float DamagePercentage = 0.20f;
+	[Export]
+	public float RegenPercentage = 0.05f;
 	
-    // VARIÁVEIS PARA O EFEITO BLINK (PISCAR)
-    private AnimatedSprite2D _animatedSprite;
-    private Timer _blinkTimer;
+	[Export]
+	public float RegenInterval = 10.0f; 	
+	[Export]
+	public float DamageCooldownTime = 1.0f;
+	
+	[Export]
+	public float KnockbackHorizontalForce = 200.0f;
+	[Export]
+	public float KnockbackVerticalForce = -200.0f;
+	
+	[Export] 
+	public float BlinkRate = 0.05f; 
+	
+	private float _regenTimer = 0.0f;
+	private float _damageCooldownTimer = 0.0f;
+	private Vector2 _knockbackVelocity = Vector2.Zero;
+	private bool _isRestarting = false;
+	
+	// Variáveis de estado do Dash
+	private float _dashCooldownTimer = 0.0f;
+	private float _dashDurationTimer = 0.0f;
+	private bool _isDashing = false;
+	private float _dashDirection = 0.0f;
 
-    public float CurrentHealth { get; private set; }
-    public float CurrentStamina { get; private set; }
+	// VARIÁVEIS PARA O EFEITO BLINK (PISCAR)
+	private AnimatedSprite2D _animatedSprite; 
+	private Timer _blinkTimer;
+	
+	public float CurrentHealth { get; private set; }
+	public float CurrentStamina { get; private set; }
 
     // --- Controle do Pulo ---
     private bool _canDoubleJump = false;
@@ -95,30 +95,30 @@ public partial class Erika : CharacterBody2D
     private Label dicaPuloDuplo;
     private bool mostrouDica = false;
 
-    public override void _Ready()
-    {
-        CurrentHealth = MaxHealth;
-        CurrentStamina = MaxStamina;
-
-        // Inicialização do BLINK (AnimatedSprite2D)
-        _animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-
-        _blinkTimer = new Timer();
-        _blinkTimer.OneShot = false;
-        _blinkTimer.WaitTime = BlinkRate;
-        _blinkTimer.Timeout += OnBlinkTimerTimeout;
-        AddChild(_blinkTimer);
-
-        var pauseScene = GD.Load<PackedScene>("res://Menudepausa/MenuPause.tscn");
-        PauseMenu = pauseScene.Instantiate<MenuPause>();
-        AddChild(PauseMenu);
-        PauseMenu.Visible = false;
-        var areaPuloDuplo = GetTree().Root.FindChild("AreaAprendePDuplo", true, false);
-        if (areaPuloDuplo is Area2D area)
-        {
-            area.BodyEntered += OnDuploAreaBodyEntered;
-            area.BodyExited += OnDuploAreaBodyExited;
-        }
+	public override void _Ready()
+	{
+		CurrentHealth = MaxHealth;
+		CurrentStamina = MaxStamina;
+		
+		// Inicialização do BLINK (AnimatedSprite2D)
+		_animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		
+		_blinkTimer = new Timer();
+		_blinkTimer.OneShot = false; 
+		_blinkTimer.WaitTime = BlinkRate;
+		_blinkTimer.Timeout += OnBlinkTimerTimeout; 
+		AddChild(_blinkTimer);
+		
+		var pauseScene = GD.Load<PackedScene>("res://Menudepausa/MenuPause.tscn");
+		PauseMenu = pauseScene.Instantiate<MenuPause>();
+		AddChild(PauseMenu);
+		PauseMenu.Visible = false;
+		var areaPuloDuplo = GetTree().Root.FindChild("AreaAprendePDuplo", true, false);
+		if (areaPuloDuplo is Area2D area)
+		{
+			area.BodyEntered += OnDuploAreaBodyEntered;
+			area.BodyExited += OnDuploAreaBodyExited;
+		}
 
         dicaPuloDuplo = new Label
         {
@@ -141,34 +141,34 @@ public partial class Erika : CharacterBody2D
         if (body == this) { dentroAreaDuplo = false; }
     }
 
-    public override void _Input(InputEvent @event)
-    {
-        var keyEvent = @event as InputEventKey;
-        if (keyEvent?.Pressed == true && keyEvent.Keycode == Key.Escape)
-        {
-            GetTree().Paused = !GetTree().Paused;
-            PauseMenu.Visible = GetTree().Paused;
-        }
-
-        // INPUT DO DASH COM A TECLA 'E'
-        if (keyEvent?.Pressed == true && keyEvent.Keycode == Key.Q && !_isDashing && _dashCooldownTimer <= 0)
-        {
-            PerformDash();
-        }
-        if (@event.IsActionPressed("ui_inventory"))
-        {
-            GerenciarInventario();
-        }
-    }
-
-    private void PerformDash()
-    {
-        // 1. Checa a Estamina (Custo de 8.5%)
-        if (CurrentStamina < DashStaminaCost)
-        {
-            GD.Print("Sem estamina suficiente para o Dash!");
-            return;
-        }
+	public override void _Input(InputEvent @event)
+	{
+		var keyEvent = @event as InputEventKey;
+		if (keyEvent?.Pressed == true && keyEvent.Keycode == Key.Escape)
+		{
+			GetTree().Paused = !GetTree().Paused;
+			PauseMenu.Visible = GetTree().Paused;
+		}
+		
+		// INPUT DO DASH COM A TECLA 'E'
+		if (keyEvent?.Pressed == true && keyEvent.Keycode == Key.Q && !_isDashing && _dashCooldownTimer <= 0)
+		{
+			PerformDash();
+		}
+		if (@event.IsActionPressed("ui_inventory"))
+		{
+			GerenciarInventario();
+		}
+	}
+	
+	private void PerformDash()
+	{
+		// 1. Checa a Estamina (Custo de 8.5%)
+		if (CurrentStamina < DashStaminaCost)
+		{
+			GD.Print("Sem estamina suficiente para o Dash!");
+			return;
+		}
 
         // 2. Define a direção do dash
         float inputDirection = Input.GetAxis("ui_left", "ui_right");
@@ -217,23 +217,23 @@ public partial class Erika : CharacterBody2D
             }
         }
 
-        if (_staminaRegenTimer > 0) { _staminaRegenTimer -= (float)delta; }
-        if (_damageCooldownTimer > 0)
-        {
-            _damageCooldownTimer -= (float)delta;
-            if (_damageCooldownTimer <= 0)
-            {
-                StopBlinking();
-            }
-        }
-
-        // --- Lógica de Regeneração de Vida ---
-        _regenTimer += (float)delta;
-        if (_regenTimer >= RegenInterval)
-        {
-            Heal(1.0f);
-            _regenTimer = 0.0f;
-        }
+		if (_staminaRegenTimer > 0) { _staminaRegenTimer -= (float)delta; }
+		if (_damageCooldownTimer > 0) 
+		{ 
+			_damageCooldownTimer -= (float)delta;
+			if (_damageCooldownTimer <= 0)
+			{
+				StopBlinking();
+			}
+		}
+		
+		// --- Lógica de Regeneração de Vida ---
+		_regenTimer += (float)delta;
+		if (_regenTimer >= RegenInterval)
+		{
+			Heal(1.0f);
+			_regenTimer = 0.0f;
+		}
 
         // --- 2. Lógica de Movimento e Pulo ---
         Vector2 velocity = Velocity;
@@ -287,38 +287,38 @@ public partial class Erika : CharacterBody2D
                 }
             }
 
-            // --- 3. Lógica de Estamina e Sprint ---
-            bool wantsToSprint = Input.IsActionPressed("ui_corrida");
-            float currentSpeed = Speed;
-            bool canSprint = _staminaRegenTimer <= 0 && CurrentStamina > 0;
+			// --- 3. Lógica de Estamina e Sprint ---
+			bool wantsToSprint = Input.IsActionPressed("ui_corrida");
+			float currentSpeed = Speed;
+			bool canSprint = _staminaRegenTimer <= 0 && CurrentStamina > 0;
+
+			if (wantsToSprint && canSprint)
+			{
+				float staminaToDrain = StaminaDrainRate * (float)delta;
+				if (CurrentStamina > staminaToDrain)
+				{
+					currentSpeed = Speed * SprintMultiplier;
+					CurrentStamina -= staminaToDrain;
+				}
+				else
+				{
+					CurrentStamina = 0;
+					_staminaRegenTimer = StaminaRegenDelay;
+				}
+			}
+			else
+			{
+				if (_staminaRegenTimer <= 0 && CurrentStamina < MaxStamina && !wantsToSprint)
+				{
+					CurrentStamina += StaminaRegenRate * (float)delta;
+					CurrentStamina = Mathf.Min(CurrentStamina, MaxStamina);
+				}
+			}
 			
-            if (wantsToSprint && canSprint)
-            {
-                float staminaToDrain = StaminaDrainRate * (float)delta;
-                if (CurrentStamina > staminaToDrain)
-                {
-                    currentSpeed = Speed * SprintMultiplier;
-                    CurrentStamina -= staminaToDrain;
-                }
-                else
-                {
-                    CurrentStamina = 0;
-                    _staminaRegenTimer = StaminaRegenDelay;
-                }
-            }
-            else
-            {
-                if (_staminaRegenTimer <= 0 && CurrentStamina < MaxStamina && !wantsToSprint)
-                {
-                    CurrentStamina += StaminaRegenRate * (float)delta;
-                    CurrentStamina = Mathf.Min(CurrentStamina, MaxStamina);
-                }
-            }
-
-            // 4. Aplica Movimento e Knockback (fora do Dash)
-            float horizontalDirection = Input.GetAxis("ui_left", "ui_right");
-
-            _knockbackVelocity = _knockbackVelocity.MoveToward(Vector2.Zero, 1000 * (float)delta);
+			// 4. Aplica Movimento e Knockback (fora do Dash)
+			float horizontalDirection = Input.GetAxis("ui_left", "ui_right");
+			
+			_knockbackVelocity = _knockbackVelocity.MoveToward(Vector2.Zero, 1000 * (float)delta); 
 
             if (_knockbackVelocity.LengthSquared() > 0)
             {
@@ -427,35 +427,35 @@ public partial class Erika : CharacterBody2D
 
         GD.Print($"Dano recebido de {amount}! Vida restante: {CurrentHealth}");
 
-        if (CurrentHealth <= 0)
-        {
-            RestartGame();
-        }
-    }
+		if (CurrentHealth <= 0)
+		{
+			RestartGame();
+		}
+	}
+	
+	public void RestartGame()
+	{
+		if (_isRestarting) 
+		{
+			return;
+		}
+		_isRestarting = true; 
 
-    public void RestartGame()
-    {
-        if (_isRestarting)
-        {
-            return;
-        }
-        _isRestarting = true;
+		GD.Print("Erika morreu! Reiniciando o jogo.");
+		GetTree().CallDeferred("reload_current_scene");
+	}
+	
+	// --- MÉTODOS DE CONTROLE DO BLINK (PISCAR) ---
+	private void OnBlinkTimerTimeout()
+	{
+		_animatedSprite.Visible = !_animatedSprite.Visible; 
+	}
 
-        GD.Print("Erika morreu! Reiniciando o jogo.");
-        GetTree().CallDeferred("reload_current_scene");
-    }
-
-    // --- MÉTODOS DE CONTROLE DO BLINK (PISCAR) ---
-    private void OnBlinkTimerTimeout()
-    {
-        _animatedSprite.Visible = !_animatedSprite.Visible;
-    }
-
-    private void StopBlinking()
-    {
-        _blinkTimer.Stop();
-        _animatedSprite.Visible = true;
-    }
+	private void StopBlinking()
+	{
+		_blinkTimer.Stop();
+		_animatedSprite.Visible = true; 
+	}
 
     private void StartBlinking()
     {
