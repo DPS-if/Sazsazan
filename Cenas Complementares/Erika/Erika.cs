@@ -12,35 +12,35 @@ public partial class Erika : CharacterBody2D
 	public float Gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 	// --- VARIÁVEIS DE DASH ---
 	[Export(PropertyHint.Range, "100.0,2000.0,1.0")]
-	public float DashSpeed = 900.0f;          
+	public float DashSpeed = 900.0f;         
 	[Export(PropertyHint.Range, "0.1,0.5,0.01")]
-	public float DashDuration = 0.15f;        
+	public float DashDuration = 0.15f;      
 	[Export]
-	public float DashCooldown = 1.2f;         
+	public float DashCooldown = 1.2f;       
 	
 	// Calcula o custo com base no MaxStamina (AJUSTADO para 8.5%)
 	public float DashStaminaCost => MaxStamina * 0.085f; 
 
-    // --- Variáveis de Pulo ---
-    [Export]
-    public float JumpVelocity = -350.0f;
-    [Export]
-    public float DoubleJumpVelocityMultiplier = 1.2f;
+	// --- Variáveis de Pulo ---
+	[Export]
+	public float JumpVelocity = -350.0f;
+	[Export]
+	public float DoubleJumpVelocityMultiplier = 1.2f;
 
-    // --- Variáveis de Stats e Estamina ---
-    [Export]
-    public float MaxHealth = 3.0f;
-    [Export]
-    public float MaxStamina = 100.0f;
-    [Export]
-    public float StaminaDrainRate = 5.0f;
-    [Export]
-    public float StaminaRegenRate = 15.0f;
-    [Export]
-    public float StaminaRegenDelay = 2.0f;
-    // CUSTO DO PULO DUPLO AJUSTADO PARA 10.0f
-    [Export]
-    public float DoubleJumpStaminaCost = 10.0f;
+	// --- Variáveis de Stats e Estamina ---
+	[Export]
+	public float MaxHealth = 3.0f;
+	[Export]
+	public float MaxStamina = 100.0f;
+	[Export]
+	public float StaminaDrainRate = 5.0f;
+	[Export]
+	public float StaminaRegenRate = 15.0f;
+	[Export]
+	public float StaminaRegenDelay = 2.0f;
+	// CUSTO DO PULO DUPLO AJUSTADO PARA 10.0f
+	[Export]
+	public float DoubleJumpStaminaCost = 10.0f;
 
 	// --- VARIÁVEIS DE DANO/REGENERAÇÃO/KNOCKBACK/BLINK ---
 	[Export]
@@ -49,7 +49,7 @@ public partial class Erika : CharacterBody2D
 	public float RegenPercentage = 0.05f;
 	
 	[Export]
-	public float RegenInterval = 10.0f; 	
+	public float RegenInterval = 10.0f;     
 	[Export]
 	public float DamageCooldownTime = 1.0f;
 	
@@ -79,21 +79,21 @@ public partial class Erika : CharacterBody2D
 	public float CurrentHealth { get; private set; }
 	public float CurrentStamina { get; private set; }
 
-    // --- Controle do Pulo ---
-    private bool _canDoubleJump = false;
-    public bool sabepular2 = false;
+	// --- Controle do Pulo ---
+	private bool _canDoubleJump = false;
+	public bool sabepular2 = false;
 
-    private float _staminaRegenTimer = 0.0f;
+	private float _staminaRegenTimer = 0.0f;
 
-    // --- SINAL PARA AVISAR O HUD ---
-    [Signal]
-    public delegate void StatsChangedEventHandler(float currentHealth, float maxHealth, float currentStamina, float maxStamina);
+	// --- SINAL PARA AVISAR O HUD ---
+	[Signal]
+	public delegate void StatsChangedEventHandler(float currentHealth, float maxHealth, float currentStamina, float maxStamina);
 
-    // --- Menu de Pausa e Dicas ---
-    private MenuPause PauseMenu;
-    private bool dentroAreaDuplo = false;
-    private Label dicaPuloDuplo;
-    private bool mostrouDica = false;
+	// --- Menu de Pausa e Dicas ---
+	private MenuPause PauseMenu;
+	private bool dentroAreaDuplo = false;
+	private Label dicaPuloDuplo;
+	private bool mostrouDica = false;
 
 	public override void _Ready()
 	{
@@ -120,26 +120,26 @@ public partial class Erika : CharacterBody2D
 			area.BodyExited += OnDuploAreaBodyExited;
 		}
 
-        dicaPuloDuplo = new Label
-        {
-            Text = "Aperte duas vezes ESPAÇO para usar o pulo duplo",
-            Visible = false,
-            Position = new Vector2(200, 50)
-        };
-        AddChild(dicaPuloDuplo);
+		dicaPuloDuplo = new Label
+		{
+			Text = "Aperte duas vezes ESPAÇO para usar o pulo duplo",
+			Visible = false,
+			Position = new Vector2(200, 50)
+		};
+		AddChild(dicaPuloDuplo);
 
-        EmitSignal(SignalName.StatsChanged, CurrentHealth, MaxHealth, CurrentStamina, MaxStamina);
-    }
+		EmitSignal(SignalName.StatsChanged, CurrentHealth, MaxHealth, CurrentStamina, MaxStamina);
+	}
 
-    private void OnDuploAreaBodyEntered(Node body)
-    {
-        if (body == this) { dentroAreaDuplo = true; }
-    }
+	private void OnDuploAreaBodyEntered(Node body)
+	{
+		if (body == this) { dentroAreaDuplo = true; }
+	}
 
-    private void OnDuploAreaBodyExited(Node body)
-    {
-        if (body == this) { dentroAreaDuplo = false; }
-    }
+	private void OnDuploAreaBodyExited(Node body)
+	{
+		if (body == this) { dentroAreaDuplo = false; }
+	}
 
 	public override void _Input(InputEvent @event)
 	{
@@ -170,52 +170,52 @@ public partial class Erika : CharacterBody2D
 			return;
 		}
 
-        // 2. Define a direção do dash
-        float inputDirection = Input.GetAxis("ui_left", "ui_right");
+		// 2. Define a direção do dash
+		float inputDirection = Input.GetAxis("ui_left", "ui_right");
 
-        if (inputDirection == 0)
-        {
-            if (Mathf.Abs(Velocity.X) > 0)
-            {
-                _dashDirection = Mathf.Sign(Velocity.X);
-            }
-            else
-            {
-                GD.Print("Dash requer input horizontal para definir a direção.");
-                return;
-            }
-        }
-        else
-        {
-            _dashDirection = inputDirection;
-        }
+		if (inputDirection == 0)
+		{
+			if (Mathf.Abs(Velocity.X) > 0)
+			{
+				_dashDirection = Mathf.Sign(Velocity.X);
+			}
+			else
+			{
+				GD.Print("Dash requer input horizontal para definir a direção.");
+				return;
+			}
+		}
+		else
+		{
+			_dashDirection = inputDirection;
+		}
 
-        // 3. Aplica o custo e Cooldown
-        CurrentStamina -= DashStaminaCost;
-        // Cooldown de 1.2s
-        _dashCooldownTimer = DashCooldown;
+		// 3. Aplica o custo e Cooldown
+		CurrentStamina -= DashStaminaCost;
+		// Cooldown de 1.2s
+		_dashCooldownTimer = DashCooldown;
 
-        // 4. Inicia o Dash (com invencibilidade pelo tempo de duração do dash)
-        _isDashing = true;
-        _dashDurationTimer = DashDuration;
+		// 4. Inicia o Dash (com invencibilidade pelo tempo de duração do dash)
+		_isDashing = true;
+		_dashDurationTimer = DashDuration;
 
-        _damageCooldownTimer = DashDuration;
-        StartBlinking();
-    }
+		_damageCooldownTimer = DashDuration;
+		StartBlinking();
+	}
 
-    public override void _PhysicsProcess(double delta)
-    {
-        // --- 1. Lógica de Tempo e Timers ---
-        if (_dashCooldownTimer > 0) { _dashCooldownTimer -= (float)delta; }
+	public override void _PhysicsProcess(double delta)
+	{
+		// --- 1. Lógica de Tempo e Timers ---
+		if (_dashCooldownTimer > 0) { _dashCooldownTimer -= (float)delta; }
 
-        if (_isDashing)
-        {
-            _dashDurationTimer -= (float)delta;
-            if (_dashDurationTimer <= 0)
-            {
-                _isDashing = false;
-            }
-        }
+		if (_isDashing)
+		{
+			_dashDurationTimer -= (float)delta;
+			if (_dashDurationTimer <= 0)
+			{
+				_isDashing = false;
+			}
+		}
 
 		if (_staminaRegenTimer > 0) { _staminaRegenTimer -= (float)delta; }
 		if (_damageCooldownTimer > 0) 
@@ -235,62 +235,63 @@ public partial class Erika : CharacterBody2D
 			_regenTimer = 0.0f;
 		}
 
-        // --- 2. Lógica de Movimento e Pulo ---
-        Vector2 velocity = Velocity;
+		// --- 2. Lógica de Movimento e Pulo ---
+		Vector2 velocity = Velocity;
 
-        // Se estiver dando Dash, aplica a alta velocidade (900.0f) e anula a gravidade
-        if (_isDashing)
-        {
-            velocity.X = _dashDirection * DashSpeed;
-            velocity.Y = 0;
-        }
-        else // Movimento e Gravidade Normal
-        {
-            if (!IsOnFloor()) { velocity.Y += Gravity * (float)delta; }
+		// Se estiver dando Dash, aplica a alta velocidade (900.0f) e anula a gravidade
+		if (_isDashing)
+		{
+			velocity.X = _dashDirection * DashSpeed;
+			velocity.Y = 0;
+		}
+		else // Movimento e Gravidade Normal
+		{
+			if (!IsOnFloor()) { velocity.Y += Gravity * (float)delta; }
 
-            // Reset do Pulo e Lógica de Aprendizado
-            if (IsOnFloor())
-            {
-                _canDoubleJump = true;
-                if (dentroAreaDuplo && !sabepular2)
-                {
-                    sabepular2 = true;
-                    if (!mostrouDica)
-                    {
-                        dicaPuloDuplo.Text = "Aperte duas vezes ESPAÇO para usar o pulo duplo";
-                        dicaPuloDuplo.Visible = true;
-                        mostrouDica = true;
-                    }
-                }
-            }
+			// Reset do Pulo e Lógica de Aprendizado
+			if (IsOnFloor())
+			{
+				_canDoubleJump = true;
+				if (dentroAreaDuplo && !sabepular2)
+				{
+					sabepular2 = true;
+					if (!mostrouDica)
+					{
+						dicaPuloDuplo.Text = "Aperte duas vezes ESPAÇO para usar o pulo duplo";
+						dicaPuloDuplo.Visible = true;
+						mostrouDica = true;
+					}
+				}
+			}
 
-            if (Input.IsActionJustPressed("ui_accept"))
-            {
-                if (IsOnFloor())
-                {
-                    velocity.Y = JumpVelocity;
-                }
-                else if (sabepular2 && _canDoubleJump)
-                {
-                    if (CurrentStamina >= DoubleJumpStaminaCost)
-                    {
-                        _canDoubleJump = false;
-                        velocity.Y = JumpVelocity * DoubleJumpVelocityMultiplier;
-                        CurrentStamina -= DoubleJumpStaminaCost;
-                        CurrentStamina = Mathf.Max(CurrentStamina, 0);
-                        if (CurrentStamina <= 0)
-                        {
-                            _staminaRegenTimer = StaminaRegenDelay;
-                        }
-                        if (dicaPuloDuplo.Visible) { dicaPuloDuplo.Visible = false; }
-                    }
-                }
-            }
+			if (Input.IsActionJustPressed("ui_accept"))
+			{
+				if (IsOnFloor())
+				{
+					velocity.Y = JumpVelocity;
+				}
+				else if (sabepular2 && _canDoubleJump)
+				{
+					if (CurrentStamina >= DoubleJumpStaminaCost)
+					{
+						_canDoubleJump = false;
+						velocity.Y = JumpVelocity * DoubleJumpVelocityMultiplier;
+						CurrentStamina -= DoubleJumpStaminaCost;
+						CurrentStamina = Mathf.Max(CurrentStamina, 0);
+						if (CurrentStamina <= 0)
+						{
+							_staminaRegenTimer = StaminaRegenDelay;
+						}
+						if (dicaPuloDuplo.Visible) { dicaPuloDuplo.Visible = false; }
+					}
+				}
+			}
 
 			// --- 3. Lógica de Estamina e Sprint ---
-			bool wantsToSprint = Input.IsActionPressed("ui_corrida");
-			float currentSpeed = Speed;
-			bool canSprint = _staminaRegenTimer <= 0 && CurrentStamina > 0;
+// --- 3. Lógica de Estamina e Sprint ---
+		bool wantsToSprint = Input.IsActionPressed("ui_corrida");
+		float currentSpeed = Speed;
+		bool canSprint = CurrentStamina > 0; // <-- LINHA CORRIGIDA
 
 			if (wantsToSprint && canSprint)
 			{
@@ -299,6 +300,8 @@ public partial class Erika : CharacterBody2D
 				{
 					currentSpeed = Speed * SprintMultiplier;
 					CurrentStamina -= staminaToDrain;
+					// Reseta o timer de regeneração sempre que usar estamina
+					_staminaRegenTimer = StaminaRegenDelay;
 				}
 				else
 				{
@@ -320,112 +323,132 @@ public partial class Erika : CharacterBody2D
 			
 			_knockbackVelocity = _knockbackVelocity.MoveToward(Vector2.Zero, 1000 * (float)delta); 
 
-            if (_knockbackVelocity.LengthSquared() > 0)
-            {
-                velocity.X = _knockbackVelocity.X;
-                velocity.Y += _knockbackVelocity.Y;
-                _knockbackVelocity.Y = 0;
-            }
-            else
-            {
-                if (horizontalDirection != 0) { velocity.X = horizontalDirection * currentSpeed; }
-                else { velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed); }
-            }
-        }
-        Velocity = velocity;
-        
-        // --- ADIÇÃO 1: CHAMADA DA FUNÇÃO DE ANIMAÇÃO ---
-        // Vamos chamar nossa nova função de animação aqui
-        _UpdateAnimation();
-        // --- FIM DA ADIÇÃO 1 ---
+			if (_knockbackVelocity.LengthSquared() > 0)
+			{
+				velocity.X = _knockbackVelocity.X;
+				velocity.Y += _knockbackVelocity.Y;
+				_knockbackVelocity.Y = 0;
+			}
+			else
+			{
+				if (horizontalDirection != 0) { velocity.X = horizontalDirection * currentSpeed; }
+				else { velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed); }
+			}
+		}
+		Velocity = velocity;
+		
+		// --- ADIÇÃO 1: CHAMADA DA FUNÇÃO DE ANIMAÇÃO ---
+		// Vamos chamar nossa nova função de animação aqui
+		_UpdateAnimation();
+		// --- FIM DA ADIÇÃO 1 ---
 
-        if (Velocity.X > 0)
-        {
-            _animatedSprite.FlipH = false;
-        }
-        else if (Velocity.X < 0)
-        {
-            _animatedSprite.FlipH = true;
-        }
-        MoveAndSlide();
+		if (Velocity.X > 0)
+		{
+			_animatedSprite.FlipH = false;
+		}
+		else if (Velocity.X < 0)
+		{
+			_animatedSprite.FlipH = true;
+		}
+		MoveAndSlide();
 
-        // 5. Emitir o Sinal
-        EmitSignal(SignalName.StatsChanged, CurrentHealth, MaxHealth, CurrentStamina, MaxStamina);
-    }
-    
-    // --- ADIÇÃO 2: NOVA FUNÇÃO DE ANIMAÇÃO (CORRIGIDA) ---
-    private void _UpdateAnimation()
-    {
-        // Como você removeu a checagem do "dash",
-        // esta checagem (do pulo) se torna a primeira.
+		// 5. Emitir o Sinal
+		EmitSignal(SignalName.StatsChanged, CurrentHealth, MaxHealth, CurrentStamina, MaxStamina);
+	}
+	
+	// --- ADIÇÃO 2: NOVA FUNÇÃO DE ANIMAÇÃO (CORRIGIDA) ---
+	private void _UpdateAnimation()
+	{
+		// Como você removeu a checagem do "dash",
+		// esta checagem (do pulo) se torna a primeira.
 
-        // --- Mude "else if" para "if" aqui ---
-        // 1. Animações no ar (Pulo/Queda)
-        if (!IsOnFloor())
-        {
-            if (_animatedSprite.Animation != "jump")
-                _animatedSprite.Play("jump");
-        }
-        // 2. Animações no chão (Andando ou Parado)
-        // Este "else" agora se refere ao "if (!IsOnFloor())" acima
-        else
-        {
-            // Usa Velocity.X para saber se está se movendo
-            if (Mathf.Abs(Velocity.X) > 0.1f)
+		// --- Mude "else if" para "if" aqui ---
+		// 1. Animações no ar (Pulo/Queda)
+		if (!IsOnFloor())
+		{
+			if (_animatedSprite.Animation != "jump")
+				_animatedSprite.Play("jump");
+		}
+		// 2. Animações no chão (Andando ou Parado)
+		// Este "else" agora se refere ao "if (!IsOnFloor())" acima
+		else
+		{
+			// Usa Velocity.X para saber se está se movendo
+			if (Mathf.Abs(Velocity.X) > 0.1f)
 			{
 				if (Input.IsActionPressed("ui_corrida") && (_staminaRegenTimer <= 0 && CurrentStamina > 0))
 				{
 					if (_animatedSprite.Animation != "sprint")
-                    _animatedSprite.Play("sprint");
+					_animatedSprite.Play("sprint");
 				}
-                else if (_animatedSprite.Animation != "walk")
-                    _animatedSprite.Play("walk");
-            }
-            else
-            {
-                // Parado no chão
-                if (_animatedSprite.Animation != "idle")
-                    _animatedSprite.Play("idle");
-            }
-        }
-    }
-    // --- FIM DA ADIÇÃO 2 ---
-    
-    // MÉTODOS DE DANO/CURA/RESTART
+				else if (_animatedSprite.Animation != "walk")
+					_animatedSprite.Play("walk");
+			}
+			else
+			{
+				// Parado no chão
+				if (_animatedSprite.Animation != "idle")
+					_animatedSprite.Play("idle");
+			}
+		}
+	}
+	// --- FIM DA ADIÇÃO 2 ---
+	
+	// MÉTODOS DE DANO/CURA/RESTART
 
-    public void ApplyKnockback(Vector2 damageSourcePosition)
-    {
-        float directionX = (GlobalPosition.X - damageSourcePosition.X) > 0 ? 1.0f : -1.0f;
+	public void ApplyKnockback(Vector2 damageSourcePosition)
+	{
+		float directionX = (GlobalPosition.X - damageSourcePosition.X) > 0 ? 1.0f : -1.0f;
 
-        _knockbackVelocity = new Vector2(
-            directionX * KnockbackHorizontalForce,
-            KnockbackVerticalForce
-        );
-    }
+		_knockbackVelocity = new Vector2(
+			directionX * KnockbackHorizontalForce,
+			KnockbackVerticalForce
+		);
+	}
 
-    public void Heal(float amount)
-    {
-        CurrentHealth += amount;
-        CurrentHealth = Mathf.Min(CurrentHealth, MaxHealth);
-    }
+	public void Heal(float amount)
+	{
+		CurrentHealth += amount;
+		CurrentHealth = Mathf.Min(CurrentHealth, MaxHealth);
+	}
 
-    public void TakeDamage(float amount, Node2D damageSource)
-    {
-        // Se estiver em Dash, o _damageCooldownTimer será > 0 e o dano será ignorado.
-        if (_damageCooldownTimer > 0)
-        {
-            return;
-        }
+	// --- ADIÇÃO: NOVO MÉTODO PARA DRENAR ESTAMINA ---
+	/// <summary>
+	/// Drena uma quantidade de estamina da jogadora.
+	/// Usado por áreas de dreno ou outros efeitos externos.
+	/// </summary>
+	/// <param name="amount">A quantidade a ser drenada.</param>
+	public void DrainStamina(float amount)
+	{
+		if (CurrentStamina > 0)
+		{
+			CurrentStamina -= amount;
+			CurrentStamina = Mathf.Max(CurrentStamina, 0);
+			
+			// Impede a regeneração de começar enquanto está drenando
+			// Isso garante que o timer de delay seja resetado
+			_staminaRegenTimer = StaminaRegenDelay; 
+		}
+	}
+	// --- FIM DA ADIÇÃO ---
 
-        CurrentHealth -= amount;
-        CurrentHealth = Mathf.Max(CurrentHealth, 0);
+	public void TakeDamage(float amount, Node2D damageSource)
+	{
+		// Se estiver em Dash, o _damageCooldownTimer será > 0 e o dano será ignorado.
+		if (_damageCooldownTimer > 0)
+		{
+			return;
+		}
 
-        _damageCooldownTimer = DamageCooldownTime;
+		CurrentHealth -= amount;
+		CurrentHealth = Mathf.Max(CurrentHealth, 0);
 
-        ApplyKnockback(damageSource.GlobalPosition);
-        StartBlinking();
+		_damageCooldownTimer = DamageCooldownTime;
 
-        GD.Print($"Dano recebido de {amount}! Vida restante: {CurrentHealth}");
+		ApplyKnockback(damageSource.GlobalPosition);
+		StartBlinking();
+
+		GD.Print($"Dano recebido de {amount}! Vida restante: {CurrentHealth}");
 
 		if (CurrentHealth <= 0)
 		{
@@ -457,70 +480,70 @@ public partial class Erika : CharacterBody2D
 		_animatedSprite.Visible = true; 
 	}
 
-    private void StartBlinking()
-    {
-        _blinkTimer.Start();
-    }
+	private void StartBlinking()
+	{
+		_blinkTimer.Start();
+	}
 
-    // MÉTODO DE RECEBIMENTO DO SINAL DO ESPINHO 1
-    private void _on_espinho_1_body_entered(Node2D body)
-    {
-        if (body == this)
-        {
-            float damageAmount = 1.0f;
+	// MÉTODO DE RECEBIMENTO DO SINAL DO ESPINHO 1
+	private void _on_espinho_1_body_entered(Node2D body)
+	{
+		if (body == this)
+		{
+			float damageAmount = 1.0f;
 
-            var espinho1 = GetTree().Root.FindChild("espinho1", true, false) as Node2D;
+			var espinho1 = GetTree().Root.FindChild("espinho1", true, false) as Node2D;
 
-            if (espinho1 != null)
-            {
-                TakeDamage(damageAmount, espinho1);
-            }
-            else
-            {
-                TakeDamage(damageAmount, new Node2D() { GlobalPosition = GlobalPosition + new Vector2(100, 0) });
-            }
-        }
-    }
+			if (espinho1 != null)
+			{
+				TakeDamage(damageAmount, espinho1);
+			}
+			else
+			{
+				TakeDamage(damageAmount, new Node2D() { GlobalPosition = GlobalPosition + new Vector2(100, 0) });
+			}
+		}
+	}
 
-    // MÉTODO DE RECEBIMENTO DO SINAL DO ESPINHO 2
-    private void _on_espinho_2_body_entered(Node2D body)
-    {
-        if (body == this)
-        {
-            float damageAmount = 1.0f;
+	// MÉTODO DE RECEBIMENTO DO SINAL DO ESPINHO 2
+	private void _on_espinho_2_body_entered(Node2D body)
+	{
+		if (body == this)
+		{
+			float damageAmount = 1.0f;
 
-            var espinho2 = GetTree().Root.FindChild("espinho2", true, false) as Node2D;
+			var espinho2 = GetTree().Root.FindChild("espinho2", true, false) as Node2D;
 
-            if (espinho2 != null)
-            {
-                TakeDamage(damageAmount, espinho2);
-            }
-            else
-            {
-                TakeDamage(damageAmount, new Node2D() { GlobalPosition = GlobalPosition + new Vector2(100, 0) });
-            }
-        }
-    }
+			if (espinho2 != null)
+			{
+				TakeDamage(damageAmount, espinho2);
+			}
+			else
+			{
+				TakeDamage(damageAmount, new Node2D() { GlobalPosition = GlobalPosition + new Vector2(100, 0) });
+			}
+		}
+	}
 
-    // --- MÉTODO: VOID (VAZIO) ---
-    private void _on_void_body_entered(Node2D body)
-    {
-        if (body == this)
-        {
-            GD.Print("Erika caiu no Void. Reiniciando a fase.");
-            RestartGame();
-        }
-    }
-    private void GerenciarInventario()
-    {
-        if (_inventarioInstance == null)
-        {
-            var inventarioScene = GD.Load<PackedScene>("res://inventário/Inventário.tscn");
-            _inventarioInstance = (CanvasLayer)inventarioScene.Instantiate();
-            _inventarioInstance.Visible = false;
-            AddChild(_inventarioInstance);
-        }
-        _inventarioInstance.Visible = !_inventarioInstance.Visible;
-        GetTree().Paused = _inventarioInstance.Visible;
-    }
+	// --- MÉTODO: VOID (VAZIO) ---
+	private void _on_void_body_entered(Node2D body)
+	{
+		if (body == this)
+		{
+			GD.Print("Erika caiu no Void. Reiniciando a fase.");
+			RestartGame();
+		}
+	}
+	private void GerenciarInventario()
+	{
+		if (_inventarioInstance == null)
+		{
+			var inventarioScene = GD.Load<PackedScene>("res://inventário/Inventário.tscn");
+			_inventarioInstance = (CanvasLayer)inventarioScene.Instantiate();
+			_inventarioInstance.Visible = false;
+			AddChild(_inventarioInstance);
+		}
+		_inventarioInstance.Visible = !_inventarioInstance.Visible;
+		GetTree().Paused = _inventarioInstance.Visible;
+	}
 }
