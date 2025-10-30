@@ -1863,7 +1863,7 @@ sprite_frames = SubResource("SpriteFrames_ld5wt")
 autoplay = "default"
 
 [node name="área de dano2" type="CollisionShape2D" parent="espinhos"]
-position = Vector2(-1544, -196.25)
+position = Vector2(-1542, -196.25)
 scale = Vector2(1.3, 1.3)
 shape = SubResource("RectangleShape2D_q6r6c")
 
@@ -1901,13 +1901,13 @@ position = Vector2(-3877.0002, -291.25)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="epinho 2_4" type="AnimatedSprite2D" parent="espinhos"]
-position = Vector2(-3931.496, -295.7)
+position = Vector2(-3938.496, -295.7)
 scale = Vector2(3.063, 3)
 sprite_frames = SubResource("SpriteFrames_c4wnb")
 autoplay = "default"
 
 [node name="área de dano16" type="CollisionShape2D" parent="espinhos"]
-position = Vector2(-3930.496, -285)
+position = Vector2(-3943.496, -287)
 shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="espinho1_6" type="AnimatedSprite2D" parent="espinhos"]
@@ -1921,7 +1921,7 @@ position = Vector2(-3907.9377, -293.75)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="espinho1_8" type="AnimatedSprite2D" parent="espinhos"]
-position = Vector2(-5477.5, -309)
+position = Vector2(-5479.5005, -309)
 scale = Vector2(2.8846197, 2.769231)
 sprite_frames = SubResource("SpriteFrames_j1mq8")
 autoplay = "default"
@@ -1931,17 +1931,17 @@ position = Vector2(-5479, -291.25)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="epinho 2_5" type="AnimatedSprite2D" parent="espinhos"]
-position = Vector2(-5390.4966, -296.70007)
+position = Vector2(-5385.4966, -296.70007)
 scale = Vector2(3.063, 3)
 sprite_frames = SubResource("SpriteFrames_3ngjr")
 autoplay = "default"
 
 [node name="área de dano17" type="CollisionShape2D" parent="espinhos"]
-position = Vector2(-5394.496, -288)
+position = Vector2(-5382.496, -289)
 shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="epinho 2_8" type="AnimatedSprite2D" parent="espinhos"]
-position = Vector2(-5507.496, -295.70007)
+position = Vector2(-5509.496, -295.70007)
 scale = Vector2(3.063, 3)
 sprite_frames = SubResource("SpriteFrames_s32dh")
 autoplay = "default"
@@ -1951,7 +1951,7 @@ position = Vector2(-5501.4956, -282)
 shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="epinho 2_6" type="AnimatedSprite2D" parent="espinhos"]
-position = Vector2(-6202.496, -200.70007)
+position = Vector2(-6199.4966, -202.70007)
 scale = Vector2(3.063, 3)
 sprite_frames = SubResource("SpriteFrames_akb8o")
 autoplay = "default"
@@ -1972,17 +1972,17 @@ position = Vector2(-7514.496, -191)
 shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="espinho1_9" type="AnimatedSprite2D" parent="espinhos"]
-position = Vector2(-5413.656, -306.5)
+position = Vector2(-5411.6563, -306.5)
 scale = Vector2(2.588946, 2.3461537)
 sprite_frames = SubResource("SpriteFrames_ph30p")
 autoplay = "default"
 
 [node name="área de dano9" type="CollisionShape2D" parent="espinhos"]
-position = Vector2(-5419, -291.25)
+position = Vector2(-5418, -291.25)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="espinho1_10" type="AnimatedSprite2D" parent="espinhos"]
-position = Vector2(-6236.5, -216)
+position = Vector2(-6234.5, -216)
 scale = Vector2(3.0625014, 3.0000007)
 sprite_frames = SubResource("SpriteFrames_s1om5")
 autoplay = "default"
@@ -1993,7 +1993,7 @@ position = Vector2(-6235.0005, -196.25)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="espinho1_11" type="AnimatedSprite2D" parent="espinhos"]
-position = Vector2(-6182.5, -200)
+position = Vector2(-6176.5, -200)
 scale = Vector2(3.0625014, 3.0000007)
 sprite_frames = SubResource("SpriteFrames_thyvg")
 autoplay = "default"
@@ -2003,7 +2003,7 @@ position = Vector2(-6193.7656, -191.25)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="espinho1_12" type="AnimatedSprite2D" parent="espinhos"]
-position = Vector2(-6302.8438, -212.5)
+position = Vector2(-6306.8438, -212.5)
 scale = Vector2(2.627414, 2.3461545)
 sprite_frames = SubResource("SpriteFrames_2djs3")
 autoplay = "default"
@@ -2014,7 +2014,7 @@ position = Vector2(-6307, -196.25)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="espinho1_13" type="AnimatedSprite2D" parent="espinhos"]
-position = Vector2(-6264.5, -217)
+position = Vector2(-6263.5, -217)
 scale = Vector2(3.0625014, 3.0000007)
 sprite_frames = SubResource("SpriteFrames_bfoml")
 autoplay = "default"
@@ -2061,17 +2061,17 @@ sprite_frames = SubResource("SpriteFrames_fm8k7")
 autoplay = "default"
 
 [node name="área de dano22" type="CollisionShape2D" parent="espinhos"]
-position = Vector2(-1504, -193.75)
+position = Vector2(-1501, -193.75)
 shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="epinho 2_3" type="AnimatedSprite2D" parent="espinhos"]
-position = Vector2(-3850.496, -295.7)
+position = Vector2(-3846.496, -295.7)
 scale = Vector2(3.063, 3)
 sprite_frames = SubResource("SpriteFrames_r8aua")
 autoplay = "default"
 
 [node name="área de dano23" type="CollisionShape2D" parent="espinhos"]
-position = Vector2(-3852.7483, -285.375)
+position = Vector2(-3844.7483, -286.375)
 shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="AreaAprendePDuplo" type="Area2D" parent="."]
