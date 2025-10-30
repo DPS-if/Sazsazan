@@ -39,7 +39,6 @@ offset_left = 102.0
 offset_top = 96.0
 offset_right = 131.416
 offset_bottom = 104.824
-disabled = true
 texture_normal = ExtResource("3_w6ich")
 stretch_mode = 0
 

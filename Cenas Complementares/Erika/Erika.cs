@@ -10,7 +10,6 @@ public partial class Erika : CharacterBody2D
 	[Export]
 	public float SprintMultiplier = 2.0f;
 	public float Gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
-
 	// --- VARIÁVEIS DE DASH ---
 	[Export(PropertyHint.Range, "100.0,2000.0,1.0")]
 	public float DashSpeed = 900.0f;          
@@ -333,8 +332,15 @@ public partial class Erika : CharacterBody2D
 				else { velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed); }
 			}
 		}
-		
 		Velocity = velocity;
+		if (Velocity.X > 0)
+		{
+			_animatedSprite.FlipH = false;
+		}
+		else if (Velocity.X < 0)
+		{
+			_animatedSprite.FlipH = true;
+		}
 		MoveAndSlide();
 		
 		// 5. Emitir o Sinal
@@ -465,12 +471,12 @@ public partial class Erika : CharacterBody2D
 	{
 		if (_inventarioInstance == null)
 		{
-		var inventarioScene = GD.Load<PackedScene>("res://inventário/Inventário.tscn");
-		_inventarioInstance = (CanvasLayer)inventarioScene.Instantiate();
-		_inventarioInstance.Visible = false;
-		AddChild(_inventarioInstance);
+			var inventarioScene = GD.Load<PackedScene>("res://inventário/Inventário.tscn");
+			_inventarioInstance = (CanvasLayer)inventarioScene.Instantiate();
+			_inventarioInstance.Visible = false;
+			AddChild(_inventarioInstance);
 		}
-	_inventarioInstance.Visible = !_inventarioInstance.Visible;
-	GetTree().Paused = _inventarioInstance.Visible;
+		_inventarioInstance.Visible = !_inventarioInstance.Visible;
+		GetTree().Paused = _inventarioInstance.Visible;
 	}
 }
