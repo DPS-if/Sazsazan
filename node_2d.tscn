@@ -1,4 +1,4 @@
-[gd_scene load_steps=254 format=3 uid="uid://bqpmxgkb5nfkc"]
+[gd_scene load_steps=252 format=3 uid="uid://bqpmxgkb5nfkc"]
 
 [ext_resource type="PackedScene" uid="uid://ctjhsgil40l7h" path="res://Cenas Complementares/Erika/Erika.tscn" id="2_0e48y"]
 [ext_resource type="Texture2D" uid="uid://dsx4wm781utaj" path="res://TelaInicial/Cenário 1.png" id="2_4d7sh"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://daw12ggookton" path="res://Imagens/Terreno/Cenario2 2.0.png" id="7_d21ai"]
 [ext_resource type="Texture2D" uid="uid://dt7rkmys8g0nd" path="res://Imagens/Terreno/Cenario2 2.1.png" id="8_rj586"]
 [ext_resource type="Texture2D" uid="uid://cs4pwjw5nfkl" path="res://Imagens/Terreno/Cenario2 2.2.png" id="11_0h7mo"]
-[ext_resource type="Script" uid="uid://dhpwx3offfhe8" path="res://StaminaDrainArea.cs" id="12_d2bti"]
 [ext_resource type="Texture2D" uid="uid://ltaj4ih3yc38" path="res://Imagens/Terreno/Agua 26x26 animação.png" id="12_nr8wp"]
 [ext_resource type="Texture2D" uid="uid://beupim73tpu6h" path="res://Imagens/Terreno/Obstáculos/FogoGrande.png" id="13_d2bti"]
 [ext_resource type="Texture2D" uid="uid://cn75xweshob5" path="res://Imagens/Terreno/Obstáculos/FogoPequeno(EsseSim).png" id="13_nr8wp"]
@@ -68,9 +67,6 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rjqkl"]
 size = Vector2(425, 301)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ta5nu"]
-size = Vector2(38.599976, 2.75)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k73cj"]
 atlas = ExtResource("12_nr8wp")
@@ -1775,72 +1771,62 @@ texture = ExtResource("11_0h7mo")
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="mapaBase"]
 polygon = PackedVector2Array(-15410, -149, -15598, -149, -15610, -146, -15712, -146, -15722, -149, -15748, -149, -15758, -146, -15918, -146, -15932, -150, -16296, -150, -16299, -89, -16591, -89, -16614, -101, -16614, -149, -16742, -149, -16742, -108, -16764, -89, -17060, -89, -17060, -149, -18836, -149, -18835, 134, -15410, 134)
 
-[node name="TiraStamina1" type="Area2D" parent="mapaBase"]
-position = Vector2(-16366, -139)
-disable_mode = 2
-script = ExtResource("12_d2bti")
-
-[node name="CollisionshapÁgua" type="CollisionShape2D" parent="mapaBase/TiraStamina1"]
-position = Vector2(-314, 20.00003)
-scale = Vector2(20, 20)
-shape = SubResource("RectangleShape2D_ta5nu")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="mapaBase/TiraStamina1"]
-position = Vector2(40.120117, 19.720001)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="mapaBase"]
+position = Vector2(-16327.6, -121)
 scale = Vector2(2.44, 2.44)
 sprite_frames = SubResource("SpriteFrames_ei405")
 autoplay = "default"
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="mapaBase/TiraStamina1"]
-position = Vector2(-23.13999, 20)
-scale = Vector2(2.4507687, 2.44)
-sprite_frames = SubResource("SpriteFrames_ei405")
-autoplay = "default"
-
-[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="mapaBase/TiraStamina1"]
-position = Vector2(-86.831055, 19.720001)
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="mapaBase"]
+position = Vector2(-16391.09, -121)
 scale = Vector2(2.44, 2.44)
 sprite_frames = SubResource("SpriteFrames_ei405")
 autoplay = "default"
 
-[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="mapaBase/TiraStamina1"]
-position = Vector2(-150.28027, 19.720001)
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="mapaBase"]
+position = Vector2(-16454.55, -121)
 scale = Vector2(2.44, 2.44)
 sprite_frames = SubResource("SpriteFrames_ei405")
 autoplay = "default"
 
-[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="mapaBase/TiraStamina1"]
-position = Vector2(-213.36, 20)
-scale = Vector2(2.5661547, 2.44)
-sprite_frames = SubResource("SpriteFrames_ei405")
-autoplay = "default"
-
-[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="mapaBase/TiraStamina1"]
-position = Vector2(-408.08984, 18)
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="mapaBase"]
+position = Vector2(-16518, -121)
 scale = Vector2(2.44, 2.44)
 sprite_frames = SubResource("SpriteFrames_ei405")
 autoplay = "default"
 
-[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="mapaBase/TiraStamina1"]
-position = Vector2(-471.5, 18)
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="mapaBase"]
+position = Vector2(-16581.3, -121)
 scale = Vector2(2.44, 2.44)
 sprite_frames = SubResource("SpriteFrames_ei405")
 autoplay = "default"
 
-[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="mapaBase/TiraStamina1"]
-position = Vector2(-534.9004, 18)
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="mapaBase"]
+position = Vector2(-16774.09, -121)
 scale = Vector2(2.44, 2.44)
 sprite_frames = SubResource("SpriteFrames_ei405")
 autoplay = "default"
 
-[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="mapaBase/TiraStamina1"]
-position = Vector2(-598.3457, 18)
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="mapaBase"]
+position = Vector2(-16837.5, -121)
 scale = Vector2(2.44, 2.44)
 sprite_frames = SubResource("SpriteFrames_ei405")
 autoplay = "default"
 
-[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="mapaBase/TiraStamina1"]
-position = Vector2(-661.8008, 18)
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="mapaBase"]
+position = Vector2(-16900.9, -121)
+scale = Vector2(2.44, 2.44)
+sprite_frames = SubResource("SpriteFrames_ei405")
+autoplay = "default"
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="mapaBase"]
+position = Vector2(-16964.346, -121)
+scale = Vector2(2.44, 2.44)
+sprite_frames = SubResource("SpriteFrames_ei405")
+autoplay = "default"
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="mapaBase"]
+position = Vector2(-17027.8, -121)
 scale = Vector2(2.44, 2.44)
 sprite_frames = SubResource("SpriteFrames_ei405")
 autoplay = "default"
