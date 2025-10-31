@@ -226,7 +226,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
-size = Vector2(41.53116, 41.5)
+size = Vector2(48.76558, 37.75)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ei405"]
 atlas = ExtResource("13_d2bti")
@@ -1817,7 +1817,7 @@ scale = Vector2(2.44, 2.44)
 texture = ExtResource("5_q6r6c")
 
 [node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="mapaBase"]
-position = Vector2(-6848, 0)
+position = Vector2(-6883, 51)
 polygon = PackedVector2Array(-1712, -174, -2708, -174, -2764, -206, -3271, -206, -3271, -266, -3281, -271, -5138, -270, -1712, 42)
 
 [node name="primeiro cenario 4" type="Sprite2D" parent="mapaBase"]
@@ -2128,6 +2128,165 @@ autoplay = "default"
 position = Vector2(-6265.4688, -199.5)
 shape = SubResource("RectangleShape2D_q6r6c")
 
+[node name="epinho 2_19" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-6199.4966, -202.70007)
+scale = Vector2(3.063, 3)
+sprite_frames = SubResource("SpriteFrames_akb8o")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano48" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-6205, -191)
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="espinho1_30" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-6234.5, -216)
+scale = Vector2(3.0625014, 3.0000007)
+sprite_frames = SubResource("SpriteFrames_s1om5")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano49" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-6235.0005, -196.25)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_31" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-6176.5, -200)
+scale = Vector2(3.0625014, 3.0000007)
+sprite_frames = SubResource("SpriteFrames_thyvg")
+autoplay = "default"
+
+[node name="área de dano50" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-6193.7656, -191.25)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_32" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-6306.8438, -212.5)
+scale = Vector2(2.627414, 2.3461545)
+sprite_frames = SubResource("SpriteFrames_2djs3")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano51" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-6307, -196.25)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_33" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-6263.5, -217)
+scale = Vector2(3.0625014, 3.0000007)
+sprite_frames = SubResource("SpriteFrames_bfoml")
+autoplay = "default"
+
+[node name="área de dano52" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-6265.4688, -199.5)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="epinho 2_20" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-11269.496, -330.70007)
+scale = Vector2(3.063, 3)
+sprite_frames = SubResource("SpriteFrames_akb8o")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano53" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-11275, -319)
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="espinho1_34" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-11304.5, -344)
+scale = Vector2(3.0625014, 3.0000007)
+sprite_frames = SubResource("SpriteFrames_s1om5")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano54" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-11305, -324.25)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_35" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-11246.5, -328)
+scale = Vector2(3.0625014, 3.0000007)
+sprite_frames = SubResource("SpriteFrames_thyvg")
+autoplay = "default"
+
+[node name="área de dano55" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-11263.766, -319.25)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_36" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-11376.844, -340.5)
+scale = Vector2(2.627414, 2.3461545)
+sprite_frames = SubResource("SpriteFrames_2djs3")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano56" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-11377, -324.25)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_37" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-11333.5, -345)
+scale = Vector2(3.0625014, 3.0000007)
+sprite_frames = SubResource("SpriteFrames_bfoml")
+autoplay = "default"
+
+[node name="área de dano57" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-11335.469, -327.5)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="epinho 2_21" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-11269.496, -330.70007)
+scale = Vector2(3.063, 3)
+sprite_frames = SubResource("SpriteFrames_akb8o")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano58" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-11275, -319)
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="espinho1_38" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-11304.5, -344)
+scale = Vector2(3.0625014, 3.0000007)
+sprite_frames = SubResource("SpriteFrames_s1om5")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano59" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-11305, -324.25)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_39" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-11246.5, -328)
+scale = Vector2(3.0625014, 3.0000007)
+sprite_frames = SubResource("SpriteFrames_thyvg")
+autoplay = "default"
+
+[node name="área de dano60" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-11263.766, -319.25)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_40" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-11376.844, -340.5)
+scale = Vector2(2.627414, 2.3461545)
+sprite_frames = SubResource("SpriteFrames_2djs3")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano61" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-11377, -324.25)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_41" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-11333.5, -345)
+scale = Vector2(3.0625014, 3.0000007)
+sprite_frames = SubResource("SpriteFrames_bfoml")
+autoplay = "default"
+
+[node name="área de dano62" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-11335.469, -327.5)
+shape = SubResource("RectangleShape2D_q6r6c")
+
 [node name="espinho1_14" type="AnimatedSprite2D" parent="espinhos"]
 position = Vector2(-7571.8438, -210.5)
 scale = Vector2(2.7043333, 2.3461547)
@@ -2147,6 +2306,70 @@ flip_h = true
 
 [node name="área de dano15" type="CollisionShape2D" parent="espinhos"]
 position = Vector2(-7553, -196.25)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="epinho 2_13" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-8194, -205)
+scale = Vector2(4, 3.918)
+sprite_frames = SubResource("SpriteFrames_7vfuv")
+autoplay = "default"
+
+[node name="área de dano33" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-8192, -198)
+scale = Vector2(1.3, 1.3)
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="espinho1_21" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-8276, -213)
+scale = Vector2(3, 2.603)
+sprite_frames = SubResource("SpriteFrames_026ba")
+autoplay = "default"
+
+[node name="área de dano34" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-8275, -198.25)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_22" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-8235, -215)
+scale = Vector2(3, 2.939)
+sprite_frames = SubResource("SpriteFrames_r5k6w")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano35" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-8230, -204.00002)
+scale = Vector2(1.3, 1.3)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="epinho 2_14" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-8315.496, -202.70007)
+scale = Vector2(3.063, 3)
+sprite_frames = SubResource("SpriteFrames_7vfuv")
+autoplay = "default"
+
+[node name="área de dano36" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-8311.496, -191)
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="espinho1_23" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-8368.844, -210.5)
+scale = Vector2(2.7043333, 2.3461547)
+sprite_frames = SubResource("SpriteFrames_026ba")
+autoplay = "default"
+
+[node name="área de dano37" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-8372, -196.25)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_24" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-8351.5, -219)
+scale = Vector2(3.0625014, 3.0000007)
+sprite_frames = SubResource("SpriteFrames_r5k6w")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano38" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-8350, -196.25)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="epinho 2_1" type="AnimatedSprite2D" parent="espinhos"]
@@ -2232,6 +2455,137 @@ autoplay = "default"
 position = Vector2(-4949, -280)
 shape = SubResource("RectangleShape2D_q6r6c")
 
+[node name="espinho1_25" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-9421.091, -323.153)
+scale = Vector2(3.1658647, 3.1923082)
+sprite_frames = SubResource("SpriteFrames_c3urr")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano39" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-9442, -288)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_26" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-9378.091, -323.153)
+scale = Vector2(3.1658647, 3.1923082)
+sprite_frames = SubResource("SpriteFrames_c3urr")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano40" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-9409, -308)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_27" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-9335.091, -323.153)
+scale = Vector2(3.166, 3.219)
+sprite_frames = SubResource("SpriteFrames_c3urr")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano41" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-9368, -309)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="epinho 2_15" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-9454.091, -301.15295)
+scale = Vector2(3.063, 2.938)
+sprite_frames = SubResource("SpriteFrames_s32dh")
+autoplay = "default"
+
+[node name="área de dano42" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-9319, -309)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="epinho 2_16" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-9292.092, -303.15295)
+scale = Vector2(3.063, 2.938)
+sprite_frames = SubResource("SpriteFrames_s32dh")
+autoplay = "default"
+
+[node name="área de dano43" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-9300, -296)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_44" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-15429.091, -450.153)
+scale = Vector2(3.1658647, 3.1923082)
+sprite_frames = SubResource("SpriteFrames_c3urr")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano67" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-15450, -415)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_45" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-15386.091, -450.153)
+scale = Vector2(3.1658647, 3.1923082)
+sprite_frames = SubResource("SpriteFrames_c3urr")
+autoplay = "default"
+flip_h = true
+
+[node name="espinho1_47" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-15386.091, -450.153)
+scale = Vector2(3.1658647, 3.1923082)
+sprite_frames = SubResource("SpriteFrames_c3urr")
+autoplay = "default"
+flip_h = true
+
+[node name="espinho1_49" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-15386.091, -450.153)
+scale = Vector2(3.1658647, 3.1923082)
+sprite_frames = SubResource("SpriteFrames_c3urr")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano68" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-15417, -435)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_46" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-15343.091, -450.153)
+scale = Vector2(3.166, 3.219)
+sprite_frames = SubResource("SpriteFrames_c3urr")
+autoplay = "default"
+flip_h = true
+
+[node name="espinho1_48" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-16241, -442)
+scale = Vector2(3.166, 3.219)
+sprite_frames = SubResource("SpriteFrames_c3urr")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano69" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-15376, -436)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="área de dano72" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-16238, -423)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="epinho 2_24" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-15462.091, -428.15286)
+scale = Vector2(3.063, 2.938)
+sprite_frames = SubResource("SpriteFrames_s32dh")
+autoplay = "default"
+
+[node name="área de dano70" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-15327, -436)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="epinho 2_25" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-15300.092, -430.15286)
+scale = Vector2(3.063, 2.938)
+sprite_frames = SubResource("SpriteFrames_s32dh")
+autoplay = "default"
+
+[node name="área de dano71" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-15308, -423)
+shape = SubResource("RectangleShape2D_q6r6c")
+
 [node name="espinho1_19" type="AnimatedSprite2D" parent="espinhos"]
 position = Vector2(-7051, -254)
 scale = Vector2(6, 6.101)
@@ -2278,6 +2632,98 @@ position = Vector2(-6900, -199)
 scale = Vector2(1.25, 1.27)
 shape = SubResource("RectangleShape2D_q6r6c")
 
+[node name="espinho1_42" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-14483, -481.687)
+scale = Vector2(6, 6.101)
+sprite_frames = SubResource("SpriteFrames_c3urr")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano63" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-14522, -426.687)
+scale = Vector2(1.25, 1.26)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_43" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-14417, -478.687)
+scale = Vector2(6, 6.101)
+sprite_frames = SubResource("SpriteFrames_c3urr")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano64" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-14466, -444.687)
+scale = Vector2(2, 2.016)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="epinho 2_22" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-14536, -431.687)
+scale = Vector2(4, 3.869)
+sprite_frames = SubResource("SpriteFrames_s32dh")
+autoplay = "default"
+
+[node name="área de dano65" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-14389, -445.687)
+scale = Vector2(2, 2.016)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="epinho 2_23" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-14337, -433.687)
+scale = Vector2(5, 4.836)
+sprite_frames = SubResource("SpriteFrames_s32dh")
+autoplay = "default"
+
+[node name="área de dano66" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-14332, -426.687)
+scale = Vector2(1.25, 1.27)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_28" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-9916, -348.99997)
+scale = Vector2(5, 5.084)
+sprite_frames = SubResource("SpriteFrames_c3urr")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano44" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-9961, -305.687)
+scale = Vector2(1.25, 1.26)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_29" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-9844, -345)
+scale = Vector2(5, 5.084)
+sprite_frames = SubResource("SpriteFrames_c3urr")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano45" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-9905, -323.687)
+scale = Vector2(2, 2.016)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="epinho 2_17" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-9974, -307)
+scale = Vector2(4, 3.869)
+sprite_frames = SubResource("SpriteFrames_s32dh")
+autoplay = "default"
+
+[node name="área de dano46" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-9828, -324.687)
+scale = Vector2(2, 2.016)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="epinho 2_18" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-9776, -312.687)
+scale = Vector2(5, 4.836)
+sprite_frames = SubResource("SpriteFrames_s32dh")
+autoplay = "default"
+
+[node name="área de dano47" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-9771, -305.687)
+scale = Vector2(1.25, 1.27)
+shape = SubResource("RectangleShape2D_q6r6c")
+
 [node name="AreaAprendePDuplo" type="Area2D" parent="."]
 position = Vector2(0, 812)
 
@@ -2289,7 +2735,7 @@ shape = SubResource("RectangleShape2D_kdubu")
 position = Vector2(0, 812)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Void"]
-position = Vector2(-1, -60)
+position = Vector2(46, -65)
 shape = SubResource("RectangleShape2D_d21ai")
 
 [node name="pranta e avores" type="Sprite2D" parent="."]
@@ -2366,6 +2812,70 @@ show_behind_parent = true
 texture_filter = 1
 position = Vector2(-116.52246, -34.826805)
 scale = Vector2(0.0672965, 0.0672965)
+texture = ExtResource("17_flf07")
+flip_h = true
+
+[node name="arvore 8" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-2588.6035, -97.09068)
+scale = Vector2(0.0672965, 0.0672965)
+texture = ExtResource("17_flf07")
+flip_h = true
+
+[node name="arvore 9" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-2786.548, -110.706665)
+scale = Vector2(0.08969119, 0.08969119)
+texture = ExtResource("17_flf07")
+flip_h = true
+
+[node name="arvore 10" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-4130.319, -46.69796)
+scale = Vector2(0.07297955, 0.07297955)
+texture = ExtResource("17_flf07")
+flip_h = true
+
+[node name="arvore 12" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-4895.9424, -44.662434)
+scale = Vector2(0.06462373, 0.06462373)
+texture = ExtResource("17_flf07")
+flip_h = true
+
+[node name="arvore 13" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-5121.931, -32.560345)
+scale = Vector2(0.05234361, 0.04851704)
+texture = ExtResource("17_flf07")
+flip_h = true
+
+[node name="arvore 14" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-5402.2856, -43.298218)
+scale = Vector2(0.039451078, 0.036567014)
+texture = ExtResource("17_flf07")
+flip_h = true
+
+[node name="arvore 15" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-5552.6377, -69.448265)
+scale = Vector2(0.078694314, 0.07294138)
+texture = ExtResource("17_flf07")
+flip_h = true
+
+[node name="arvore 11" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-4291.7773, -37.95713)
+scale = Vector2(0.054045413, 0.054045413)
 texture = ExtResource("17_flf07")
 flip_h = true
 
@@ -2584,8 +3094,56 @@ position = Vector2(-1462.0381, 27.094849)
 scale = Vector2(0.9158204, 0.9158204)
 texture = ExtResource("17_k73cj")
 
-[connection signal="StatsChanged" from="Erika" to="Hud" method="_on_erika_stats_changed"]
+[node name="pranta 41" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-1721.2885, 18.405382)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 43" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-2083.9238, 1.4367657)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 44" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-2119.7769, 0.88939095)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 45" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-2137.2932, 0.6157036)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 46" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-2153.4407, 1.1630783)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 47" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-2195.5886, 0.06832886)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 48" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-2247.3154, 0.6157036)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 42" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-1672.572, 18.67907)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
 [connection signal="StatsChanged" from="Erika" to="Hud" method="OnPlayerStatsChanged"]
+[connection signal="StatsChanged" from="Erika" to="Hud" method="_on_erika_stats_changed"]
 [connection signal="body_entered" from="espinhos" to="Erika" method="_on_espinhos_body_entered"]
 [connection signal="body_exited" from="espinhos" to="Erika" method="_on_espinhos_body_exited"]
 [connection signal="body_entered" from="Void" to="Erika" method="_on_void_body_entered"]
