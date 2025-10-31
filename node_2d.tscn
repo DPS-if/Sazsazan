@@ -1790,7 +1790,7 @@ scale = Vector2(2.44, 2.44)
 texture = ExtResource("6_kdubu")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="mapaBase"]
-polygon = PackedVector2Array(-5135, -270, -6904, -268, -7087, -176, -8561, -176, -8560, 43, -5135, 44)
+polygon = PackedVector2Array(-5135, -270, -6471.3594, -268.48914, -6904, -268, -7087, -176, -7847, -176, -8001, -176, -8045.7676, -176, -8561, -176, -8560, 43, -7709, 41, -5135, 44)
 
 [node name="segundo cenario 1" type="Sprite2D" parent="mapaBase"]
 position = Vector2(-10272.999, -120)
@@ -2138,6 +2138,105 @@ autoplay = "default"
 position = Vector2(-3844.7483, -286.375)
 shape = SubResource("RectangleShape2D_0hol4")
 
+[node name="espinho1_16" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-5070, -314)
+scale = Vector2(3.1658647, 3.1923082)
+sprite_frames = SubResource("SpriteFrames_c3urr")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano24" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-5097, -276)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_17" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-5027, -314)
+scale = Vector2(3.1658647, 3.1923082)
+sprite_frames = SubResource("SpriteFrames_c3urr")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano25" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-5062, -287)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_18" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-4984, -314)
+scale = Vector2(3.166, 3.219)
+sprite_frames = SubResource("SpriteFrames_c3urr")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano26" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-5023, -288)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="epinho 2_9" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-5103, -292)
+scale = Vector2(3.063, 2.938)
+sprite_frames = SubResource("SpriteFrames_s32dh")
+autoplay = "default"
+
+[node name="área de dano27" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-4981, -288)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="epinho 2_10" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-4941.0005, -294)
+scale = Vector2(3.063, 2.938)
+sprite_frames = SubResource("SpriteFrames_s32dh")
+autoplay = "default"
+
+[node name="área de dano28" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-4949, -280)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_19" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-7051, -254)
+scale = Vector2(6, 6.101)
+sprite_frames = SubResource("SpriteFrames_c3urr")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano29" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-7090, -199)
+scale = Vector2(1.25, 1.26)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_20" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-6985, -251)
+scale = Vector2(6, 6.101)
+sprite_frames = SubResource("SpriteFrames_c3urr")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano30" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-7034, -217)
+scale = Vector2(2, 2.016)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="epinho 2_11" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-7104, -204)
+scale = Vector2(4, 3.869)
+sprite_frames = SubResource("SpriteFrames_s32dh")
+autoplay = "default"
+
+[node name="área de dano31" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-6957, -218)
+scale = Vector2(2, 2.016)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="epinho 2_12" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-6905.0005, -206)
+scale = Vector2(5, 4.836)
+sprite_frames = SubResource("SpriteFrames_s32dh")
+autoplay = "default"
+
+[node name="área de dano32" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-6900, -199)
+scale = Vector2(1.25, 1.27)
+shape = SubResource("RectangleShape2D_q6r6c")
+
 [node name="AreaAprendePDuplo" type="Area2D" parent="."]
 position = Vector2(0, 812)
 
@@ -2149,7 +2248,7 @@ shape = SubResource("RectangleShape2D_kdubu")
 position = Vector2(0, 812)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Void"]
-position = Vector2(12, -60)
+position = Vector2(-1, -60)
 shape = SubResource("RectangleShape2D_d21ai")
 
 [node name="arvore 1" type="Sprite2D" parent="."]
