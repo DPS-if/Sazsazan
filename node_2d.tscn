@@ -1,9 +1,9 @@
-[gd_scene load_steps=262 format=3 uid="uid://bqpmxgkb5nfkc"]
+[gd_scene load_steps=263 format=3 uid="uid://bqpmxgkb5nfkc"]
 
 [ext_resource type="PackedScene" uid="uid://ctjhsgil40l7h" path="res://Cenas Complementares/Erika/Erika.tscn" id="2_0e48y"]
 [ext_resource type="Texture2D" uid="uid://dsx4wm781utaj" path="res://TelaInicial/Cenário 1.png" id="2_4d7sh"]
 [ext_resource type="PackedScene" uid="uid://cgcergo8oj4yw" path="res://Cenas Complementares/Hub/HUD.tscn" id="2_epypp"]
-[ext_resource type="Script" uid="uid://jdnrp3a52nhp" path="res://Sprite2d.cs" id="2_ir8iy"]
+[ext_resource type="Script" path="res://Sprite2d.cs" id="2_ir8iy"]
 [ext_resource type="Texture2D" uid="uid://2dsha06ftf81" path="res://Imagens/Terreno/Mapa Base 2.0.png" id="3_epypp"]
 [ext_resource type="Texture2D" uid="uid://dkegd22f5aqfs" path="res://Imagens/sprites erika/veeelinha_paradinha.png" id="4_hqns4"]
 [ext_resource type="Texture2D" uid="uid://44k5ivjf8snw" path="res://Imagens/Terreno/Cenario1 2.1.png" id="5_q6r6c"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cn75xweshob5" path="res://Imagens/Terreno/Obstáculos/FogoPequeno(EsseSim).png" id="13_nr8wp"]
 [ext_resource type="Texture2D" uid="uid://f0cbmarsg34h" path="res://Imagens/Personagens secundarios/FellipePersonagem.png" id="16_ta5nu"]
 [ext_resource type="Texture2D" uid="uid://bs1vdlav7jj0h" path="res://Imagens/Terreno/ArvoreMuruci.png" id="17_flf07"]
+[ext_resource type="Texture2D" uid="uid://cjikoq55c7sx5" path="res://Imagens/Pranta.png" id="17_k73cj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ld5wt"]
 atlas = ExtResource("16_ta5nu")
@@ -2251,58 +2252,297 @@ position = Vector2(0, 812)
 position = Vector2(-1, -60)
 shape = SubResource("RectangleShape2D_d21ai")
 
-[node name="arvore 1" type="Sprite2D" parent="."]
+[node name="pranta e avores" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(-1981.7498, 194.75034)
+scale = Vector2(3.6538038, 3.6538038)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 16" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(467.45813, 27.916023)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 8" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(842.136, 88.40093)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 2" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(1135.8026, 79.64295)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="arvore 1" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(2109, 280.9999)
-scale = Vector2(0.36513174, 0.36513174)
+position = Vector2(1119.5867, 23.605423)
+scale = Vector2(0.099931955, 0.099931955)
 texture = ExtResource("17_flf07")
 
-[node name="arvore 2" type="Sprite2D" parent="."]
+[node name="arvore 2" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(1505.5, 351.49982)
-scale = Vector2(0.3018095, 0.3018095)
+position = Vector2(954.4163, 42.900352)
+scale = Vector2(0.08260145, 0.08260145)
 texture = ExtResource("17_flf07")
 flip_h = true
 
-[node name="arvore 3" type="Sprite2D" parent="."]
+[node name="arvore 3" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(1053.9999, 378.9999)
-scale = Vector2(0.2565791, 0.2565791)
+position = Vector2(830.84644, 50.42678)
+scale = Vector2(0.07022247, 0.07022247)
 texture = ExtResource("17_flf07")
 
-[node name="arvore 4" type="Sprite2D" parent="."]
+[node name="arvore 4" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(-227.5, 145.50006)
-scale = Vector2(0.27220392, 0.27220392)
+position = Vector2(480.11606, -13.479179)
+scale = Vector2(0.07449878, 0.07449878)
 texture = ExtResource("17_flf07")
 flip_h = true
 
-[node name="arvore 5" type="Sprite2D" parent="."]
+[node name="arvore 5" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(-1335.9999, 158.00009)
-scale = Vector2(0.21217096, 0.21217096)
+position = Vector2(176.73361, -10.058079)
+scale = Vector2(0.058068518, 0.058068518)
 texture = ExtResource("17_flf07")
 flip_h = true
 
-[node name="arvore 6" type="Sprite2D" parent="."]
+[node name="arvore 6" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(-2046.5, -5.4999094)
-scale = Vector2(0.3659539, 0.3659539)
+position = Vector2(-17.721313, -54.80597)
+scale = Vector2(0.10015696, 0.10015696)
 texture = ExtResource("17_flf07")
 
-[node name="arvore 7" type="Sprite2D" parent="."]
+[node name="arvore 7" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(-2407.5, 67.50003)
-scale = Vector2(0.2458882, 0.2458882)
+position = Vector2(-116.52246, -34.826805)
+scale = Vector2(0.0672965, 0.0672965)
 texture = ExtResource("17_flf07")
 flip_h = true
+
+[node name="pranta 3" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(1127.0447, 79.64295)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 1" type="Sprite2D" parent="pranta e avores"]
+position = Vector2(1105.9707, 79.64295)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 4" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(1039.1909, 79.64294)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 5" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(1001.9696, 84.021935)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 6" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(960.369, 88.40093)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 7" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(940.1162, 88.40093)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 9" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(821.8833, 88.40093)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 10" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(806.0094, 85.93775)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 11" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(672.9973, 79.64295)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 12" type="Sprite2D" parent="pranta e avores"]
+top_level = true
+position = Vector2(395.25037, 424.75003)
+scale = Vector2(2.7307692, 2.7307692)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 13" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(639.0601, 62.948013)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 14" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(643.4391, 62.948013)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 15" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(484.70044, 27.91603)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 18" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(401.2258, 27.91603)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 19" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(418.46808, 27.91603)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 20" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(387.8151, 27.91603)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 21" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(177.89688, 19.158043)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 22" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(227.98166, 19.158043)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 25" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(48.44275, 1.6420479)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 26" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-102.63269, 1.6420479)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 23" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(196.23386, 20.526535)
+scale = Vector2(0.53684044, 0.53684044)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 17" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(538.34314, 27.91603)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 27" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-160.65448, 1.6420517)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 28" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-217.58142, 1.6420479)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 29" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-456.23694, 1.6420517)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 30" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-513.1639, 1.6420517)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 31" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-473.20557, 1.6420479)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 32" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-494.82697, 1.6420479)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 33" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-859.10455, 1.6420517)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 34" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-1067.1069, 27.916039)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 35" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-895.7785, 10.400047)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 36" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-1048.7705, 27.916039)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 37" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-1248.2881, 27.916039)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 38" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-1392.5217, 27.916039)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 39" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-1428.5115, 28.737091)
+scale = Vector2(0.64208066, 0.6210608)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 40" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-1462.0381, 27.094849)
+scale = Vector2(0.9158204, 0.9158204)
+texture = ExtResource("17_k73cj")
 
 [connection signal="StatsChanged" from="Erika" to="Hud" method="_on_erika_stats_changed"]
 [connection signal="StatsChanged" from="Erika" to="Hud" method="OnPlayerStatsChanged"]
