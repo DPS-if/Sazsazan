@@ -13,13 +13,13 @@ public partial class Erika : CharacterBody2D
 	
 	// --- VARIÁVEIS DE DASH ---
 	[Export(PropertyHint.Range, "100.0,2000.0,1.0")]
-	public float DashSpeed = 900.0f;        
+	public float DashSpeed = 900.0f;        
 	[Export(PropertyHint.Range, "0.1,0.5,0.01")]
-	public float DashDuration = 0.15f;      
+	public float DashDuration = 0.15f;      
 	[Export]
-	public float DashCooldown = 1.2f;       
+	public float DashCooldown = 1.2f;       
 	
-	public float DashStaminaCost => MaxStamina * 0.085f; 
+	public float DashStaminaCost => MaxStamina * 0.085f; 
 
 	// --- Variáveis de Pulo ---
 	[Export]
@@ -41,13 +41,18 @@ public partial class Erika : CharacterBody2D
 	[Export]
 	public float DoubleJumpStaminaCost = 10.0f;
 
-	// --- (NOVO) Variáveis de Água e Afogamento ---
+	// --- Variáveis de Água e Afogamento ---
 	[Export]
-	public float StaminaDrainRateInWater = 10.0f; // Estamina gasta por segundo na água
+	public float StaminaDrainRateInWater = 10.0f; 
 	[Export]
-	public float DrowningDamage = 1.0f;          // Dano de afogamento (1 vida)
+	public float DrowningDamage = 1.0f;          
 	[Export]
-	public float DrowningDamageInterval = 1.0f;  // Dano a cada 1 segundo
+	public float DrowningDamageInterval = 1.0f;  
+	
+	// --- (NOVO) VARIÁVEL DE ESPINHO ---
+	[Export]
+	public float SpikeDamage = 1.0f;
+	// NOTA: O intervalo de dano contínuo é controlado por DamageCooldownTime (1.1s)
 
 	// --- VARIÁVEIS DE DANO/REGENERAÇÃO/KNOCKBACK/BLINK ---
 	[Export]
@@ -56,17 +61,17 @@ public partial class Erika : CharacterBody2D
 	public float RegenPercentage = 0.05f;
 	
 	[Export]
-	public float RegenInterval = 10.0f;     
+	public float RegenInterval = 10.0f;     
 	[Export]
-	public float DamageCooldownTime = 1.1f;
+	public float DamageCooldownTime = 1.1f; // Define a frequência de dano de espinho e invencibilidade
 	
 	[Export]
 	public float KnockbackHorizontalForce = 384.0f;
 	[Export]
 	public float KnockbackVerticalForce = -384.0f;
 	
-	[Export] 
-	public float BlinkRate = 0.05f; 
+	[Export] 
+	public float BlinkRate = 0.05f; 
 	
 	private float _regenTimer = 0.0f;
 	private float _damageCooldownTimer = 0.0f;
@@ -80,7 +85,7 @@ public partial class Erika : CharacterBody2D
 	private float _dashDirection = 0.0f;
 
 	// VARIÁVEIS PARA O EFEITO BLINK (PISCAR)
-	private AnimatedSprite2D _animatedSprite; 
+	private AnimatedSprite2D _animatedSprite; 
 	private Timer _blinkTimer;
 	
 	public float CurrentHealth { get; private set; }
@@ -92,9 +97,12 @@ public partial class Erika : CharacterBody2D
 
 	private float _staminaRegenTimer = 0.0f;
 	
-	// --- (NOVO) Controle da Água ---
+	// --- Controle da Água ---
 	private bool _isInWater = false;
 	private float _drowningTimer = 0.0f;
+	
+	// --- (CRÍTICO) Controle dos Espinhos ---
+	private bool _isTouchingSpikes = false;
 
 	// --- SINAL PARA AVISAR O HUD ---
 	[Signal]
@@ -111,13 +119,12 @@ public partial class Erika : CharacterBody2D
 		CurrentHealth = MaxHealth;
 		CurrentStamina = MaxStamina;
 		
-		// --- (CORRETO) Pega o seu nó de sprite "Animaçoes" ---
 		_animatedSprite = GetNode<AnimatedSprite2D>("Animaçoes");
 		
 		_blinkTimer = new Timer();
-		_blinkTimer.OneShot = false; 
+		_blinkTimer.OneShot = false; 
 		_blinkTimer.WaitTime = BlinkRate;
-		_blinkTimer.Timeout += OnBlinkTimerTimeout; 
+		_blinkTimer.Timeout += OnBlinkTimerTimeout; 
 		AddChild(_blinkTimer);
 		
 		var pauseScene = GD.Load<PackedScene>("res://Menudepausa/MenuPause.tscn");
@@ -133,14 +140,14 @@ public partial class Erika : CharacterBody2D
 			area.BodyExited += OnDuploAreaBodyExited;
 		}
 
-		// (NOVO) Conecta à Área de Água
+		// Conecta à Área de Água
 		var waterArea = GetTree().Root.FindChild("WaterArea", true, false);
 		if (waterArea is Area2D water)
 		{
 			water.BodyEntered += OnWaterAreaBodyEntered;
 			water.BodyExited += OnWaterAreaBodyExited;
 		}
-
+		
 		dicaPuloDuplo = new Label
 		{
 			Text = "Aperte duas vezes ESPAÇO para usar o pulo duplo",
@@ -157,7 +164,7 @@ public partial class Erika : CharacterBody2D
 		EmitSignal(SignalName.StatsChanged, CurrentHealth, MaxHealth, CurrentStamina, MaxStamina);
 	}
 
-	// --- (NOVO) Métodos de Entrada/Saída da Água ---
+	// --- Métodos de Entrada/Saída da Água ---
 	private void OnWaterAreaBodyEntered(Node body)
 	{
 		if (body == this) { _isInWater = true; }
@@ -165,10 +172,10 @@ public partial class Erika : CharacterBody2D
 
 	private void OnWaterAreaBodyExited(Node body)
 	{
-		if (body == this) 
-		{ 
-			_isInWater = false; 
-			_drowningTimer = 0.0f; // Reseta o timer de afogamento
+		if (body == this) 
+		{ 
+			_isInWater = false; 
+			_drowningTimer = 0.0f; 
 		}
 	}
 	// --- Fim dos Métodos da Água ---
@@ -192,7 +199,6 @@ public partial class Erika : CharacterBody2D
 			PauseMenu.Visible = GetTree().Paused;
 		}
 		
-		// INPUT DO DASH COM O BOTÃO ESQUERDO DO MOUSE
 		var mouseEvent = @event as InputEventMouseButton;
 		if (mouseEvent?.Pressed == true && mouseEvent.ButtonIndex == MouseButton.Left && !_isDashing && _dashCooldownTimer <= 0)
 		{
@@ -207,14 +213,12 @@ public partial class Erika : CharacterBody2D
 	
 	private void PerformDash()
 	{
-		// 1. Checa a Estamina
 		if (CurrentStamina < DashStaminaCost)
 		{
 			GD.Print("Sem estamina suficiente para o Dash!");
 			return;
 		}
 
-		// 2. Define a direção do dash
 		float inputDirection = Input.GetAxis("ui_left", "ui_right");
 
 		if (inputDirection == 0)
@@ -233,11 +237,9 @@ public partial class Erika : CharacterBody2D
 			_dashDirection = inputDirection;
 		}
 
-		// 3. Aplica o custo e Cooldown
 		CurrentStamina -= DashStaminaCost;
 		_dashCooldownTimer = DashCooldown;
 
-		// 4. Inicia o Dash
 		_isDashing = true;
 		_dashDurationTimer = DashDuration;
 
@@ -259,46 +261,54 @@ public partial class Erika : CharacterBody2D
 			}
 		}
 
-		// (CORRIGIDO) O timer de estamina só conta se for maior que 0
 		if (_staminaRegenTimer > 0) { _staminaRegenTimer -= (float)delta; }
 		
-		if (_damageCooldownTimer > 0) 
-		{ 
-			_damageCooldownTimer -= (float)delta;
+		// Temporizador de Invencibilidade (Geral)
+		if (_damageCooldownTimer > 0) 
+		{ 
+			_damageCooldownTimer -= (float)delta; // Decrementa o timer
 			if (_damageCooldownTimer <= 0)
 			{
 				StopBlinking();
 			}
 		}
 
-		// --- (NOVO) Lógica de Água e Afogamento ---
+		// --- Lógica de Dano Contínuo de Espinhos (CRÍTICO) ---
+		// Só aplica dano se estiver tocando o espinho E o período de invencibilidade (1.1s) tiver acabado.
+		if (_isTouchingSpikes && _damageCooldownTimer <= 0)
+		{
+			// Procura o nó espinho para aplicar o Knockback.
+			Node2D spikesSource = GetTree().Root.FindChild("espinhos", true, false) as Node2D;
+			
+			if (spikesSource != null)
+			{
+				// O TakeDamage() aplica o dano e REINICIA o _damageCooldownTimer (1.1s),
+				// garantindo o intervalo de dano contínuo.
+				TakeDamage(SpikeDamage, spikesSource);
+			}
+		}
+		// --- Fim da Lógica de Espinhos ---
+
+		// --- Lógica de Água e Afogamento ---
 		if (_isInWater)
 		{
-			// 1. Drenar Estamina (Fôlego)
 			if (CurrentStamina > 0)
 			{
-				// Usa a função DrainStamina para ser consistente com o delay
-				DrainStamina(StaminaDrainRateInWater * (float)delta); 
-				
-				// Reseta o timer de afogamento enquanto tiver fôlego
-				_drowningTimer = 0.0f; 
+				DrainStamina(StaminaDrainRateInWater * (float)delta); 
+				_drowningTimer = 0.0f; 
 			}
-			// 2. Acabou a Estamina -> Começa a Afogar
 			else
 			{
 				_drowningTimer += (float)delta;
 				if (_drowningTimer >= DrowningDamageInterval)
 				{
-					_drowningTimer = 0.0f; // Reseta o timer do dano
-					
-					// (NOVO) Chama a função de dano ambiental
-					TakeEnvironmentalDamage(DrowningDamage); 
+					_drowningTimer = 0.0f; 
+					TakeEnvironmentalDamage(DrowningDamage); 
 				}
 			}
 		}
 		else
 		{
-			// Se não está na água, reseta o timer de afogamento
 			_drowningTimer = 0.0f;
 		}
 		// --- Fim da Lógica de Água ---
@@ -321,18 +331,15 @@ public partial class Erika : CharacterBody2D
 		}
 		else // Movimento e Gravidade Normal
 		{
-			// (ALTERADO) Se estiver na água, a gravidade é menor (flutua)
-			if (!IsOnFloor() && !_isInWater) 
-			{ 
-				velocity.Y += Gravity * (float)delta; 
+			if (!IsOnFloor() && !_isInWater) 
+			{ 
+				velocity.Y += Gravity * (float)delta; 
 			}
 			else if (_isInWater)
 			{
-				// Flutuação leve (ajuste o 0.5f se quiser mais forte/fraco)
-				velocity.Y += Gravity * 0.5f * (float)delta; 
+				velocity.Y += Gravity * 0.5f * (float)delta; 
 			}
 
-			// Reset do Pulo e Lógica de Aprendizado
 			if (IsOnFloor())
 			{
 				_canDoubleJump = true;
@@ -350,7 +357,7 @@ public partial class Erika : CharacterBody2D
 
 			if (Input.IsActionJustPressed("ui_accept"))
 			{
-				if (IsOnFloor() || _isInWater) // (ALTERADO) Pode pular do chão ou da água
+				if (IsOnFloor() || _isInWater) 
 				{
 					velocity.Y = JumpVelocity;
 				}
@@ -371,14 +378,12 @@ public partial class Erika : CharacterBody2D
 				}
 			}
 
-			// --- 3. Lógica de Estamina e Sprint (TOTALMENTE CORRIGIDA) ---
+			// --- 3. Lógica de Estamina e Sprint ---
 			bool wantsToSprint = Input.IsActionPressed("ui_corrida");
 			float currentSpeed = Speed;
 			
-			// (CORRIGIDO) "canSprint" agora checa o timer!
 			bool canSprint = _staminaRegenTimer <= 0 && CurrentStamina > 0;
 
-			// (ALTERADO) Não pode correr se estiver se afogando
 			if (wantsToSprint && canSprint && _drowningTimer <= 0)
 			{
 				float staminaToDrain = StaminaDrainRate * (float)delta;
@@ -389,15 +394,12 @@ public partial class Erika : CharacterBody2D
 				}
 				else
 				{
-					// (CORRIGIDO) Só ativamos o timer quando a estamina ACABA
 					CurrentStamina = 0;
 					_staminaRegenTimer = StaminaRegenDelay;
 				}
 			}
 			else
 			{
-				// Lógica de Regeneração (está correta)
-				// (ALTERADO) Não regenera estamina na água
 				if (_staminaRegenTimer <= 0 && CurrentStamina < MaxStamina && !wantsToSprint && !_isInWater)
 				{
 					CurrentStamina += StaminaRegenRate * (float)delta;
@@ -408,7 +410,7 @@ public partial class Erika : CharacterBody2D
 			// 4. Aplica Movimento e Knockback (fora do Dash)
 			float horizontalDirection = Input.GetAxis("ui_left", "ui_right");
 			
-			_knockbackVelocity = _knockbackVelocity.MoveToward(Vector2.Zero, 1000 * (float)delta); 
+			_knockbackVelocity = _knockbackVelocity.MoveToward(Vector2.Zero, 1000 * (float)delta); 
 
 			if (_knockbackVelocity.LengthSquared() > 0)
 			{
@@ -424,8 +426,6 @@ public partial class Erika : CharacterBody2D
 		}
 		Velocity = velocity;
 		
-		// --- CHAMADA DA FUNÇÃO DE ANIMAÇÃO ---
-		// (A lógica de espelhar (FlipH) foi movida para dentro desta função)
 		_UpdateAnimation();
 
 		MoveAndSlide();
@@ -434,39 +434,32 @@ public partial class Erika : CharacterBody2D
 		EmitSignal(SignalName.StatsChanged, CurrentHealth, MaxHealth, CurrentStamina, MaxStamina);
 	}
 	
-	// --- FUNÇÃO DE ANIMAÇÃO (CORRIGIDA E COM ÁGUA) ---
+	// --- FUNÇÃO DE ANIMAÇÃO ---
 	private void _UpdateAnimation()
 	{
-		// 1. Lógica de Espelhar (FlipH)
-		// Só vira se a velocidade horizontal for significativa
-		if (Mathf.Abs(Velocity.X) > 0.1f) 
+		if (Mathf.Abs(Velocity.X) > 0.1f) 
 		{
-			// vira (true) se a velocidade for negativa (esquerda)
-			_animatedSprite.FlipH = (Velocity.X < 0); 
+			_animatedSprite.FlipH = (Velocity.X < 0); 
 		}
 
-		// 2. Lógica de Animação
 		string newAnimation = "";
 
 		if (_isDashing)
 		{
-			// (Opcional: se você tiver uma animação "dash", coloque aqui)
-			// newAnimation = "Erikadash"; 
+			// ...
 		}
-		else if (_isInWater) // (NOVO) Checa a água primeiro
+		else if (_isInWater) 
 		{
-			// (AVISO: Você precisa criar uma animação "Erikapiscina" no seu Sprite)
 			newAnimation = "Erikapiscina";
 		}
 		else if (!IsOnFloor())
 		{
 			newAnimation = "Erikapulando";
 		}
-		else // Está no chão
+		else 
 		{
-			if (Mathf.Abs(Velocity.X) > 0.1f) // Se está se movendo
+			if (Mathf.Abs(Velocity.X) > 0.1f) 
 			{
-				// (CORRIGIDO) A condição de "sprint"
 				if (Input.IsActionPressed("ui_corrida") && _staminaRegenTimer <= 0 && CurrentStamina > 0)
 				{
 					newAnimation = "Erikacorrendo";
@@ -482,11 +475,8 @@ public partial class Erika : CharacterBody2D
 			}
 		}
 
-		// Toca a animação apenas se ela mudou
 		if (newAnimation != "" && _animatedSprite.Animation != newAnimation)
 		{
-			// (AVISO) Certifique-se de que você tem animações com estes nomes:
-			// "Erikapiscina", "Erikapulando", "Erikaparada", "Erikaandando", "Erikacorrendo"
 			_animatedSprite.Play(newAnimation);
 		}
 	}
@@ -511,7 +501,6 @@ public partial class Erika : CharacterBody2D
 		CurrentHealth = Mathf.Min(CurrentHealth, MaxHealth);
 	}
 
-	// --- MÉTODO PARA DRENAR ESTAMINA ---
 	public void DrainStamina(float amount)
 	{
 		if (CurrentStamina > 0)
@@ -519,16 +508,12 @@ public partial class Erika : CharacterBody2D
 			CurrentStamina -= amount;
 			CurrentStamina = Mathf.Max(CurrentStamina, 0);
 			
-			// Isso garante que o timer de delay seja resetado
-			_staminaRegenTimer = StaminaRegenDelay; 
+			_staminaRegenTimer = StaminaRegenDelay; 
 		}
 	}
-	// --- FIM DO MÉTODO ---
 
-	// --- (NOVO) MÉTODO DE DANO AMBIENTAL (AFOGAMENTO) ---
 	public void TakeEnvironmentalDamage(float amount)
 	{
-		// Respeita os frames de invencibilidade (piscar)
 		if (_damageCooldownTimer > 0)
 		{
 			return;
@@ -537,7 +522,7 @@ public partial class Erika : CharacterBody2D
 		CurrentHealth -= amount;
 		CurrentHealth = Mathf.Max(CurrentHealth, 0);
 
-		_damageCooldownTimer = DamageCooldownTime; // Ativa o cooldown/piscar
+		_damageCooldownTimer = DamageCooldownTime; 
 
 		StartBlinking();
 
@@ -548,7 +533,6 @@ public partial class Erika : CharacterBody2D
 			RestartGame();
 		}
 	}
-	// --- FIM DO MÉTODO ---
 
 	public void TakeDamage(float amount, Node2D damageSource)
 	{
@@ -576,11 +560,11 @@ public partial class Erika : CharacterBody2D
 	
 	public void RestartGame()
 	{
-		if (_isRestarting) 
+		if (_isRestarting) 
 		{
 			return;
 		}
-		_isRestarting = true; 
+		_isRestarting = true; 
 
 		GD.Print("Erika morreu! Reiniciando o jogo.");
 		GetTree().CallDeferred("reload_current_scene");
@@ -589,59 +573,53 @@ public partial class Erika : CharacterBody2D
 	// --- MÉTODOS DE CONTROLE DO BLINK (PISCAR) ---
 	private void OnBlinkTimerTimeout()
 	{
-		_animatedSprite.Visible = !_animatedSprite.Visible; 
+		_animatedSprite.Visible = !_animatedSprite.Visible; 
 	}
 
 	private void StopBlinking()
 	{
 		_blinkTimer.Stop();
-		_animatedSprite.Visible = true; 
+		_animatedSprite.Visible = true; 
 	}
 
 	private void StartBlinking()
 	{
 		_blinkTimer.Start();
 	}
-
-	// MÉTODO DE RECEBIMENTO DO SINAL DO ESPINHO 1
-	private void _on_espinho_1_body_entered(Node2D body)
+	
+	// --- (NOVO) MÉTODOS DE COLISÃO DO NÓ PAI "espinhos" ---
+	// ESTES MÉTODOS DEVEM SER CONECTADOS AO NÓ 'espinhos' NO EDITOR
+	private void _on_espinhos_body_entered(Node2D body)
 	{
 		if (body == this)
 		{
-			float damageAmount = 1.0f;
-
-			var espinho1 = GetTree().Root.FindChild("espinho1", true, false) as Node2D;
-
-			if (espinho1 != null)
+			GD.Print("Erika entrou na área dos espinhos!"); // DEBUG
+			
+			_isTouchingSpikes = true;
+			
+			// Aplica o primeiro dano imediatamente na entrada
+			Node2D spikesSource = GetTree().Root.FindChild("espinhos", true, false) as Node2D;
+			
+			if (spikesSource != null)
 			{
-				TakeDamage(damageAmount, espinho1);
-			}
-			else
-			{
-				TakeDamage(damageAmount, new Node2D() { GlobalPosition = GlobalPosition + new Vector2(100, 0) });
+				TakeDamage(SpikeDamage, spikesSource);
 			}
 		}
 	}
 
-	// MÉTODO DE RECEBIMENTO DO SINAL DO ESPINHO 2
-	private void _on_espinho_2_body_entered(Node2D body)
+	private void _on_espinhos_body_exited(Node2D body)
 	{
 		if (body == this)
 		{
-			float damageAmount = 1.0f;
-
-			var espinho2 = GetTree().Root.FindChild("espinho2", true, false) as Node2D;
-
-			if (espinho2 != null)
-			{
-				TakeDamage(damageAmount, espinho2);
-			}
-			else
-			{
-				TakeDamage(damageAmount, new Node2D() { GlobalPosition = GlobalPosition + new Vector2(100, 0) });
-			}
+			GD.Print("Erika saiu da área dos espinhos!"); // DEBUG
+			_isTouchingSpikes = false;
 		}
 	}
+	// --- FIM DOS MÉTODOS DE COLISÃO DO NÓ PAI "espinhos" ---
+	
+	// --- MÉTODOS ANTIGOS DE ESPINHO 1 e 2 FORAM REMOVIDOS ---
+	// Para não criar confusão, eles não estão mais aqui.
+	// Você pode removê-los do seu script, pois eles não servem para o nó pai 'espinhos'.
 
 	// --- MÉTODO: VOID (VAZIO) ---
 	private void _on_void_body_entered(Node2D body)

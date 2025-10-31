@@ -1,4 +1,4 @@
-[gd_scene load_steps=254 format=3 uid="uid://bqpmxgkb5nfkc"]
+[gd_scene load_steps=263 format=3 uid="uid://bqpmxgkb5nfkc"]
 
 [ext_resource type="PackedScene" uid="uid://ctjhsgil40l7h" path="res://Cenas Complementares/Erika/Erika.tscn" id="2_0e48y"]
 [ext_resource type="Texture2D" uid="uid://dsx4wm781utaj" path="res://TelaInicial/Cenário 1.png" id="2_4d7sh"]
@@ -15,6 +15,52 @@
 [ext_resource type="Texture2D" uid="uid://ltaj4ih3yc38" path="res://Imagens/Terreno/Agua 26x26 animação.png" id="12_nr8wp"]
 [ext_resource type="Texture2D" uid="uid://beupim73tpu6h" path="res://Imagens/Terreno/Obstáculos/FogoGrande.png" id="13_d2bti"]
 [ext_resource type="Texture2D" uid="uid://cn75xweshob5" path="res://Imagens/Terreno/Obstáculos/FogoPequeno(EsseSim).png" id="13_nr8wp"]
+[ext_resource type="Texture2D" uid="uid://f0cbmarsg34h" path="res://Imagens/Personagens secundarios/FellipePersonagem.png" id="16_ta5nu"]
+[ext_resource type="Texture2D" uid="uid://bs1vdlav7jj0h" path="res://Imagens/Terreno/ArvoreMuruci.png" id="17_flf07"]
+[ext_resource type="Texture2D" uid="uid://cjikoq55c7sx5" path="res://Imagens/Pranta.png" id="17_k73cj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ld5wt"]
+atlas = ExtResource("16_ta5nu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qoxh5"]
+atlas = ExtResource("16_ta5nu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa4jy"]
+atlas = ExtResource("16_ta5nu")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oojoh"]
+atlas = ExtResource("16_ta5nu")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qphy4"]
+atlas = ExtResource("16_ta5nu")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oxvno"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ld5wt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qoxh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xa4jy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oojoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qphy4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x0ka3"]
 atlas = ExtResource("4_hqns4")
@@ -1700,6 +1746,13 @@ script = ExtResource("2_ir8iy")
 [node name="Erika" parent="." instance=ExtResource("2_0e48y")]
 position = Vector2(2596, 335)
 
+[node name="fellippex" type="AnimatedSprite2D" parent="."]
+position = Vector2(3085.0005, 567)
+scale = Vector2(3.005, 3.005)
+sprite_frames = SubResource("SpriteFrames_oxvno")
+autoplay = "default"
+flip_h = true
+
 [node name="veia" type="AnimatedSprite2D" parent="."]
 position = Vector2(3038.0002, 559)
 scale = Vector2(0.27, 0.27)
@@ -1738,7 +1791,7 @@ scale = Vector2(2.44, 2.44)
 texture = ExtResource("6_kdubu")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="mapaBase"]
-polygon = PackedVector2Array(-5135, -270, -6904, -268, -7087, -176, -8561, -176, -8560, 43, -5135, 44)
+polygon = PackedVector2Array(-5135, -270, -6471.3594, -268.48914, -6904, -268, -7087, -176, -7847, -176, -8001, -176, -8045.7676, -176, -8561, -176, -8560, 43, -7709, 41, -5135, 44)
 
 [node name="segundo cenario 1" type="Sprite2D" parent="mapaBase"]
 position = Vector2(-10272.999, -120)
@@ -2086,6 +2139,105 @@ autoplay = "default"
 position = Vector2(-3844.7483, -286.375)
 shape = SubResource("RectangleShape2D_0hol4")
 
+[node name="espinho1_16" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-5070, -314)
+scale = Vector2(3.1658647, 3.1923082)
+sprite_frames = SubResource("SpriteFrames_c3urr")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano24" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-5097, -276)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_17" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-5027, -314)
+scale = Vector2(3.1658647, 3.1923082)
+sprite_frames = SubResource("SpriteFrames_c3urr")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano25" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-5062, -287)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_18" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-4984, -314)
+scale = Vector2(3.166, 3.219)
+sprite_frames = SubResource("SpriteFrames_c3urr")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano26" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-5023, -288)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="epinho 2_9" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-5103, -292)
+scale = Vector2(3.063, 2.938)
+sprite_frames = SubResource("SpriteFrames_s32dh")
+autoplay = "default"
+
+[node name="área de dano27" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-4981, -288)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="epinho 2_10" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-4941.0005, -294)
+scale = Vector2(3.063, 2.938)
+sprite_frames = SubResource("SpriteFrames_s32dh")
+autoplay = "default"
+
+[node name="área de dano28" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-4949, -280)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_19" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-7051, -254)
+scale = Vector2(6, 6.101)
+sprite_frames = SubResource("SpriteFrames_c3urr")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano29" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-7090, -199)
+scale = Vector2(1.25, 1.26)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="espinho1_20" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-6985, -251)
+scale = Vector2(6, 6.101)
+sprite_frames = SubResource("SpriteFrames_c3urr")
+autoplay = "default"
+flip_h = true
+
+[node name="área de dano30" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-7034, -217)
+scale = Vector2(2, 2.016)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="epinho 2_11" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-7104, -204)
+scale = Vector2(4, 3.869)
+sprite_frames = SubResource("SpriteFrames_s32dh")
+autoplay = "default"
+
+[node name="área de dano31" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-6957, -218)
+scale = Vector2(2, 2.016)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="epinho 2_12" type="AnimatedSprite2D" parent="espinhos"]
+position = Vector2(-6905.0005, -206)
+scale = Vector2(5, 4.836)
+sprite_frames = SubResource("SpriteFrames_s32dh")
+autoplay = "default"
+
+[node name="área de dano32" type="CollisionShape2D" parent="espinhos"]
+position = Vector2(-6900, -199)
+scale = Vector2(1.25, 1.27)
+shape = SubResource("RectangleShape2D_q6r6c")
+
 [node name="AreaAprendePDuplo" type="Area2D" parent="."]
 position = Vector2(0, 812)
 
@@ -2097,10 +2249,303 @@ shape = SubResource("RectangleShape2D_kdubu")
 position = Vector2(0, 812)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Void"]
-position = Vector2(12, -60)
+position = Vector2(-1, -60)
 shape = SubResource("RectangleShape2D_d21ai")
+
+[node name="pranta e avores" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(-1981.7498, 194.75034)
+scale = Vector2(3.6538038, 3.6538038)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 16" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(467.45813, 27.916023)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 8" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(842.136, 88.40093)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 2" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(1135.8026, 79.64295)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="arvore 1" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(1119.5867, 23.605423)
+scale = Vector2(0.099931955, 0.099931955)
+texture = ExtResource("17_flf07")
+
+[node name="arvore 2" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(954.4163, 42.900352)
+scale = Vector2(0.08260145, 0.08260145)
+texture = ExtResource("17_flf07")
+flip_h = true
+
+[node name="arvore 3" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(830.84644, 50.42678)
+scale = Vector2(0.07022247, 0.07022247)
+texture = ExtResource("17_flf07")
+
+[node name="arvore 4" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(480.11606, -13.479179)
+scale = Vector2(0.07449878, 0.07449878)
+texture = ExtResource("17_flf07")
+flip_h = true
+
+[node name="arvore 5" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(176.73361, -10.058079)
+scale = Vector2(0.058068518, 0.058068518)
+texture = ExtResource("17_flf07")
+flip_h = true
+
+[node name="arvore 6" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-17.721313, -54.80597)
+scale = Vector2(0.10015696, 0.10015696)
+texture = ExtResource("17_flf07")
+
+[node name="arvore 7" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-116.52246, -34.826805)
+scale = Vector2(0.0672965, 0.0672965)
+texture = ExtResource("17_flf07")
+flip_h = true
+
+[node name="pranta 3" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(1127.0447, 79.64295)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 1" type="Sprite2D" parent="pranta e avores"]
+position = Vector2(1105.9707, 79.64295)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 4" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(1039.1909, 79.64294)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 5" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(1001.9696, 84.021935)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 6" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(960.369, 88.40093)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 7" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(940.1162, 88.40093)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 9" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(821.8833, 88.40093)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 10" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(806.0094, 85.93775)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 11" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(672.9973, 79.64295)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 12" type="Sprite2D" parent="pranta e avores"]
+top_level = true
+position = Vector2(395.25037, 424.75003)
+scale = Vector2(2.7307692, 2.7307692)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 13" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(639.0601, 62.948013)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 14" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(643.4391, 62.948013)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 15" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(484.70044, 27.91603)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 18" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(401.2258, 27.91603)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 19" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(418.46808, 27.91603)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 20" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(387.8151, 27.91603)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 21" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(177.89688, 19.158043)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 22" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(227.98166, 19.158043)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 25" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(48.44275, 1.6420479)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 26" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-102.63269, 1.6420479)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 23" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(196.23386, 20.526535)
+scale = Vector2(0.53684044, 0.53684044)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 17" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(538.34314, 27.91603)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 27" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-160.65448, 1.6420517)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 28" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-217.58142, 1.6420479)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 29" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-456.23694, 1.6420517)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 30" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-513.1639, 1.6420517)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 31" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-473.20557, 1.6420479)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 32" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-494.82697, 1.6420479)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 33" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-859.10455, 1.6420517)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 34" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-1067.1069, 27.916039)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 35" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-895.7785, 10.400047)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 36" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-1048.7705, 27.916039)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 37" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-1248.2881, 27.916039)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 38" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-1392.5217, 27.916039)
+scale = Vector2(0.7473771, 0.7473771)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 39" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-1428.5115, 28.737091)
+scale = Vector2(0.64208066, 0.6210608)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 40" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-1462.0381, 27.094849)
+scale = Vector2(0.9158204, 0.9158204)
+texture = ExtResource("17_k73cj")
 
 [connection signal="StatsChanged" from="Erika" to="Hud" method="_on_erika_stats_changed"]
 [connection signal="StatsChanged" from="Erika" to="Hud" method="OnPlayerStatsChanged"]
-[connection signal="body_entered" from="espinhos" to="Erika" method="_on_espinho_1_body_entered"]
+[connection signal="body_entered" from="espinhos" to="Erika" method="_on_espinhos_body_entered"]
+[connection signal="body_exited" from="espinhos" to="Erika" method="_on_espinhos_body_exited"]
 [connection signal="body_entered" from="Void" to="Erika" method="_on_void_body_entered"]
