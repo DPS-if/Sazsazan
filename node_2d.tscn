@@ -1,4 +1,4 @@
-[gd_scene load_steps=261 format=3 uid="uid://bqpmxgkb5nfkc"]
+[gd_scene load_steps=262 format=3 uid="uid://bqpmxgkb5nfkc"]
 
 [ext_resource type="PackedScene" uid="uid://ctjhsgil40l7h" path="res://Cenas Complementares/Erika/Erika.tscn" id="2_0e48y"]
 [ext_resource type="Texture2D" uid="uid://dsx4wm781utaj" path="res://TelaInicial/Cenário 1.png" id="2_4d7sh"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://beupim73tpu6h" path="res://Imagens/Terreno/Obstáculos/FogoGrande.png" id="13_d2bti"]
 [ext_resource type="Texture2D" uid="uid://cn75xweshob5" path="res://Imagens/Terreno/Obstáculos/FogoPequeno(EsseSim).png" id="13_nr8wp"]
 [ext_resource type="Texture2D" uid="uid://f0cbmarsg34h" path="res://Imagens/Personagens secundarios/FellipePersonagem.png" id="16_ta5nu"]
+[ext_resource type="Texture2D" uid="uid://bs1vdlav7jj0h" path="res://Imagens/Terreno/ArvoreMuruci.png" id="17_flf07"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ld5wt"]
 atlas = ExtResource("16_ta5nu")
@@ -2150,6 +2151,59 @@ position = Vector2(0, 812)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Void"]
 position = Vector2(12, -60)
 shape = SubResource("RectangleShape2D_d21ai")
+
+[node name="arvore 1" type="Sprite2D" parent="."]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(2109, 280.9999)
+scale = Vector2(0.36513174, 0.36513174)
+texture = ExtResource("17_flf07")
+
+[node name="arvore 2" type="Sprite2D" parent="."]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(1505.5, 351.49982)
+scale = Vector2(0.3018095, 0.3018095)
+texture = ExtResource("17_flf07")
+flip_h = true
+
+[node name="arvore 3" type="Sprite2D" parent="."]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(1053.9999, 378.9999)
+scale = Vector2(0.2565791, 0.2565791)
+texture = ExtResource("17_flf07")
+
+[node name="arvore 4" type="Sprite2D" parent="."]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-227.5, 145.50006)
+scale = Vector2(0.27220392, 0.27220392)
+texture = ExtResource("17_flf07")
+flip_h = true
+
+[node name="arvore 5" type="Sprite2D" parent="."]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-1335.9999, 158.00009)
+scale = Vector2(0.21217096, 0.21217096)
+texture = ExtResource("17_flf07")
+flip_h = true
+
+[node name="arvore 6" type="Sprite2D" parent="."]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-2046.5, -5.4999094)
+scale = Vector2(0.3659539, 0.3659539)
+texture = ExtResource("17_flf07")
+
+[node name="arvore 7" type="Sprite2D" parent="."]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-2407.5, 67.50003)
+scale = Vector2(0.2458882, 0.2458882)
+texture = ExtResource("17_flf07")
+flip_h = true
 
 [connection signal="StatsChanged" from="Erika" to="Hud" method="_on_erika_stats_changed"]
 [connection signal="StatsChanged" from="Erika" to="Hud" method="OnPlayerStatsChanged"]
