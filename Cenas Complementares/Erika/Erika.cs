@@ -12,14 +12,14 @@ public partial class Erika : CharacterBody2D
 	public float Gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 	// --- VARIÁVEIS DE DASH ---
 	[Export(PropertyHint.Range, "100.0,2000.0,1.0")]
-	public float DashSpeed = 900.0f;         
+	public float DashSpeed = 900.0f;         
 	[Export(PropertyHint.Range, "0.1,0.5,0.01")]
-	public float DashDuration = 0.15f;      
+	public float DashDuration = 0.15f;      
 	[Export]
-	public float DashCooldown = 1.2f;       
+	public float DashCooldown = 1.2f;       
 	
 	// Calcula o custo com base no MaxStamina (AJUSTADO para 8.5%)
-	public float DashStaminaCost => MaxStamina * 0.085f; 
+	public float DashStaminaCost => MaxStamina * 0.085f; 
 
 	// --- Variáveis de Pulo ---
 	[Export]
@@ -49,17 +49,19 @@ public partial class Erika : CharacterBody2D
 	public float RegenPercentage = 0.05f;
 	
 	[Export]
-	public float RegenInterval = 10.0f;     
+	public float RegenInterval = 10.0f;     
 	[Export]
 	public float DamageCooldownTime = 1.0f;
 	
+	// Força de Knockback Horizontal em 384.0f
 	[Export]
-	public float KnockbackHorizontalForce = 200.0f;
+	public float KnockbackHorizontalForce = 384.0f;
+	// Força de Knockback Vertical em -384.0f
 	[Export]
-	public float KnockbackVerticalForce = -200.0f;
+	public float KnockbackVerticalForce = -384.0f;
 	
-	[Export] 
-	public float BlinkRate = 0.05f; 
+	[Export] 
+	public float BlinkRate = 0.05f; 
 	
 	private float _regenTimer = 0.0f;
 	private float _damageCooldownTimer = 0.0f;
@@ -73,7 +75,7 @@ public partial class Erika : CharacterBody2D
 	private float _dashDirection = 0.0f;
 
 	// VARIÁVEIS PARA O EFEITO BLINK (PISCAR)
-	private AnimatedSprite2D _animatedSprite; 
+	private AnimatedSprite2D _animatedSprite; 
 	private Timer _blinkTimer;
 	
 	public float CurrentHealth { get; private set; }
@@ -104,9 +106,9 @@ public partial class Erika : CharacterBody2D
 		_animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		
 		_blinkTimer = new Timer();
-		_blinkTimer.OneShot = false; 
+		_blinkTimer.OneShot = false; 
 		_blinkTimer.WaitTime = BlinkRate;
-		_blinkTimer.Timeout += OnBlinkTimerTimeout; 
+		_blinkTimer.Timeout += OnBlinkTimerTimeout; 
 		AddChild(_blinkTimer);
 		
 		var pauseScene = GD.Load<PackedScene>("res://Menudepausa/MenuPause.tscn");
@@ -128,6 +130,12 @@ public partial class Erika : CharacterBody2D
 		};
 		AddChild(dicaPuloDuplo);
 
+		// CORREÇÃO: Usa CallDeferred para garantir que o HUD tenha tempo de inicializar
+		CallDeferred(nameof(EmitStatsChanged));
+	}
+	
+	private void EmitStatsChanged()
+	{
 		EmitSignal(SignalName.StatsChanged, CurrentHealth, MaxHealth, CurrentStamina, MaxStamina);
 	}
 
@@ -150,11 +158,13 @@ public partial class Erika : CharacterBody2D
 			PauseMenu.Visible = GetTree().Paused;
 		}
 		
-		// INPUT DO DASH COM A TECLA 'E'
-		if (keyEvent?.Pressed == true && keyEvent.Keycode == Key.Q && !_isDashing && _dashCooldownTimer <= 0)
+		// INPUT DO DASH COM O BOTÃO ESQUERDO DO MOUSE
+		var mouseEvent = @event as InputEventMouseButton;
+		if (mouseEvent?.Pressed == true && mouseEvent.ButtonIndex == MouseButton.Left && !_isDashing && _dashCooldownTimer <= 0)
 		{
 			PerformDash();
 		}
+		
 		if (@event.IsActionPressed("ui_inventory"))
 		{
 			GerenciarInventario();
@@ -218,8 +228,8 @@ public partial class Erika : CharacterBody2D
 		}
 
 		if (_staminaRegenTimer > 0) { _staminaRegenTimer -= (float)delta; }
-		if (_damageCooldownTimer > 0) 
-		{ 
+		if (_damageCooldownTimer > 0) 
+		{ 
 			_damageCooldownTimer -= (float)delta;
 			if (_damageCooldownTimer <= 0)
 			{
@@ -288,10 +298,9 @@ public partial class Erika : CharacterBody2D
 			}
 
 			// --- 3. Lógica de Estamina e Sprint ---
-// --- 3. Lógica de Estamina e Sprint ---
 		bool wantsToSprint = Input.IsActionPressed("ui_corrida");
 		float currentSpeed = Speed;
-		bool canSprint = CurrentStamina > 0; // <-- LINHA CORRIGIDA
+		bool canSprint = CurrentStamina > 0; 
 
 			if (wantsToSprint && canSprint)
 			{
@@ -321,7 +330,7 @@ public partial class Erika : CharacterBody2D
 			// 4. Aplica Movimento e Knockback (fora do Dash)
 			float horizontalDirection = Input.GetAxis("ui_left", "ui_right");
 			
-			_knockbackVelocity = _knockbackVelocity.MoveToward(Vector2.Zero, 1000 * (float)delta); 
+			_knockbackVelocity = _knockbackVelocity.MoveToward(Vector2.Zero, 1000 * (float)delta); 
 
 			if (_knockbackVelocity.LengthSquared() > 0)
 			{
@@ -337,10 +346,9 @@ public partial class Erika : CharacterBody2D
 		}
 		Velocity = velocity;
 		
-		// --- ADIÇÃO 1: CHAMADA DA FUNÇÃO DE ANIMAÇÃO ---
-		// Vamos chamar nossa nova função de animação aqui
+		// --- CHAMADA DA FUNÇÃO DE ANIMAÇÃO ---
 		_UpdateAnimation();
-		// --- FIM DA ADIÇÃO 1 ---
+		// --- FIM DA CHAMADA ---
 
 		if (Velocity.X > 0)
 		{
@@ -356,13 +364,9 @@ public partial class Erika : CharacterBody2D
 		EmitSignal(SignalName.StatsChanged, CurrentHealth, MaxHealth, CurrentStamina, MaxStamina);
 	}
 	
-	// --- ADIÇÃO 2: NOVA FUNÇÃO DE ANIMAÇÃO (CORRIGIDA) ---
+	// --- FUNÇÃO DE ANIMAÇÃO ---
 	private void _UpdateAnimation()
 	{
-		// Como você removeu a checagem do "dash",
-		// esta checagem (do pulo) se torna a primeira.
-
-		// --- Mude "else if" para "if" aqui ---
 		// 1. Animações no ar (Pulo/Queda)
 		if (!IsOnFloor())
 		{
@@ -370,7 +374,6 @@ public partial class Erika : CharacterBody2D
 				_animatedSprite.Play("jump");
 		}
 		// 2. Animações no chão (Andando ou Parado)
-		// Este "else" agora se refere ao "if (!IsOnFloor())" acima
 		else
 		{
 			// Usa Velocity.X para saber se está se movendo
@@ -392,7 +395,7 @@ public partial class Erika : CharacterBody2D
 			}
 		}
 	}
-	// --- FIM DA ADIÇÃO 2 ---
+	// --- FIM DA FUNÇÃO DE ANIMAÇÃO ---
 	
 	// MÉTODOS DE DANO/CURA/RESTART
 
@@ -412,12 +415,10 @@ public partial class Erika : CharacterBody2D
 		CurrentHealth = Mathf.Min(CurrentHealth, MaxHealth);
 	}
 
-	// --- ADIÇÃO: NOVO MÉTODO PARA DRENAR ESTAMINA ---
+	// --- MÉTODO PARA DRENAR ESTAMINA ---
 	/// <summary>
 	/// Drena uma quantidade de estamina da jogadora.
-	/// Usado por áreas de dreno ou outros efeitos externos.
 	/// </summary>
-	/// <param name="amount">A quantidade a ser drenada.</param>
 	public void DrainStamina(float amount)
 	{
 		if (CurrentStamina > 0)
@@ -425,12 +426,11 @@ public partial class Erika : CharacterBody2D
 			CurrentStamina -= amount;
 			CurrentStamina = Mathf.Max(CurrentStamina, 0);
 			
-			// Impede a regeneração de começar enquanto está drenando
 			// Isso garante que o timer de delay seja resetado
-			_staminaRegenTimer = StaminaRegenDelay; 
+			_staminaRegenTimer = StaminaRegenDelay; 
 		}
 	}
-	// --- FIM DA ADIÇÃO ---
+	// --- FIM DO MÉTODO ---
 
 	public void TakeDamage(float amount, Node2D damageSource)
 	{
@@ -458,11 +458,11 @@ public partial class Erika : CharacterBody2D
 	
 	public void RestartGame()
 	{
-		if (_isRestarting) 
+		if (_isRestarting) 
 		{
 			return;
 		}
-		_isRestarting = true; 
+		_isRestarting = true; 
 
 		GD.Print("Erika morreu! Reiniciando o jogo.");
 		GetTree().CallDeferred("reload_current_scene");
@@ -471,13 +471,13 @@ public partial class Erika : CharacterBody2D
 	// --- MÉTODOS DE CONTROLE DO BLINK (PISCAR) ---
 	private void OnBlinkTimerTimeout()
 	{
-		_animatedSprite.Visible = !_animatedSprite.Visible; 
+		_animatedSprite.Visible = !_animatedSprite.Visible; 
 	}
 
 	private void StopBlinking()
 	{
 		_blinkTimer.Stop();
-		_animatedSprite.Visible = true; 
+		_animatedSprite.Visible = true; 
 	}
 
 	private void StartBlinking()
