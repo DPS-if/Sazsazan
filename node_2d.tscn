@@ -1,9 +1,9 @@
-[gd_scene load_steps=263 format=3 uid="uid://bqpmxgkb5nfkc"]
+[gd_scene load_steps=264 format=3 uid="uid://bqpmxgkb5nfkc"]
 
 [ext_resource type="PackedScene" uid="uid://ctjhsgil40l7h" path="res://Cenas Complementares/Erika/Erika.tscn" id="2_0e48y"]
 [ext_resource type="Texture2D" uid="uid://dsx4wm781utaj" path="res://TelaInicial/Cenário 1.png" id="2_4d7sh"]
 [ext_resource type="PackedScene" uid="uid://cgcergo8oj4yw" path="res://Cenas Complementares/Hub/HUD.tscn" id="2_epypp"]
-[ext_resource type="Script" path="res://Sprite2d.cs" id="2_ir8iy"]
+[ext_resource type="Script" uid="uid://jdnrp3a52nhp" path="res://Sprite2d.cs" id="2_ir8iy"]
 [ext_resource type="Texture2D" uid="uid://2dsha06ftf81" path="res://Imagens/Terreno/Mapa Base 2.0.png" id="3_epypp"]
 [ext_resource type="Texture2D" uid="uid://dkegd22f5aqfs" path="res://Imagens/sprites erika/veeelinha_paradinha.png" id="4_hqns4"]
 [ext_resource type="Texture2D" uid="uid://44k5ivjf8snw" path="res://Imagens/Terreno/Cenario1 2.1.png" id="5_q6r6c"]
@@ -1729,6 +1729,9 @@ size = Vector2(200, 122)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d21ai"]
 size = Vector2(100000, 200)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k73cj"]
+size = Vector2(260.25, 130)
+
 [node name="Node2D" type="Node2D"]
 position = Vector2(-1, 0)
 metadata/_edit_vertical_guides_ = [-319.0]
@@ -1744,7 +1747,7 @@ centered = false
 script = ExtResource("2_ir8iy")
 
 [node name="Erika" parent="." instance=ExtResource("2_0e48y")]
-position = Vector2(2596, 335)
+position = Vector2(2458, 339)
 
 [node name="fellippex" type="AnimatedSprite2D" parent="."]
 position = Vector2(3085.0005, 567)
@@ -1866,7 +1869,7 @@ texture = ExtResource("11_0h7mo")
 
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="mapaBase"]
 position = Vector2(-7990, -221)
-polygon = PackedVector2Array(-15410, -149, -15598, -149, -15610, -146, -15712, -146, -15722, -149, -15748, -149, -15758, -146, -15918, -146, -15932, -150, -16296, -150, -16299, -89, -16591, -89, -16614, -101, -16614, -149, -16742, -149, -16742, -108, -16764, -89, -17060, -89, -17060, -149, -18836, -149, -18835, 134, -15410, 134)
+polygon = PackedVector2Array(-15410, -149, -15598, -149, -15610, -146, -15712, -146, -15722, -149, -15748, -149, -15758, -146, -15918, -146, -15932, -150, -16296, -150, -16339, -120, -16454, -104, -16559, -122, -16614, -149, -16742, -149, -16784, -121, -16900, -102, -17005, -122, -17060, -149, -18836, -149, -18835, 134, -15410, 134)
 
 [node name="AguaTiraStamina" type="Area2D" parent="mapaBase"]
 position = Vector2(-23149, -132)
@@ -2724,10 +2727,10 @@ position = Vector2(-9771, -305.687)
 scale = Vector2(1.25, 1.27)
 shape = SubResource("RectangleShape2D_q6r6c")
 
-[node name="AreaAprendePDuplo" type="Area2D" parent="."]
+[node name="AreaAprendePDuplo2" type="Area2D" parent="."]
 position = Vector2(0, 812)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAprendePDuplo"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAprendePDuplo2"]
 position = Vector2(300, -418)
 shape = SubResource("RectangleShape2D_kdubu")
 
@@ -2828,12 +2831,22 @@ scale = Vector2(0.07449878, 0.07449878)
 texture = ExtResource("17_flf07")
 flip_h = true
 
+<<<<<<< Updated upstream
 [node name="arvore 15" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
 texture_filter = 1
 position = Vector2(396.91528, -13.479187)
 scale = Vector2(0.07449878, 0.07449878)
 texture = ExtResource("17_flf07")
+=======
+[node name="arvore 16" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(480.11606, -13.479179)
+scale = Vector2(0.07449878, 0.07449878)
+texture = ExtResource("17_flf07")
+flip_h = true
+>>>>>>> Stashed changes
 
 [node name="arvore 5" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
@@ -3378,6 +3391,34 @@ position = Vector2(-1672.572, 18.67907)
 scale = Vector2(0.8387271, 0.8387271)
 texture = ExtResource("17_k73cj")
 
+<<<<<<< Updated upstream
+=======
+[node name="TutorialFireZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialFireZone"]
+position = Vector2(1498, 463)
+shape = SubResource("RectangleShape2D_k73cj")
+
+[node name="TutorialDashZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialDashZone"]
+position = Vector2(-623, 243)
+shape = SubResource("RectangleShape2D_k73cj")
+
+[node name="TutorialRunZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialRunZone"]
+position = Vector2(-1708.875, 153)
+shape = SubResource("RectangleShape2D_k73cj")
+
+[node name="TutorialStaminaZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialStaminaZone"]
+position = Vector2(-3593, 145)
+shape = SubResource("RectangleShape2D_k73cj")
+
+[connection signal="StatsChanged" from="Erika" to="Hud" method="OnPlayerStatsChanged"]
+>>>>>>> Stashed changes
 [connection signal="StatsChanged" from="Erika" to="Hud" method="_on_erika_stats_changed"]
 [connection signal="StatsChanged" from="Erika" to="Hud" method="OnPlayerStatsChanged"]
 [connection signal="body_entered" from="espinhos" to="Erika" method="_on_espinhos_body_entered"]
