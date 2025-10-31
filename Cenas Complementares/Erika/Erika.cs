@@ -699,16 +699,16 @@ public partial class Erika : CharacterBody2D
 	
 	public void RestartGame()
 	{
-		if (_isRestarting) 
+		if (_isRestarting) 
 		{
 			return;
 		}
-		_isRestarting = true; 
+		_isRestarting = true; 
+		GD.Print("Erika morreu! Indo para a tela de morte.");
+		GetTree().Paused = false;
+		string deathScenePath = "res://TelaMorte/telaMorte.tscn"; 
 
-		GD.Print("Erika morreu! Reiniciando o jogo.");
-		GetTree().CallDeferred("reload_current_scene");
-		// Ao reiniciar a cena, as variáveis _dicaPuloSimplesMostrada e _dicaDashMostrada
-		// serão redefinidas para 'false', permitindo que as dicas apareçam novamente na nova sessão.
+		GetTree().CallDeferred("change_scene_to_file", deathScenePath);
 	}
 	
 	// --- MÉTODOS DE CONTROLE DO BLINK (PISCAR) ---

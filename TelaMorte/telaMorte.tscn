@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8r6vrkruo5ac"]
+
+[ext_resource type="Script" uid="uid://b7aisqyyfvr42" path="res://TelaMorte/TelaMorte.cs" id="1_2kh3e"]
+[ext_resource type="Texture2D" uid="uid://c8e8wcps3xswk" path="res://Créditos/download.png" id="1_qobfb"]
+[ext_resource type="Texture2D" uid="uid://d32wkkpn400ai" path="res://TelaMorte/Titulo Pausa.png" id="2_b6v8u"]
+[ext_resource type="Texture2D" uid="uid://dnxabxegv4i02" path="res://Imagens/Menu inicial/Botão Sair.png" id="2_c7kmn"]
+[ext_resource type="Texture2D" uid="uid://d0e4h8ju5rymn" path="res://TelaMorte/Reiniciar (60 x 40 px).png" id="4_2kh3e"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_2kh3e")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 655.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 644.0
+mouse_filter = 2
+texture = ExtResource("1_qobfb")
+
+[node name="voltar_btn" type="TextureButton" parent="Control"]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -150.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("2_c7kmn")
+stretch_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -174.375
+offset_top = 8.0
+offset_right = 174.375
+offset_bottom = 194.0
+grow_horizontal = 2
+texture = ExtResource("2_b6v8u")
+
+[node name="reset_btn" type="TextureButton" parent="Control"]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -9.0
+offset_right = 100.0
+offset_bottom = 141.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_2kh3e")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.5
+offset_top = -102.5
+offset_right = 174.5
+offset_bottom = -33.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "VOCÊ PERDEU!"
