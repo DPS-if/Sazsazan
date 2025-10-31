@@ -1,4 +1,4 @@
-[gd_scene load_steps=254 format=3 uid="uid://bqpmxgkb5nfkc"]
+[gd_scene load_steps=261 format=3 uid="uid://bqpmxgkb5nfkc"]
 
 [ext_resource type="PackedScene" uid="uid://ctjhsgil40l7h" path="res://Cenas Complementares/Erika/Erika.tscn" id="2_0e48y"]
 [ext_resource type="Texture2D" uid="uid://dsx4wm781utaj" path="res://TelaInicial/Cenário 1.png" id="2_4d7sh"]
@@ -14,7 +14,8 @@
 [ext_resource type="Script" uid="uid://bxfrvm4temtid" path="res://StaminaDrainArea.cs" id="12_d2bti"]
 [ext_resource type="Texture2D" uid="uid://ltaj4ih3yc38" path="res://Imagens/Terreno/Agua 26x26 animação.png" id="12_nr8wp"]
 [ext_resource type="Texture2D" uid="uid://beupim73tpu6h" path="res://Imagens/Terreno/Obstáculos/FogoGrande.png" id="13_d2bti"]
-[ext_resource type="Texture2D" uid="uid://cn75xweshob5" path="res://Imagens/Terreno/Obstáculos/FogoPequeno(EsseSim).png" id="13_nr8wp"]
+[ext_resource type="Texture2D" uid="uid://co5fb4n3nlm16" path="res://Imagens/Terreno/Obstáculos/FogoPequeno(EsseSim).png" id="13_nr8wp"]
+[ext_resource type="Texture2D" uid="uid://f0cbmarsg34h" path="res://Imagens/Personagens secundarios/FellipePersonagem.png" id="16_ta5nu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x0ka3"]
 atlas = ExtResource("4_hqns4")
@@ -1683,6 +1684,49 @@ size = Vector2(200, 122)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d21ai"]
 size = Vector2(100000, 200)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ld5wt"]
+atlas = ExtResource("16_ta5nu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qoxh5"]
+atlas = ExtResource("16_ta5nu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa4jy"]
+atlas = ExtResource("16_ta5nu")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oojoh"]
+atlas = ExtResource("16_ta5nu")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qphy4"]
+atlas = ExtResource("16_ta5nu")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oxvno"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ld5wt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qoxh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xa4jy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oojoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qphy4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Node2D" type="Node2D"]
 position = Vector2(-1, 0)
 metadata/_edit_vertical_guides_ = [-319.0]
@@ -2099,6 +2143,14 @@ position = Vector2(0, 812)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Void"]
 position = Vector2(12, -60)
 shape = SubResource("RectangleShape2D_d21ai")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(3083.0007, 568)
+scale = Vector2(2.44, 2.44)
+sprite_frames = SubResource("SpriteFrames_oxvno")
+autoplay = "default"
+flip_h = true
 
 [connection signal="StatsChanged" from="Erika" to="Hud" method="_on_erika_stats_changed"]
 [connection signal="StatsChanged" from="Erika" to="Hud" method="OnPlayerStatsChanged"]
