@@ -33,6 +33,7 @@ public partial class Erika : CharacterBody2D
 	[Export]
 	public float MaxStamina = 100.0f;
 	[Export]
+	
 	public float StaminaDrainRate = 5.0f;
 	[Export]
 	public float StaminaRegenRate = 15.0f;
@@ -117,7 +118,7 @@ public partial class Erika : CharacterBody2D
 	private Label _textoInicial;
 	
 	// --- VARIÁVEL DA DICA DE PULO SIMPLES ---
-	private Label dicaPuloSimples; 
+	private Label dicaPuloSimples; 
 
 	// --- VARIÁVEL DA DICA DE DASH ---
 	private Label dicaDash;
@@ -187,8 +188,8 @@ public partial class Erika : CharacterBody2D
 		
 		_textoInicial = new Label
 		{
-			Text = "Aperte A/D para se mover",
-			Position = new Vector2(290, 70), 
+			Text = "Aperte A/D para se mover e SHIFT para correr",
+			Position = new Vector2(200, 70), 
 			Visible = true,
 			// Aplica a nova configuração de estilo
 			LabelSettings = blackTextSettings 
@@ -197,7 +198,7 @@ public partial class Erika : CharacterBody2D
 
 		Timer fadeTimer = new Timer();
 		fadeTimer.OneShot = true;
-		fadeTimer.WaitTime = 2.0f; 
+		fadeTimer.WaitTime = 4.0f; 
 		fadeTimer.Timeout += () => _textoInicial.Visible = false;
 		AddChild(fadeTimer);
 		fadeTimer.Start();
@@ -217,14 +218,19 @@ public partial class Erika : CharacterBody2D
 		AddChild(dicaPuloDuplo);
 		
 		// -------------------------------------------------------------------
-		// INICIALIZAÇÃO DA DICA DE PULO SIMPLES (COM COR PRETA)
+		// INICIALIZAÇÃO DA DICA DE PULO SIMPLES (AGORA COM COR BRANCA)
 		// -------------------------------------------------------------------
+		
+		// Cria uma nova configuração de estilo APENAS para esta dica
+		LabelSettings whiteTextSettings = new LabelSettings();
+		whiteTextSettings.FontColor = Colors.White; // Define a cor como BRANCO
+
 		dicaPuloSimples = new Label
 		{
 			Text = "Aperte ESPAÇO para pular",
 			Visible = false,
 			Position = new Vector2(270, 100), // Posição abaixo da dica de movimento
-			LabelSettings = blackTextSettings
+			LabelSettings = whiteTextSettings // Aplica a configuração de texto BRANCO
 		};
 		AddChild(dicaPuloSimples);
 
@@ -270,8 +276,8 @@ public partial class Erika : CharacterBody2D
 	private void OnEnsinarPuloBodyEntered(Node2D body)
 	{
 		// Verifica se a dica já foi mostrada
-		if (body == this && !_dicaPuloSimplesMostrada) 
-		{ 
+		if (body == this && !_dicaPuloSimplesMostrada) 
+		{ 
 			dicaPuloSimples.Visible = true;
 			// Oculta a dica de movimento para não competir
 			if (_textoInicial.Visible)
