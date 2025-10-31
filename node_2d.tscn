@@ -1817,8 +1817,8 @@ scale = Vector2(2.44, 2.44)
 texture = ExtResource("5_q6r6c")
 
 [node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="mapaBase"]
-position = Vector2(-6883, 51)
-polygon = PackedVector2Array(-1712, -174, -2708, -174, -2764, -206, -3271, -206, -3271, -266, -3281, -271, -5138, -270, -1712, 42)
+position = Vector2(-6848, -1)
+polygon = PackedVector2Array(-1712, -174, -2708, -174, -2764, -206, -3271, -206, -3271, -266, -3281, -271, -5138, -270, -1712, 42, -1712, -162.93336, -1712, -165.45053)
 
 [node name="primeiro cenario 4" type="Sprite2D" parent="mapaBase"]
 show_behind_parent = true
@@ -2752,7 +2752,7 @@ texture = ExtResource("17_k73cj")
 
 [node name="pranta 8" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
-position = Vector2(842.136, 88.40093)
+position = Vector2(843.5045, 88.40093)
 scale = Vector2(0.7473771, 0.7473771)
 texture = ExtResource("17_k73cj")
 
@@ -2769,6 +2769,27 @@ position = Vector2(1119.5867, 23.605423)
 scale = Vector2(0.099931955, 0.099931955)
 texture = ExtResource("17_flf07")
 
+[node name="arvore 12" type="Sprite2D" parent="pranta e avores"]
+texture_filter = 1
+position = Vector2(1076.7545, 35.784492)
+scale = Vector2(0.07990056, 0.07990056)
+texture = ExtResource("17_flf07")
+flip_h = true
+
+[node name="arvore 10" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(1048.1542, 23.605408)
+scale = Vector2(0.099931955, 0.099931955)
+texture = ExtResource("17_flf07")
+
+[node name="arvore 11" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(437.28394, -28.668823)
+scale = Vector2(0.099931955, 0.099931955)
+texture = ExtResource("17_flf07")
+
 [node name="arvore 2" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
 texture_filter = 1
@@ -2777,10 +2798,25 @@ scale = Vector2(0.08260145, 0.08260145)
 texture = ExtResource("17_flf07")
 flip_h = true
 
+[node name="arvore 14" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(789.246, 47.41626)
+scale = Vector2(0.059868995, 0.059868995)
+texture = ExtResource("17_flf07")
+flip_h = true
+
+[node name="arvore 13" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(1020.1016, 33.59485)
+scale = Vector2(0.08260145, 0.08260145)
+texture = ExtResource("17_flf07")
+
 [node name="arvore 3" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(830.84644, 50.42678)
+position = Vector2(833.3096, 50.426758)
 scale = Vector2(0.07022247, 0.07022247)
 texture = ExtResource("17_flf07")
 
@@ -2791,6 +2827,13 @@ position = Vector2(480.11606, -13.479179)
 scale = Vector2(0.07449878, 0.07449878)
 texture = ExtResource("17_flf07")
 flip_h = true
+
+[node name="arvore 15" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(396.91528, -13.479187)
+scale = Vector2(0.07449878, 0.07449878)
+texture = ExtResource("17_flf07")
 
 [node name="arvore 5" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
@@ -2815,69 +2858,85 @@ scale = Vector2(0.0672965, 0.0672965)
 texture = ExtResource("17_flf07")
 flip_h = true
 
+[node name="arvore 19" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-199.4502, -48.51111)
+scale = Vector2(0.089803554, 0.089803554)
+texture = ExtResource("17_flf07")
+
+[node name="arvore 18" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-159.902, -40.984673)
+scale = Vector2(0.07742455, 0.07742455)
+texture = ExtResource("17_flf07")
+flip_h = true
+
+[node name="arvore 16" type="Sprite2D" parent="pranta e avores"]
+texture_filter = 1
+position = Vector2(-79.57462, -41.669014)
+scale = Vector2(0.07855012, 0.07855012)
+texture = ExtResource("17_flf07")
+
+[node name="arvore 17" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(21.14209, -41.669006)
+scale = Vector2(0.07855012, 0.07855012)
+texture = ExtResource("17_flf07")
+
 [node name="arvore 8" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(-2588.6035, -97.09068)
+position = Vector2(-2632.3809, -97.09068)
 scale = Vector2(0.0672965, 0.0672965)
 texture = ExtResource("17_flf07")
 flip_h = true
 
-[node name="arvore 9" type="Sprite2D" parent="pranta e avores"]
+[node name="arvore 23" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
+texture_filter = 1
+position = Vector2(-2589.213, -105.49927)
+scale = Vector2(0.081126414, 0.081126414)
+texture = ExtResource("17_flf07")
+
+[node name="arvore 22" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-2648.7422, -113.853424)
+scale = Vector2(0.0948668, 0.0948668)
+texture = ExtResource("17_flf07")
+flip_h = true
+
+[node name="arvore 21" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-2684.9277, -97.09068)
+scale = Vector2(0.0672965, 0.0672965)
+texture = ExtResource("17_flf07")
+
+[node name="arvore 9" type="Sprite2D" parent="pranta e avores"]
 texture_filter = 1
 position = Vector2(-2786.548, -110.706665)
 scale = Vector2(0.08969119, 0.08969119)
 texture = ExtResource("17_flf07")
 flip_h = true
 
-[node name="arvore 10" type="Sprite2D" parent="pranta e avores"]
+[node name="arvore 20" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(-4130.319, -46.69796)
-scale = Vector2(0.07297955, 0.07297955)
+position = Vector2(-2725.6536, -123.43389)
+scale = Vector2(0.110624135, 0.110624135)
 texture = ExtResource("17_flf07")
 flip_h = true
 
-[node name="arvore 12" type="Sprite2D" parent="pranta e avores"]
+[node name="arvore 30" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(-4895.9424, -44.662434)
-scale = Vector2(0.06462373, 0.06462373)
+position = Vector2(-2817.0684, -124.25822)
+scale = Vector2(0.11513085, 0.11513085)
 texture = ExtResource("17_flf07")
-flip_h = true
-
-[node name="arvore 13" type="Sprite2D" parent="pranta e avores"]
-show_behind_parent = true
-texture_filter = 1
-position = Vector2(-5121.931, -32.560345)
-scale = Vector2(0.05234361, 0.04851704)
-texture = ExtResource("17_flf07")
-flip_h = true
-
-[node name="arvore 14" type="Sprite2D" parent="pranta e avores"]
-show_behind_parent = true
-texture_filter = 1
-position = Vector2(-5402.2856, -43.298218)
-scale = Vector2(0.039451078, 0.036567014)
-texture = ExtResource("17_flf07")
-flip_h = true
-
-[node name="arvore 15" type="Sprite2D" parent="pranta e avores"]
-show_behind_parent = true
-texture_filter = 1
-position = Vector2(-5552.6377, -69.448265)
-scale = Vector2(0.078694314, 0.07294138)
-texture = ExtResource("17_flf07")
-flip_h = true
-
-[node name="arvore 11" type="Sprite2D" parent="pranta e avores"]
-show_behind_parent = true
-texture_filter = 1
-position = Vector2(-4291.7773, -37.95713)
-scale = Vector2(0.054045413, 0.054045413)
-texture = ExtResource("17_flf07")
-flip_h = true
 
 [node name="pranta 3" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
@@ -3130,6 +3189,183 @@ position = Vector2(-2195.5886, 0.06832886)
 scale = Vector2(0.8387271, 0.8387271)
 texture = ExtResource("17_k73cj")
 
+[node name="pranta 49" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-2633.488, -57.679718)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 50" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-2669.341, -58.22709)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 51" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-2702.1838, -58.500763)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 52" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-2718.3313, -57.9534)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 53" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-2745.1528, -59.048145)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 59" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-2793.6064, -61.796127)
+scale = Vector2(1.261493, 1.261493)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 60" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(542.37964, -53.300713)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 54" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-2542.0764, -57.679718)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 55" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-2577.9294, -58.22709)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 56" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-2595.4458, -58.50076)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 57" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-2611.5933, -57.953392)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 58" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-2653.7412, -59.048145)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="arvore 24" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-2879.7852, -97.09068)
+scale = Vector2(0.0672965, 0.0672965)
+texture = ExtResource("17_flf07")
+
+[node name="arvore 25" type="Sprite2D" parent="pranta e avores"]
+texture_filter = 1
+position = Vector2(-2840.184, -101.94206)
+scale = Vector2(0.07527575, 0.07527575)
+texture = ExtResource("17_flf07")
+
+[node name="arvore 26" type="Sprite2D" parent="pranta e avores"]
+texture_filter = 1
+position = Vector2(-2896.1563, -113.853424)
+scale = Vector2(0.0948668, 0.0948668)
+texture = ExtResource("17_flf07")
+
+[node name="arvore 27" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-2932.336, -97.09068)
+scale = Vector2(0.0672965, 0.0672965)
+texture = ExtResource("17_flf07")
+
+[node name="arvore 28" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-3023.0137, -110.706665)
+scale = Vector2(0.08969119, 0.08969119)
+texture = ExtResource("17_flf07")
+
+[node name="arvore 29" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-2973.0684, -123.43389)
+scale = Vector2(0.110624135, 0.110624135)
+texture = ExtResource("17_flf07")
+
+[node name="pranta 61" type="Sprite2D" parent="pranta e avores"]
+position = Vector2(-2880.9016, -57.679718)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 62" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-2916.7546, -58.22708)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 63" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-2949.5974, -58.500763)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 64" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-2965.7449, -57.9534)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 65" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-2992.5664, -59.04814)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 66" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-3041.0205, -61.796127)
+scale = Vector2(1.261493, 1.261493)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 67" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-2789.49, -57.679718)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 68" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-2819.5957, -58.227074)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 69" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-2845.5962, -58.50076)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 70" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-2859.0068, -57.953384)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
+[node name="pranta 71" type="Sprite2D" parent="pranta e avores"]
+show_behind_parent = true
+position = Vector2(-2904.439, -59.32183)
+scale = Vector2(0.8387271, 0.8387271)
+texture = ExtResource("17_k73cj")
+
 [node name="pranta 48" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
 position = Vector2(-2247.3154, 0.6157036)
@@ -3142,8 +3378,8 @@ position = Vector2(-1672.572, 18.67907)
 scale = Vector2(0.8387271, 0.8387271)
 texture = ExtResource("17_k73cj")
 
-[connection signal="StatsChanged" from="Erika" to="Hud" method="OnPlayerStatsChanged"]
 [connection signal="StatsChanged" from="Erika" to="Hud" method="_on_erika_stats_changed"]
+[connection signal="StatsChanged" from="Erika" to="Hud" method="OnPlayerStatsChanged"]
 [connection signal="body_entered" from="espinhos" to="Erika" method="_on_espinhos_body_entered"]
 [connection signal="body_exited" from="espinhos" to="Erika" method="_on_espinhos_body_exited"]
 [connection signal="body_entered" from="Void" to="Erika" method="_on_void_body_entered"]
