@@ -26,9 +26,55 @@ region = Rect2(426, 0, 138, 210)
 atlas = ExtResource("4_fs5pd")
 region = Rect2(564, 0, 138, 210)
 
+<<<<<<< Updated upstream
 [sub_resource type="AtlasTexture" id="AtlasTexture_3nwfu"]
 atlas = ExtResource("4_fs5pd")
 region = Rect2(702, 0, 138, 210)
+=======
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir8iy"]
+atlas = ExtResource("2_x6ds5")
+region = Rect2(700, 0, 140, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs5pd"]
+atlas = ExtResource("3_mahm4")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skbor"]
+atlas = ExtResource("3_mahm4")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lsj4"]
+atlas = ExtResource("3_mahm4")
+region = Rect2(640, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdpdv"]
+atlas = ExtResource("3_mahm4")
+region = Rect2(960, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88cqu"]
+atlas = ExtResource("3_mahm4")
+region = Rect2(1280, 0, 320, 320)
+>>>>>>> Stashed changes
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oman"]
+atlas = ExtResource("3_mahm4")
+region = Rect2(1280, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i242c"]
+atlas = ExtResource("3_mahm4")
+region = Rect2(960, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpuso"]
+atlas = ExtResource("3_mahm4")
+region = Rect2(640, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pef6"]
+atlas = ExtResource("3_mahm4")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n28va"]
+atlas = ExtResource("3_mahm4")
+region = Rect2(0, 0, 320, 320)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yjqh3"]
 atlas = ExtResource("4_skbor")
@@ -144,7 +190,46 @@ animations = [{
 "texture": SubResource("AtlasTexture_3nwfu")
 }],
 "loop": true,
+<<<<<<< Updated upstream
 "name": &"Erikaandando",
+=======
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs5pd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skbor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lsj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdpdv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88cqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1oman")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i242c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpuso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pef6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n28va")
+}],
+"loop": false,
+"name": &"jump",
+>>>>>>> Stashed changes
 "speed": 5.0
 }, {
 "frames": [{
@@ -169,8 +254,13 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pekpn")
 }],
+<<<<<<< Updated upstream
 "loop": true,
 "name": &"Erikacorrendo",
+=======
+"loop": false,
+"name": &"sprint",
+>>>>>>> Stashed changes
 "speed": 5.0
 }, {
 "frames": [{
@@ -227,8 +317,13 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n28va")
 }],
+<<<<<<< Updated upstream
 "loop": true,
 "name": &"Erikapulando",
+=======
+"loop": false,
+"name": &"walk",
+>>>>>>> Stashed changes
 "speed": 5.0
 }]
 
