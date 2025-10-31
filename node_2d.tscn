@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ctjhsgil40l7h" path="res://Cenas Complementares/Erika/Erika.tscn" id="2_0e48y"]
 [ext_resource type="Texture2D" uid="uid://dsx4wm781utaj" path="res://TelaInicial/Cenário 1.png" id="2_4d7sh"]
 [ext_resource type="PackedScene" uid="uid://cgcergo8oj4yw" path="res://Cenas Complementares/Hub/HUD.tscn" id="2_epypp"]
-[ext_resource type="Script" path="res://Sprite2d.cs" id="2_ir8iy"]
+[ext_resource type="Script" uid="uid://jdnrp3a52nhp" path="res://Sprite2d.cs" id="2_ir8iy"]
 [ext_resource type="Texture2D" uid="uid://2dsha06ftf81" path="res://Imagens/Terreno/Mapa Base 2.0.png" id="3_epypp"]
 [ext_resource type="Texture2D" uid="uid://dkegd22f5aqfs" path="res://Imagens/sprites erika/veeelinha_paradinha.png" id="4_hqns4"]
 [ext_resource type="Texture2D" uid="uid://44k5ivjf8snw" path="res://Imagens/Terreno/Cenario1 2.1.png" id="5_q6r6c"]
@@ -2306,5 +2306,6 @@ flip_h = true
 
 [connection signal="StatsChanged" from="Erika" to="Hud" method="_on_erika_stats_changed"]
 [connection signal="StatsChanged" from="Erika" to="Hud" method="OnPlayerStatsChanged"]
-[connection signal="body_entered" from="espinhos" to="Erika" method="_on_espinho_1_body_entered"]
+[connection signal="body_entered" from="espinhos" to="Erika" method="_on_espinhos_body_entered"]
+[connection signal="body_exited" from="espinhos" to="Erika" method="_on_espinhos_body_exited"]
 [connection signal="body_entered" from="Void" to="Erika" method="_on_void_body_entered"]
