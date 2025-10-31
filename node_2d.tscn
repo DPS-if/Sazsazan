@@ -1766,6 +1766,24 @@ flip_h = true
 [node name="mapaBase" type="StaticBody2D" parent="."]
 position = Vector2(1713, 485)
 
+[node name="barrera veia" type="CollisionShape2D" parent="mapaBase"]
+position = Vector2(1496.5, -42.5)
+shape = SubResource("RectangleShape2D_rjqkl")
+
+[node name="tapaburaco" type="Sprite2D" parent="mapaBase"]
+position = Vector2(-3354.4402, 178.93)
+scale = Vector2(2.4564672, 8.003783)
+texture = ExtResource("5_q6r6c")
+region_enabled = true
+region_rect = Rect2(0, 173.5, 1404, 37.5)
+
+[node name="tapaburaco2" type="Sprite2D" parent="mapaBase"]
+position = Vector2(-14837.999, -75.00003)
+scale = Vector2(2.4564672, 8.003783)
+texture = ExtResource("5_q6r6c")
+region_enabled = true
+region_rect = Rect2(0, 173.5, 1404, 37.5)
+
 [node name="MapaBase2_0" type="Sprite2D" parent="mapaBase"]
 position = Vector2(0, 70)
 scale = Vector2(2.4395738, 2.4395735)
@@ -1793,105 +1811,127 @@ texture = ExtResource("6_kdubu")
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="mapaBase"]
 polygon = PackedVector2Array(-5135, -270, -6471.3594, -268.48914, -6904, -268, -7087, -176, -7847, -176, -8001, -176, -8045.7676, -176, -8561, -176, -8560, 43, -7709, 41, -5135, 44)
 
+[node name="primeiro cenario 3" type="Sprite2D" parent="mapaBase"]
+position = Vector2(-10273.002, -215.00003)
+scale = Vector2(2.44, 2.44)
+texture = ExtResource("5_q6r6c")
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="mapaBase"]
+position = Vector2(-6848, 0)
+polygon = PackedVector2Array(-1712, -174, -2708, -174, -2764, -206, -3271, -206, -3271, -266, -3281, -271, -5138, -270, -1712, 42)
+
+[node name="primeiro cenario 4" type="Sprite2D" parent="mapaBase"]
+show_behind_parent = true
+position = Vector2(-12420.5, -246.40002)
+scale = Vector2(2.4395738, 2.4395735)
+texture = ExtResource("3_epypp")
+region_enabled = true
+region_rect = Rect2(0, 0, 577.24994, 211)
+
+[node name="colisão 3" type="CollisionPolygon2D" parent="mapaBase"]
+position = Vector2(-11414.5, -320.40002)
+polygon = PackedVector2Array(-1712.5, -171.59998, -1497.5, -171.59998, -1491.5, -166.59998, -1492, -63, -1480, -49, -1308, -48, -1301, -42, -1300, 15, -786, 16, -730, 46, -452, 49, -447, 55, -449, 327, -1712, 324)
+
+[node name="primeiro cenario 5" type="Sprite2D" parent="mapaBase"]
+position = Vector2(-14837.201, -436.57996)
+scale = Vector2(2.44, 2.44)
+texture = ExtResource("6_kdubu")
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="mapaBase"]
+position = Vector2(-7989.199, -221.57996)
+polygon = PackedVector2Array(-5135, -270, -6471.3594, -268.48914, -6904, -268, -7087, -176, -7847, -176, -8001, -176, -8045.7676, -176, -8561, -176, -8560, 43, -7709, 41, -5135, 44)
+
 [node name="segundo cenario 1" type="Sprite2D" parent="mapaBase"]
-position = Vector2(-10272.999, -120)
+position = Vector2(-18262.998, -341)
 scale = Vector2(2.44, 2.44)
 texture = ExtResource("7_d21ai")
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="mapaBase"]
+position = Vector2(-7990, -221)
 polygon = PackedVector2Array(-8560, -176, -10329, -176, -10504, -81, -10850, -81, -10864, -75, -10973, -75, -10982, -81, -11007, -81, -11016, -75, -11175, -75, -11191, -80, -11557, -80, -11569, -75, -11869, -75, -11881, -81, -11985, -81, -11986, 137, -8560, 137)
 
 [node name="segundo cenario 2" type="Sprite2D" parent="mapaBase"]
-position = Vector2(-13698.001, -120)
+position = Vector2(-21688.006, -341)
 scale = Vector2(2.44, 2.44)
 texture = ExtResource("8_rj586")
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="mapaBase"]
+position = Vector2(-7990, -221)
 polygon = PackedVector2Array(-11985, -81, -11999, -75, -12101, -75, -12116, -81, -12140, -81, -12152, -75, -12309, -75, -12323, -81, -12689, -81, -12703, -75, -13002, -75, -13012, -81, -13121, -81, -13133, -75, -13241, -75, -13250, -81, -13272, -81, -13284, -75, -13446, -75, -13458, -81, -15112, -81, -15229, -149, -15411, -149, -15411, 137, -11987, 137)
 
-[node name="tapaburaco" type="Sprite2D" parent="mapaBase"]
-position = Vector2(-3354.4402, 178.93)
-scale = Vector2(2.4564672, 8.003783)
-texture = ExtResource("5_q6r6c")
-region_enabled = true
-region_rect = Rect2(0, 173.5, 1404, 37.5)
-
-[node name="barrera veia" type="CollisionShape2D" parent="mapaBase"]
-position = Vector2(1496.5, -42.5)
-shape = SubResource("RectangleShape2D_rjqkl")
-
 [node name="segundo cenario 3" type="Sprite2D" parent="mapaBase"]
-position = Vector2(-17123, -120)
+position = Vector2(-25112.996, -341)
 scale = Vector2(2.44, 2.44)
 texture = ExtResource("11_0h7mo")
 
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="mapaBase"]
+position = Vector2(-7990, -221)
 polygon = PackedVector2Array(-15410, -149, -15598, -149, -15610, -146, -15712, -146, -15722, -149, -15748, -149, -15758, -146, -15918, -146, -15932, -150, -16296, -150, -16299, -89, -16591, -89, -16614, -101, -16614, -149, -16742, -149, -16742, -108, -16764, -89, -17060, -89, -17060, -149, -18836, -149, -18835, 134, -15410, 134)
 
 [node name="AguaTiraStamina" type="Area2D" parent="mapaBase"]
-position = Vector2(-16439, -132)
+position = Vector2(-23149, -132)
 script = ExtResource("12_d2bti")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mapaBase/AguaTiraStamina"]
-position = Vector2(-240.5, 13.5)
+position = Vector2(-1519.5, -207.50003)
 shape = SubResource("RectangleShape2D_d2bti")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="mapaBase/AguaTiraStamina"]
-position = Vector2(111.9209, 10.720001)
+position = Vector2(-1169.0781, -210.28)
 scale = Vector2(2.44, 2.44)
 sprite_frames = SubResource("SpriteFrames_ei405")
 autoplay = "default"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="mapaBase/AguaTiraStamina"]
-position = Vector2(50.85577, 10.720001)
+position = Vector2(-1231.1445, -210.28003)
 scale = Vector2(2.6265469, 2.44)
 sprite_frames = SubResource("SpriteFrames_ei405")
 autoplay = "default"
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="mapaBase/AguaTiraStamina"]
-position = Vector2(-13.875205, 10.720001)
+position = Vector2(-1295.875, -210.28)
 scale = Vector2(2.5288515, 2.44)
 sprite_frames = SubResource("SpriteFrames_ei405")
 autoplay = "default"
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="mapaBase/AguaTiraStamina"]
-position = Vector2(-77.59964, 10.720001)
+position = Vector2(-1359.6016, -210.28)
 scale = Vector2(2.507681, 2.44)
 sprite_frames = SubResource("SpriteFrames_ei405")
 autoplay = "default"
 
 [node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="mapaBase/AguaTiraStamina"]
-position = Vector2(-140.24991, 10.720001)
+position = Vector2(-1422.25, -210.28)
 scale = Vector2(2.5577202, 2.44)
 sprite_frames = SubResource("SpriteFrames_ei405")
 autoplay = "default"
 
 [node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="mapaBase/AguaTiraStamina"]
-position = Vector2(-334.56934, 10.720001)
+position = Vector2(-1613.5703, -210.28)
 scale = Vector2(2.44, 2.44)
 sprite_frames = SubResource("SpriteFrames_ei405")
 autoplay = "default"
 
 [node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="mapaBase/AguaTiraStamina"]
-position = Vector2(-397.9795, 10.720001)
+position = Vector2(-1676.9805, -210.28)
 scale = Vector2(2.44, 2.44)
 sprite_frames = SubResource("SpriteFrames_ei405")
 autoplay = "default"
 
 [node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="mapaBase/AguaTiraStamina"]
-position = Vector2(-461.37988, 10.720001)
+position = Vector2(-1740.3789, -210.28)
 scale = Vector2(2.44, 2.44)
 sprite_frames = SubResource("SpriteFrames_ei405")
 autoplay = "default"
 
 [node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="mapaBase/AguaTiraStamina"]
-position = Vector2(-524.8252, 10.720001)
+position = Vector2(-1803.8262, -210.28)
 scale = Vector2(2.44, 2.44)
 sprite_frames = SubResource("SpriteFrames_ei405")
 autoplay = "default"
 
 [node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="mapaBase/AguaTiraStamina"]
-position = Vector2(-588.8598, 11)
+position = Vector2(-1867.8594, -210)
 scale = Vector2(2.527706, 2.44)
 sprite_frames = SubResource("SpriteFrames_ei405")
 autoplay = "default"
