@@ -1,11 +1,10 @@
-[gd_scene load_steps=264 format=3 uid="uid://bqpmxgkb5nfkc"]
+[gd_scene load_steps=250 format=3 uid="uid://bqpmxgkb5nfkc"]
 
 [ext_resource type="PackedScene" uid="uid://ctjhsgil40l7h" path="res://Cenas Complementares/Erika/Erika.tscn" id="2_0e48y"]
 [ext_resource type="Texture2D" uid="uid://dsx4wm781utaj" path="res://TelaInicial/Cenário 1.png" id="2_4d7sh"]
 [ext_resource type="PackedScene" uid="uid://cgcergo8oj4yw" path="res://Cenas Complementares/Hub/HUD.tscn" id="2_epypp"]
 [ext_resource type="Script" uid="uid://jdnrp3a52nhp" path="res://Sprite2d.cs" id="2_ir8iy"]
 [ext_resource type="Texture2D" uid="uid://2dsha06ftf81" path="res://Imagens/Terreno/Mapa Base 2.0.png" id="3_epypp"]
-[ext_resource type="Texture2D" uid="uid://dkegd22f5aqfs" path="res://Imagens/sprites erika/veeelinha_paradinha.png" id="4_hqns4"]
 [ext_resource type="Texture2D" uid="uid://44k5ivjf8snw" path="res://Imagens/Terreno/Cenario1 2.1.png" id="5_q6r6c"]
 [ext_resource type="Texture2D" uid="uid://dx0po1yg01a60" path="res://Imagens/Terreno/Cenario1 2.2.png" id="6_kdubu"]
 [ext_resource type="Texture2D" uid="uid://daw12ggookton" path="res://Imagens/Terreno/Cenario2 2.0.png" id="7_d21ai"]
@@ -15,102 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://ltaj4ih3yc38" path="res://Imagens/Terreno/Agua 26x26 animação.png" id="12_nr8wp"]
 [ext_resource type="Texture2D" uid="uid://beupim73tpu6h" path="res://Imagens/Terreno/Obstáculos/FogoGrande.png" id="13_d2bti"]
 [ext_resource type="Texture2D" uid="uid://cn75xweshob5" path="res://Imagens/Terreno/Obstáculos/FogoPequeno(EsseSim).png" id="13_nr8wp"]
-[ext_resource type="Texture2D" uid="uid://f0cbmarsg34h" path="res://Imagens/Personagens secundarios/FellipePersonagem.png" id="16_ta5nu"]
 [ext_resource type="Texture2D" uid="uid://bs1vdlav7jj0h" path="res://Imagens/Terreno/ArvoreMuruci.png" id="17_flf07"]
 [ext_resource type="Texture2D" uid="uid://cjikoq55c7sx5" path="res://Imagens/Pranta.png" id="17_k73cj"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ld5wt"]
-atlas = ExtResource("16_ta5nu")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qoxh5"]
-atlas = ExtResource("16_ta5nu")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xa4jy"]
-atlas = ExtResource("16_ta5nu")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oojoh"]
-atlas = ExtResource("16_ta5nu")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qphy4"]
-atlas = ExtResource("16_ta5nu")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_oxvno"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ld5wt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qoxh5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xa4jy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oojoh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qphy4")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x0ka3"]
-atlas = ExtResource("4_hqns4")
-region = Rect2(0, 0, 270, 270)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0h7mo"]
-atlas = ExtResource("4_hqns4")
-region = Rect2(270, 0, 270, 270)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nr8wp"]
-atlas = ExtResource("4_hqns4")
-region = Rect2(540, 0, 270, 270)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d2bti"]
-atlas = ExtResource("4_hqns4")
-region = Rect2(810, 0, 270, 270)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ta5nu"]
-atlas = ExtResource("4_hqns4")
-region = Rect2(1080, 0, 270, 270)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_flf07"]
-atlas = ExtResource("4_hqns4")
-region = Rect2(1350, 0, 270, 270)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_k73cj"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x0ka3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0h7mo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nr8wp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d2bti")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ta5nu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_flf07")
-}],
-"loop": true,
-"name": &"Veia parada",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rjqkl"]
 size = Vector2(425, 301)
@@ -1729,8 +1634,11 @@ size = Vector2(200, 122)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d21ai"]
 size = Vector2(100000, 200)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k73cj"]
-size = Vector2(260.25, 130)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ta5nu"]
+size = Vector2(195.5, 87)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_flf07"]
+size = Vector2(205, 129)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(-1, 0)
@@ -1747,22 +1655,7 @@ centered = false
 script = ExtResource("2_ir8iy")
 
 [node name="Erika" parent="." instance=ExtResource("2_0e48y")]
-position = Vector2(2458, 339)
-
-[node name="fellippex" type="AnimatedSprite2D" parent="."]
-position = Vector2(3085.0005, 567)
-scale = Vector2(3.005, 3.005)
-sprite_frames = SubResource("SpriteFrames_oxvno")
-autoplay = "default"
-flip_h = true
-
-[node name="veia" type="AnimatedSprite2D" parent="."]
-position = Vector2(3038.0002, 559)
-scale = Vector2(0.27, 0.27)
-sprite_frames = SubResource("SpriteFrames_k73cj")
-animation = &"Veia parada"
-autoplay = "Veia parada"
-flip_h = true
+position = Vector2(2488, 342)
 
 [node name="Hud" parent="." instance=ExtResource("2_epypp")]
 
@@ -1770,7 +1663,7 @@ flip_h = true
 position = Vector2(1713, 485)
 
 [node name="barrera veia" type="CollisionShape2D" parent="mapaBase"]
-position = Vector2(1496.5, -42.5)
+position = Vector2(1498, -25)
 shape = SubResource("RectangleShape2D_rjqkl")
 
 [node name="tapaburaco" type="Sprite2D" parent="mapaBase"]
@@ -1833,7 +1726,7 @@ region_rect = Rect2(0, 0, 577.24994, 211)
 
 [node name="colisão 3" type="CollisionPolygon2D" parent="mapaBase"]
 position = Vector2(-11414.5, -320.40002)
-polygon = PackedVector2Array(-1712.5, -171.59998, -1497.5, -171.59998, -1491.5, -166.59998, -1492, -63, -1480, -49, -1308, -48, -1301, -42, -1300, 15, -786, 16, -730, 46, -452, 49, -447, 55, -449, 327, -1712, 324)
+polygon = PackedVector2Array(-1712.5, -171.59998, -1497.5, -171.59998, -1491.5, -166.59998, -1492, -63, -1480, -49, -1308, -48, -1301, -42, -1300, 15, -786, 16, -731.5, 49.400024, -453.5, 49.400024, -453.5, 56.400024, -449, 327, -1712, 324)
 
 [node name="primeiro cenario 5" type="Sprite2D" parent="mapaBase"]
 position = Vector2(-14837.201, -436.57996)
@@ -1869,7 +1762,7 @@ texture = ExtResource("11_0h7mo")
 
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="mapaBase"]
 position = Vector2(-7990, -221)
-polygon = PackedVector2Array(-15410, -149, -15598, -149, -15610, -146, -15712, -146, -15722, -149, -15748, -149, -15758, -146, -15918, -146, -15932, -150, -16296, -150, -16339, -120, -16454, -104, -16559, -122, -16614, -149, -16742, -149, -16784, -121, -16900, -102, -17005, -122, -17060, -149, -18836, -149, -18835, 134, -15410, 134)
+polygon = PackedVector2Array(-15410, -149, -15598, -149, -15610, -146, -15712, -146, -15722, -149, -15748, -149, -15758, -146, -15918, -146, -15932, -150, -16296, -150, -16368, -123, -16455, -103, -16559, -123, -16614, -149, -16742, -149, -16783, -122, -16899, -103, -17005, -122, -17060, -149, -18836, -149, -18835, 134, -15410, 134)
 
 [node name="AguaTiraStamina" type="Area2D" parent="mapaBase"]
 position = Vector2(-23149, -132)
@@ -2055,7 +1948,7 @@ sprite_frames = SubResource("SpriteFrames_s32dh")
 autoplay = "default"
 
 [node name="área de dano20" type="CollisionShape2D" parent="espinhos"]
-position = Vector2(-5501.4956, -282)
+position = Vector2(-5506.4956, -287)
 shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="epinho 2_6" type="AnimatedSprite2D" parent="espinhos"]
@@ -2164,6 +2057,7 @@ position = Vector2(-6193.7656, -191.25)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="espinho1_32" type="AnimatedSprite2D" parent="espinhos"]
+show_behind_parent = true
 position = Vector2(-6306.8438, -212.5)
 scale = Vector2(2.627414, 2.3461545)
 sprite_frames = SubResource("SpriteFrames_2djs3")
@@ -2266,7 +2160,7 @@ sprite_frames = SubResource("SpriteFrames_thyvg")
 autoplay = "default"
 
 [node name="área de dano60" type="CollisionShape2D" parent="espinhos"]
-position = Vector2(-11263.766, -319.25)
+position = Vector2(-11259.766, -320.25)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="espinho1_40" type="AnimatedSprite2D" parent="espinhos"]
@@ -2281,7 +2175,7 @@ position = Vector2(-11377, -324.25)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="espinho1_41" type="AnimatedSprite2D" parent="espinhos"]
-position = Vector2(-11333.5, -345)
+position = Vector2(-11333.5, -347)
 scale = Vector2(3.0625014, 3.0000007)
 sprite_frames = SubResource("SpriteFrames_bfoml")
 autoplay = "default"
@@ -2439,7 +2333,8 @@ position = Vector2(-5023, -288)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="epinho 2_9" type="AnimatedSprite2D" parent="espinhos"]
-position = Vector2(-5103, -292)
+show_behind_parent = true
+position = Vector2(-5103.0005, -295)
 scale = Vector2(3.063, 2.938)
 sprite_frames = SubResource("SpriteFrames_s32dh")
 autoplay = "default"
@@ -2459,7 +2354,8 @@ position = Vector2(-4949, -280)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="espinho1_25" type="AnimatedSprite2D" parent="espinhos"]
-position = Vector2(-9421.091, -323.153)
+show_behind_parent = true
+position = Vector2(-9421.09, -320.153)
 scale = Vector2(3.1658647, 3.1923082)
 sprite_frames = SubResource("SpriteFrames_c3urr")
 autoplay = "default"
@@ -2470,7 +2366,7 @@ position = Vector2(-9442, -288)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="espinho1_26" type="AnimatedSprite2D" parent="espinhos"]
-position = Vector2(-9378.091, -323.153)
+position = Vector2(-9378.09, -320.153)
 scale = Vector2(3.1658647, 3.1923082)
 sprite_frames = SubResource("SpriteFrames_c3urr")
 autoplay = "default"
@@ -2481,7 +2377,7 @@ position = Vector2(-9409, -308)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="espinho1_27" type="AnimatedSprite2D" parent="espinhos"]
-position = Vector2(-9335.091, -323.153)
+position = Vector2(-9335.092, -321.153)
 scale = Vector2(3.166, 3.219)
 sprite_frames = SubResource("SpriteFrames_c3urr")
 autoplay = "default"
@@ -2492,7 +2388,8 @@ position = Vector2(-9368, -309)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="epinho 2_15" type="AnimatedSprite2D" parent="espinhos"]
-position = Vector2(-9454.091, -301.15295)
+show_behind_parent = true
+position = Vector2(-9453.092, -297.15295)
 scale = Vector2(3.063, 2.938)
 sprite_frames = SubResource("SpriteFrames_s32dh")
 autoplay = "default"
@@ -2502,7 +2399,8 @@ position = Vector2(-9319, -309)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="epinho 2_16" type="AnimatedSprite2D" parent="espinhos"]
-position = Vector2(-9292.092, -303.15295)
+show_behind_parent = true
+position = Vector2(-9292.091, -299.15295)
 scale = Vector2(3.063, 2.938)
 sprite_frames = SubResource("SpriteFrames_s32dh")
 autoplay = "default"
@@ -2512,7 +2410,7 @@ position = Vector2(-9300, -296)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="espinho1_44" type="AnimatedSprite2D" parent="espinhos"]
-position = Vector2(-15429.091, -450.153)
+position = Vector2(-15429.09, -447.153)
 scale = Vector2(3.1658647, 3.1923082)
 sprite_frames = SubResource("SpriteFrames_c3urr")
 autoplay = "default"
@@ -2537,7 +2435,7 @@ autoplay = "default"
 flip_h = true
 
 [node name="espinho1_49" type="AnimatedSprite2D" parent="espinhos"]
-position = Vector2(-15386.091, -450.153)
+position = Vector2(-15386.09, -447.153)
 scale = Vector2(3.1658647, 3.1923082)
 sprite_frames = SubResource("SpriteFrames_c3urr")
 autoplay = "default"
@@ -2548,7 +2446,7 @@ position = Vector2(-15417, -435)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="espinho1_46" type="AnimatedSprite2D" parent="espinhos"]
-position = Vector2(-15343.091, -450.153)
+position = Vector2(-15343.092, -447.153)
 scale = Vector2(3.166, 3.219)
 sprite_frames = SubResource("SpriteFrames_c3urr")
 autoplay = "default"
@@ -2570,7 +2468,7 @@ position = Vector2(-16238, -423)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="epinho 2_24" type="AnimatedSprite2D" parent="espinhos"]
-position = Vector2(-15462.091, -428.15286)
+position = Vector2(-15462.092, -425.15283)
 scale = Vector2(3.063, 2.938)
 sprite_frames = SubResource("SpriteFrames_s32dh")
 autoplay = "default"
@@ -2580,13 +2478,13 @@ position = Vector2(-15327, -436)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="epinho 2_25" type="AnimatedSprite2D" parent="espinhos"]
-position = Vector2(-15300.092, -430.15286)
+position = Vector2(-15300.092, -424.1528)
 scale = Vector2(3.063, 2.938)
 sprite_frames = SubResource("SpriteFrames_s32dh")
 autoplay = "default"
 
 [node name="área de dano71" type="CollisionShape2D" parent="espinhos"]
-position = Vector2(-15308, -423)
+position = Vector2(-15311, -418)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="espinho1_19" type="AnimatedSprite2D" parent="espinhos"]
@@ -2682,7 +2580,7 @@ scale = Vector2(1.25, 1.27)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="espinho1_28" type="AnimatedSprite2D" parent="espinhos"]
-position = Vector2(-9916, -348.99997)
+position = Vector2(-9915.999, -343.99997)
 scale = Vector2(5, 5.084)
 sprite_frames = SubResource("SpriteFrames_c3urr")
 autoplay = "default"
@@ -2706,7 +2604,8 @@ scale = Vector2(2, 2.016)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="epinho 2_17" type="AnimatedSprite2D" parent="espinhos"]
-position = Vector2(-9974, -307)
+show_behind_parent = true
+position = Vector2(-9974, -305)
 scale = Vector2(4, 3.869)
 sprite_frames = SubResource("SpriteFrames_s32dh")
 autoplay = "default"
@@ -2717,7 +2616,7 @@ scale = Vector2(2, 2.016)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="epinho 2_18" type="AnimatedSprite2D" parent="espinhos"]
-position = Vector2(-9776, -312.687)
+position = Vector2(-9776, -310.687)
 scale = Vector2(5, 4.836)
 sprite_frames = SubResource("SpriteFrames_s32dh")
 autoplay = "default"
@@ -2727,10 +2626,10 @@ position = Vector2(-9771, -305.687)
 scale = Vector2(1.25, 1.27)
 shape = SubResource("RectangleShape2D_q6r6c")
 
-[node name="AreaAprendePDuplo2" type="Area2D" parent="."]
+[node name="AreaAprendePDuplo" type="Area2D" parent="."]
 position = Vector2(0, 812)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAprendePDuplo2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAprendePDuplo"]
 position = Vector2(300, -418)
 shape = SubResource("RectangleShape2D_kdubu")
 
@@ -2743,7 +2642,7 @@ shape = SubResource("RectangleShape2D_d21ai")
 
 [node name="pranta e avores" type="Sprite2D" parent="."]
 show_behind_parent = true
-position = Vector2(-1981.7498, 194.75034)
+position = Vector2(-1981.7496, 197.75034)
 scale = Vector2(3.6538038, 3.6538038)
 texture = ExtResource("17_k73cj")
 
@@ -2831,22 +2730,12 @@ scale = Vector2(0.07449878, 0.07449878)
 texture = ExtResource("17_flf07")
 flip_h = true
 
-<<<<<<< Updated upstream
 [node name="arvore 15" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
 texture_filter = 1
 position = Vector2(396.91528, -13.479187)
 scale = Vector2(0.07449878, 0.07449878)
 texture = ExtResource("17_flf07")
-=======
-[node name="arvore 16" type="Sprite2D" parent="pranta e avores"]
-show_behind_parent = true
-texture_filter = 1
-position = Vector2(480.11606, -13.479179)
-scale = Vector2(0.07449878, 0.07449878)
-texture = ExtResource("17_flf07")
-flip_h = true
->>>>>>> Stashed changes
 
 [node name="arvore 5" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
@@ -2902,7 +2791,7 @@ texture = ExtResource("17_flf07")
 [node name="arvore 8" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(-2632.3809, -97.09068)
+position = Vector2(-2632.3809, -95.995926)
 scale = Vector2(0.0672965, 0.0672965)
 texture = ExtResource("17_flf07")
 flip_h = true
@@ -2910,14 +2799,14 @@ flip_h = true
 [node name="arvore 23" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(-2589.213, -105.49927)
+position = Vector2(-2589.213, -104.130844)
 scale = Vector2(0.081126414, 0.081126414)
 texture = ExtResource("17_flf07")
 
 [node name="arvore 22" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(-2648.7422, -113.853424)
+position = Vector2(-2648.7422, -112.21132)
 scale = Vector2(0.0948668, 0.0948668)
 texture = ExtResource("17_flf07")
 flip_h = true
@@ -2925,13 +2814,13 @@ flip_h = true
 [node name="arvore 21" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(-2684.9277, -97.09068)
+position = Vector2(-2684.942, -94.6275)
 scale = Vector2(0.0672965, 0.0672965)
 texture = ExtResource("17_flf07")
 
 [node name="arvore 9" type="Sprite2D" parent="pranta e avores"]
 texture_filter = 1
-position = Vector2(-2786.548, -110.706665)
+position = Vector2(-2786.5488, -109.064545)
 scale = Vector2(0.08969119, 0.08969119)
 texture = ExtResource("17_flf07")
 flip_h = true
@@ -2939,7 +2828,7 @@ flip_h = true
 [node name="arvore 20" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(-2725.6536, -123.43389)
+position = Vector2(-2725.6543, -121.51811)
 scale = Vector2(0.110624135, 0.110624135)
 texture = ExtResource("17_flf07")
 flip_h = true
@@ -2947,7 +2836,7 @@ flip_h = true
 [node name="arvore 30" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(-2817.0684, -124.25822)
+position = Vector2(-2817.0684, -122.06875)
 scale = Vector2(0.11513085, 0.11513085)
 texture = ExtResource("17_flf07")
 
@@ -3005,7 +2894,6 @@ scale = Vector2(0.7473771, 0.7473771)
 texture = ExtResource("17_k73cj")
 
 [node name="pranta 12" type="Sprite2D" parent="pranta e avores"]
-top_level = true
 position = Vector2(395.25037, 424.75003)
 scale = Vector2(2.7307692, 2.7307692)
 texture = ExtResource("17_k73cj")
@@ -3168,7 +3056,7 @@ texture = ExtResource("17_k73cj")
 
 [node name="pranta 41" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
-position = Vector2(-1721.2885, 18.405382)
+position = Vector2(-1721.2885, 18.679071)
 scale = Vector2(0.8387271, 0.8387271)
 texture = ExtResource("17_k73cj")
 
@@ -3180,25 +3068,25 @@ texture = ExtResource("17_k73cj")
 
 [node name="pranta 44" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
-position = Vector2(-2119.7769, 0.88939095)
+position = Vector2(-2119.7769, 1.4367657)
 scale = Vector2(0.8387271, 0.8387271)
 texture = ExtResource("17_k73cj")
 
 [node name="pranta 45" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
-position = Vector2(-2137.2932, 0.6157036)
+position = Vector2(-2137.2932, 1.4367638)
 scale = Vector2(0.8387271, 0.8387271)
 texture = ExtResource("17_k73cj")
 
 [node name="pranta 46" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
-position = Vector2(-2153.4407, 1.1630783)
+position = Vector2(-2153.4407, 1.4367676)
 scale = Vector2(0.8387271, 0.8387271)
 texture = ExtResource("17_k73cj")
 
 [node name="pranta 47" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
-position = Vector2(-2195.5886, 0.06832886)
+position = Vector2(-2195.5886, 1.4367676)
 scale = Vector2(0.8387271, 0.8387271)
 texture = ExtResource("17_k73cj")
 
@@ -3238,12 +3126,6 @@ position = Vector2(-2793.6064, -61.796127)
 scale = Vector2(1.261493, 1.261493)
 texture = ExtResource("17_k73cj")
 
-[node name="pranta 60" type="Sprite2D" parent="pranta e avores"]
-show_behind_parent = true
-position = Vector2(542.37964, -53.300713)
-scale = Vector2(0.8387271, 0.8387271)
-texture = ExtResource("17_k73cj")
-
 [node name="pranta 54" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
 position = Vector2(-2542.0764, -57.679718)
@@ -3277,40 +3159,40 @@ texture = ExtResource("17_k73cj")
 [node name="arvore 24" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(-2879.7852, -97.09068)
+position = Vector2(-2879.7852, -95.995926)
 scale = Vector2(0.0672965, 0.0672965)
 texture = ExtResource("17_flf07")
 
 [node name="arvore 25" type="Sprite2D" parent="pranta e avores"]
 texture_filter = 1
-position = Vector2(-2840.184, -101.94206)
+position = Vector2(-2840.1836, -100.57364)
 scale = Vector2(0.07527575, 0.07527575)
 texture = ExtResource("17_flf07")
 
 [node name="arvore 26" type="Sprite2D" parent="pranta e avores"]
 texture_filter = 1
-position = Vector2(-2896.1563, -113.853424)
+position = Vector2(-2896.1563, -112.21132)
 scale = Vector2(0.0948668, 0.0948668)
 texture = ExtResource("17_flf07")
 
 [node name="arvore 27" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(-2932.336, -97.09068)
+position = Vector2(-2932.336, -95.995926)
 scale = Vector2(0.0672965, 0.0672965)
 texture = ExtResource("17_flf07")
 
 [node name="arvore 28" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(-3023.0137, -110.706665)
+position = Vector2(-3023.0137, -109.33824)
 scale = Vector2(0.08969119, 0.08969119)
 texture = ExtResource("17_flf07")
 
 [node name="arvore 29" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(-2973.0684, -123.43389)
+position = Vector2(-2973.0684, -121.51811)
 scale = Vector2(0.110624135, 0.110624135)
 texture = ExtResource("17_flf07")
 
@@ -3345,7 +3227,7 @@ texture = ExtResource("17_k73cj")
 
 [node name="pranta 66" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
-position = Vector2(-3041.0205, -61.796127)
+position = Vector2(-3041.0205, -60.701374)
 scale = Vector2(1.261493, 1.261493)
 texture = ExtResource("17_k73cj")
 
@@ -3381,7 +3263,7 @@ texture = ExtResource("17_k73cj")
 
 [node name="pranta 48" type="Sprite2D" parent="pranta e avores"]
 show_behind_parent = true
-position = Vector2(-2247.3154, 0.6157036)
+position = Vector2(-2247.3154, 1.4367638)
 scale = Vector2(0.8387271, 0.8387271)
 texture = ExtResource("17_k73cj")
 
@@ -3391,36 +3273,24 @@ position = Vector2(-1672.572, 18.67907)
 scale = Vector2(0.8387271, 0.8387271)
 texture = ExtResource("17_k73cj")
 
-<<<<<<< Updated upstream
-=======
-[node name="TutorialFireZone" type="Area2D" parent="."]
+[node name="ensinarPulo" type="Area2D" parent="."]
+position = Vector2(2, -1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialFireZone"]
-position = Vector2(1498, 463)
-shape = SubResource("RectangleShape2D_k73cj")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ensinarPulo"]
+position = Vector2(1474.25, 485.5)
+shape = SubResource("RectangleShape2D_ta5nu")
 
-[node name="TutorialDashZone" type="Area2D" parent="."]
+[node name="dicaDash" type="Area2D" parent="."]
+position = Vector2(-84, 76)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialDashZone"]
-position = Vector2(-623, 243)
-shape = SubResource("RectangleShape2D_k73cj")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dicaDash"]
+position = Vector2(-5898, 180)
+shape = SubResource("RectangleShape2D_flf07")
 
-[node name="TutorialRunZone" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialRunZone"]
-position = Vector2(-1708.875, 153)
-shape = SubResource("RectangleShape2D_k73cj")
-
-[node name="TutorialStaminaZone" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialStaminaZone"]
-position = Vector2(-3593, 145)
-shape = SubResource("RectangleShape2D_k73cj")
-
-[connection signal="StatsChanged" from="Erika" to="Hud" method="OnPlayerStatsChanged"]
->>>>>>> Stashed changes
 [connection signal="StatsChanged" from="Erika" to="Hud" method="_on_erika_stats_changed"]
 [connection signal="StatsChanged" from="Erika" to="Hud" method="OnPlayerStatsChanged"]
 [connection signal="body_entered" from="espinhos" to="Erika" method="_on_espinhos_body_entered"]
 [connection signal="body_exited" from="espinhos" to="Erika" method="_on_espinhos_body_exited"]
 [connection signal="body_entered" from="Void" to="Erika" method="_on_void_body_entered"]
+[connection signal="body_entered" from="ensinarPulo" to="Erika" method="_on_ensinar_pulo_body_entered"]
+[connection signal="body_entered" from="dicaDash" to="Erika" method="_on_dica_dash_body_entered"]

@@ -37,20 +37,22 @@ offset_bottom = 651.0
 theme_override_font_sizes/font_size = 20
 text = "                                                                                                         Créditos
 
-Organização geral:                                        Arte e design:                                          Cutscenes:
+ Organização geral:                                        Arte e design:                                          Cutscenes:
 
-Fellipe Gabriel Santiago                               Rafael Siqueira (diretor)                       Kauê Borges
+ Fellipe Gabriel Santiago                               Rafael Siqueira (diretor)                       Kauê Borges
 
-Programação:                                                 Alexander Medeiros                             Pesquisa:
+ Programação:                                                 Alexander Medeiros                             Pesquisa:
 
-Caio Borges                                                     Ana Laura Caetano                               Deyvid Rodrigo
+ Caio Borges                                                     Ana Laura Caetano                               Deyvid Rodrigo
 
-Diego Pereira (Líder)                                     História:                                                   Música:
+ Diego Pereira (Líder)                                     História:                                                   Música:
 
-Gabriel Franklin                                            Rafael Siqueira                                        Antônio Botelho
+ Gabriel Franklin                                            Rafael Siqueira                                        Antônio Botelho
 
-Mateus Amaral                                              Ana Laura Caetano
-"
+ Mateus Amaral                                              Ana Laura Caetano
+
+
+ Baseado no livro \"Fogo, gente!\" de Cristino Wapichana"
 
 [node name="voltar_btn" type="Button" parent="créditos"]
 layout_mode = 0
