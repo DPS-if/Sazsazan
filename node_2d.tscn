@@ -1853,7 +1853,7 @@ parameters/looping = true
 [node name="Ato1MusicTrigger" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ato1MusicTrigger"]
-position = Vector2(2794, 538.5)
+position = Vector2(2448, 475)
 shape = SubResource("RectangleShape2D_1fr6y")
 
 [node name="mapaBase" type="StaticBody2D" parent="."]
