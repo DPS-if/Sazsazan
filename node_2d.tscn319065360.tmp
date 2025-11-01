@@ -1,6 +1,6 @@
-[gd_scene load_steps=284 format=3 uid="uid://bqpmxgkb5nfkc"]
+[gd_scene load_steps=283 format=3 uid="uid://bqpmxgkb5nfkc"]
 
-[ext_resource type="Script" uid="uid://cdh6thkmjwoop" path="res://Node2d.cs" id="1_bjha6"]
+[ext_resource type="Script" uid="uid://dt6spi54kw0o1" path="res://node_2d.gd" id="1_bjha6"]
 [ext_resource type="PackedScene" uid="uid://ctjhsgil40l7h" path="res://Cenas Complementares/Erika/Erika.tscn" id="2_0e48y"]
 [ext_resource type="Texture2D" uid="uid://dsx4wm781utaj" path="res://TelaInicial/Cenário 1.png" id="2_4d7sh"]
 [ext_resource type="PackedScene" uid="uid://cgcergo8oj4yw" path="res://Cenas Complementares/Hub/HUD.tscn" id="2_epypp"]
@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://44k5ivjf8snw" path="res://Imagens/Terreno/Cenario1 2.1.png" id="5_q6r6c"]
 [ext_resource type="Texture2D" uid="uid://dx0po1yg01a60" path="res://Imagens/Terreno/Cenario1 2.2.png" id="6_kdubu"]
 [ext_resource type="Texture2D" uid="uid://daw12ggookton" path="res://Imagens/Terreno/Cenario2 2.0.png" id="7_d21ai"]
-[ext_resource type="AudioStream" uid="uid://bvmtwsf6cj3vv" path="res://Audio/MusicaFinal1.mp3" id="8_gt76g"]
+[ext_resource type="AudioStream" uid="uid://hf2atg7riuu3" path="res://Audio/MusicaFinal1.mp3" id="8_gt76g"]
 [ext_resource type="Texture2D" uid="uid://dt7rkmys8g0nd" path="res://Imagens/Terreno/Cenario2 2.1.png" id="8_rj586"]
 [ext_resource type="Texture2D" uid="uid://cs4pwjw5nfkl" path="res://Imagens/Terreno/Cenario2 2.2.png" id="11_0h7mo"]
 [ext_resource type="Script" uid="uid://bxfrvm4temtid" path="res://StaminaDrainArea.cs" id="12_d2bti"]
@@ -25,7 +25,6 @@
 [ext_resource type="Texture2D" uid="uid://ddvwkaxm46aos" path="res://Imagens/Terreno/1761922557347 (1).png" id="20_fs4d3"]
 [ext_resource type="Texture2D" uid="uid://0egc5nrgl4bc" path="res://Imagens/Terreno/1761922557347.png" id="21_7vxoj"]
 [ext_resource type="Texture2D" uid="uid://dkegd22f5aqfs" path="res://Imagens/sprites erika/veeelinha_paradinha.png" id="22_ei405"]
-[ext_resource type="Texture2D" uid="uid://dcd2p2waqpg46" path="res://Imagens/Terreno/1761922568725.png" id="26_gt76g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ph30p"]
 atlas = ExtResource("22_ei405")
@@ -1847,6 +1846,7 @@ autoplay = "default"
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_gt76g")
+volume_db = 5.778
 autoplay = true
 parameters/looping = true
 
@@ -3535,7 +3535,7 @@ texture = ExtResource("19_rjqkl")
 
 [node name="1761922557347(1)" type="Sprite2D" parent="."]
 z_index = -2
-position = Vector2(-15463.001, -9.536743e-07)
+position = Vector2(-15405, -6)
 scale = Vector2(0.26473677, 0.3181818)
 texture = ExtResource("20_fs4d3")
 
@@ -3604,24 +3604,6 @@ z_index = -1
 position = Vector2(-20496, 90)
 scale = Vector2(0.16619319, 0.28267047)
 texture = ExtResource("21_7vxoj")
-
-[node name="1761922568725" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(-10390, 63)
-scale = Vector2(0.25740132, 0.25740132)
-texture = ExtResource("26_gt76g")
-
-[node name="1761922568726" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(-8952, 69.999985)
-scale = Vector2(0.22779605, 0.22779605)
-texture = ExtResource("26_gt76g")
-
-[node name="1761922568727" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(-4552, 128)
-scale = Vector2(0.14884868, 0.14884868)
-texture = ExtResource("26_gt76g")
 
 [connection signal="StatsChanged" from="Erika" to="Hud" method="_on_erika_stats_changed"]
 [connection signal="StatsChanged" from="Erika" to="Hud" method="OnPlayerStatsChanged"]
