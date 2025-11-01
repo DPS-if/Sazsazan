@@ -192,7 +192,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ir8iy")
 }],
-"loop": false,
+"loop": true,
 "name": &"Erikaparada",
 "speed": 5.0
 }, {
@@ -243,6 +243,7 @@ position = Vector2(384, 217.78574)
 scale = Vector2(0.27142873, 0.2714287)
 sprite_frames = SubResource("SpriteFrames_mahm4")
 animation = &"Erikaparada"
+autoplay = "Erikaparada"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(388, 219)
