@@ -18,7 +18,7 @@ public partial class PrimeiraTela : Control
 		var Btn2 = GetNode<TextureButton>("MarginContainer/HBoxContainer/VBoxContainer/start_btn");
 		Btn2.Pressed += () =>
 		{
-			GetTree().ChangeSceneToFile("res://node_2d.tscn");
+			GetTree().ChangeSceneToFile("res://CutscenePlayer.tscn");
 		};
 	}
 }
