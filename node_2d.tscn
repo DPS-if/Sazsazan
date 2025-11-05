@@ -1811,7 +1811,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fs4d3"]
-size = Vector2(10236, 28)
+size = Vector2(10107, 28)
 
 [node name="Ato1" type="Node2D"]
 position = Vector2(-1, 0)
@@ -1829,7 +1829,7 @@ centered = false
 script = ExtResource("2_ir8iy")
 
 [node name="Erika" parent="." instance=ExtResource("2_0e48y")]
-position = Vector2(2533, 345)
+position = Vector2(2436, 339)
 
 [node name="veia" type="AnimatedSprite2D" parent="."]
 position = Vector2(3285, 546)
@@ -3522,7 +3522,7 @@ polygon = PackedVector2Array(-195, -15, 20, -16, 481, -381, 992, -759, 1882, -75
 [node name="easteregg mateus" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="easteregg mateus"]
-position = Vector2(-19970, 615)
+position = Vector2(-19905.5, 615)
 shape = SubResource("RectangleShape2D_fs4d3")
 
 [node name="TextureRect" type="TextureRect" parent="easteregg mateus"]
@@ -3623,8 +3623,8 @@ position = Vector2(-4552, 128)
 scale = Vector2(0.14884868, 0.14884868)
 texture = ExtResource("26_gt76g")
 
-[connection signal="StatsChanged" from="Erika" to="Hud" method="_on_erika_stats_changed"]
 [connection signal="StatsChanged" from="Erika" to="Hud" method="OnPlayerStatsChanged"]
+[connection signal="StatsChanged" from="Erika" to="Hud" method="_on_erika_stats_changed"]
 [connection signal="body_entered" from="Ato1MusicTrigger" to="." method="_on_ato_1_music_trigger_body_entered"]
 [connection signal="body_entered" from="espinhos" to="Erika" method="_on_espinhos_body_entered"]
 [connection signal="body_exited" from="espinhos" to="Erika" method="_on_espinhos_body_exited"]

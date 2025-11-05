@@ -188,7 +188,7 @@ public partial class Erika : CharacterBody2D
 		
 		_textoInicial = new Label
 		{
-			Text = "Aperte A/D para se mover e SHIFT para correr",
+			Text = "Aperte A/D para se mover e SHIFT para correr ---ATO1---",
 			Position = new Vector2(200, 70), 
 			Visible = true,
 			// Aplica a nova configuração de estilo

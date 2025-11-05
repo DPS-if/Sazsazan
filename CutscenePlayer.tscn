@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0vwemd0c5xk1"]
+[gd_scene load_steps=4 format=3 uid="uid://b0vwemd0c5xk1"]
 
 [ext_resource type="Script" uid="uid://h8w7nnc6l5v2" path="res://CutscenePlayer.cs" id="1_jpjha"]
 [ext_resource type="VideoStream" uid="uid://b32d1n6mkwcj" path="res://Audio/Cutscene-1010.ogv" id="1_xcfoq"]
+[ext_resource type="AudioStream" uid="uid://cusk8865pkio7" path="res://Musica_Cutscene_Inicial.mp3" id="3_ukbs1"]
 
 [node name="CutscenePlayer" type="Control"]
 layout_mode = 3
@@ -31,3 +32,7 @@ grow_vertical = 2
 stream = ExtResource("1_xcfoq")
 autoplay = true
 expand = true
+
+[node name="CutsceneMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ukbs1")
+autoplay = true
