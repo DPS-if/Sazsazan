@@ -70,3 +70,12 @@ grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("2_iaqgj")
 stretch_mode = 0
+
+[node name="butão" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 446.0
+offset_right = 280.0
+offset_bottom = 477.0
+text = "config butão
+"

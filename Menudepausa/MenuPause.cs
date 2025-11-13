@@ -8,8 +8,10 @@ public partial class MenuPause : CanvasLayer
 		Visible = false;
 		var resume_btn = GetNode<TextureButton>("Panel/resume_btn");
 		var quit_btn = GetNode<TextureButton>("Panel/quit_btn");
+		var butão = GetNode<Button>("Panel/butão");
 		resume_btn.ProcessMode = Node.ProcessModeEnum.WhenPaused;
 		quit_btn.ProcessMode = Node.ProcessModeEnum.WhenPaused;
+		butão.ProcessMode = Node.ProcessModeEnum.WhenPaused;
 		resume_btn.Pressed += () =>
 		{
 			GetTree().Paused = false;
@@ -19,6 +21,11 @@ public partial class MenuPause : CanvasLayer
 		{
 			GetTree().Paused = false;
 			GetTree().ChangeSceneToFile("res://TelaInicial/title_screen.tscn");
+		};
+		butão.Pressed += () =>
+		{
+			GetTree().Paused = false;
+			GetTree().ChangeSceneToFile("res://ConfigBotões/ConfigBotões.tscn");
 		};
 	}
 }
