@@ -55,13 +55,13 @@ Sazsazan se trata de um jogo digital com as seguintes características:
 * Ana Laura Caetano Lamonier.
 * Rafael Siqueira de Freitas Ferreira.
 
-### Cutscenes: 
-
-* Kauê Borges Fernandes.
-
 ### Pesquisa:
 
 * Deyvid Rodrigo da Silva Nogueira.
+  
+### Gerenciamento das redes sociais:
+
+* Kauê Borges Fernandes.
 
 ### Música:
 
