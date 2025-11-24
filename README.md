@@ -8,7 +8,7 @@ O projeto faz parte da disciplina de Língua Portuguesa, sob orientação da Pro
 
 O objetivo principal deste trabalho é a criação de um jogo que gira em torno do povo indígena Wapichana, um povo tradicional da cultura brasileira do norte do Amazonas.
 
-Com este jogo, buscamos:
+Com este jogo, buscamos: inventou isso né
 
 * Passar os costumes, histórias e cultura dessa etnia.
 * Criar um jogo educativo que conterá uma história divertida.
@@ -24,11 +24,11 @@ Sazsazan se trata de um jogo digital com as seguintes características:
 * **Gênero:** Plataforma 2D.
 * **Estilo:** Pixel art simples.
 * **Modo:** Single-player.
-* **Controles:** Controles simples.
+* **Controles:** Controles normalmente se refere se vai ser teclado e mouse, so teclado, controle,etc
 
 ## 💻 Detalhes Técnicos:
 
-* **Público Alvo:** Pretendemos alcançar um público geral.
+* **Público Alvo:** especificar melhor, geral é minha pomba
 * **Plataformas:** Desktop e Windows.
 
 ## 👥 Equipe (Colaboradores Principais):
