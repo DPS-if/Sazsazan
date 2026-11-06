@@ -5,3 +5,6 @@
 /.dotnet/
 *.sln
 /android/
+
+# Build exportado
+/Build/
