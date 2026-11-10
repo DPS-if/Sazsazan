@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://ctjhsgil40l7h"]
+[gd_scene format=3 uid="uid://ctjhsgil40l7h"]
 
 [ext_resource type="Script" uid="uid://yldbc8fmsnon" path="res://Scripts/Player/Erika.cs" id="1_kj2ou"]
 [ext_resource type="Texture2D" uid="uid://br4orn1ngxqjd" path="res://Assets/Sprites/Erika/Crianca_parada-Sheet.png" id="2_x6ds5"]
@@ -143,7 +143,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3nwfu")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Erikaandando",
 "speed": 5.0
 }, {
@@ -169,7 +169,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pekpn")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Erikacorrendo",
 "speed": 5.0
 }, {
@@ -192,7 +192,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ir8iy")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Erikaparada",
 "speed": 5.0
 }, {
@@ -227,7 +227,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n28va")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Erikapulando",
 "speed": 5.0
 }]
@@ -235,22 +235,22 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fs5pd"]
 size = Vector2(24, 53)
 
-[node name="Erika" type="CharacterBody2D"]
+[node name="Erika" type="CharacterBody2D" unique_id=2066263511]
 script = ExtResource("1_kj2ou")
 
-[node name="Animaçoes" type="AnimatedSprite2D" parent="."]
+[node name="Animaçoes" type="AnimatedSprite2D" parent="." unique_id=957602768]
 position = Vector2(384, 217.78574)
 scale = Vector2(0.27142873, 0.2714287)
 sprite_frames = SubResource("SpriteFrames_mahm4")
 animation = &"Erikaparada"
 autoplay = "Erikaparada"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2085505592]
 position = Vector2(388, 219)
 shape = SubResource("RectangleShape2D_fs5pd")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(384, 216)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1304968635]
+position = Vector2(384, 126)
 zoom = Vector2(1.5, 1.5)
 limit_enabled = false
 position_smoothing_enabled = true

@@ -21,10 +21,14 @@ config/features=PackedStringArray("4.7", "C#", "Forward Plus")
 [autoload]
 
 SceneTransitions="*res://Scripts/Core/SceneTransitions.cs"
+Global="*res://Scripts/Core/Global.cs"
 
 [display]
 
+window/size/viewport_width=1152
+window/size/viewport_height=648
 window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
 
 [dotnet]
 

@@ -117,7 +117,6 @@ public partial class Erika : CharacterBody2D
 
 	// --- Controle do Pulo ---
 	private bool _canDoubleJump = false;
-	public bool sabepular2 = false;
 
 	private float _staminaRegenTimer = 0.0f;
 
@@ -136,9 +135,21 @@ public partial class Erika : CharacterBody2D
 	private MenuPause PauseMenu;
 	private ConfigBotões _configInstance;
 	private Area2D _spikesSource; // Referência guardada uma única vez (antes era buscada a cada dano)
-	private bool dentroAreaDuplo = false;
-	private Label dicaPuloDuplo;
-	private bool mostrouDica = false;
+
+	// --- TRAVA DE MOVIMENTO DO TUTORIAL ---
+	// Quando uma área de tutorial desbloqueia uma habilidade, o movimento
+	// da Erika fica travado até ela fechar a caixa de texto (ESPAÇO/ENTER).
+	private bool _tutorialLockActive = false;
+	private CanvasLayer _tutorialLayer;
+	private Control _tutorialRaiz;
+	private PanelContainer _tutorialPainel;
+	private Label _tutorialLabel;
+	private Tween _tutorialTween;
+
+	// --- MODO FANTASMA (noclip, ativado pelo console de cheats) ---
+	private bool _noclip = false;
+	private uint _originalCollisionLayer = 1;
+	private uint _originalCollisionMask = 1;
 
 	// --- VARIÁVEL DO TEXTO INICIAL ---
 	private Label _textoInicial;
@@ -146,12 +157,8 @@ public partial class Erika : CharacterBody2D
 	// --- VARIÁVEL DA DICA DE PULO SIMPLES ---
 	private Label dicaPuloSimples;
 
-	// --- VARIÁVEL DA DICA DE DASH ---
-	private Label dicaDash;
-
 	// --- Estado das dicas (para aparecerem apenas uma vez) ---
 	private bool _dicaPuloSimplesMostrada = false;
-	private bool _dicaDashMostrada = false;
 
 	public override void _Ready()
 	{
@@ -200,7 +207,7 @@ public partial class Erika : CharacterBody2D
 		// -------------------------------------------------------------------
 		_textoInicial = new Label
 		{
-			Text = "Aperte A/D para se mover e SHIFT para correr ---ATO1---",
+			Text = "Aperte A/D para se mover ---ATO1---",
 			Position = new Vector2(200, 70),
 			Visible = true,
 			LabelSettings = blackTextSettings
@@ -213,18 +220,6 @@ public partial class Erika : CharacterBody2D
 		fadeTimer.Timeout += () => _textoInicial.Visible = false;
 		AddChild(fadeTimer);
 		fadeTimer.Start();
-
-		// -------------------------------------------------------------------
-		// INICIALIZAÇÃO DA DICA DE PULO DUPLO
-		// -------------------------------------------------------------------
-		dicaPuloDuplo = new Label
-		{
-			Text = "Aperte duas vezes ESPAÇO para usar o pulo duplo",
-			Visible = false,
-			Position = new Vector2(200, 50),
-			LabelSettings = blackTextSettings
-		};
-		AddChild(dicaPuloDuplo);
 
 		// -------------------------------------------------------------------
 		// INICIALIZAÇÃO DA DICA DE PULO SIMPLES
@@ -241,17 +236,12 @@ public partial class Erika : CharacterBody2D
 		};
 		AddChild(dicaPuloSimples);
 
-		// -------------------------------------------------------------------
-		// INICIALIZAÇÃO DA DICA DE DASH
-		// -------------------------------------------------------------------
-		dicaDash = new Label
-		{
-			Text = "Aperte o botão esquerdo do mouse para usar o impulso",
-			Visible = false,
-			Position = new Vector2(180, 130),
-			LabelSettings = blackTextSettings
-		};
-		AddChild(dicaDash);
+		// Registra a Erika no Global (o console de cheats a controla por aqui)
+		Global.Instance.RegisterErika(this);
+		if (Global.Instance.NoclipEnabled) { SetNoclip(true); }
+
+		// Caixa de tutorial que aparece ao desbloquear habilidades
+		CriarTutorialBox();
 
 		CallDeferred(nameof(EmitStatsChanged));
 	}
@@ -261,22 +251,23 @@ public partial class Erika : CharacterBody2D
 		EmitSignal(SignalName.StatsChanged, CurrentHealth, MaxHealth, CurrentStamina, MaxStamina);
 	}
 
-	// --- MÉTODO: Entrada na área de Dica de Dash ---
-	private void OnDicaDashBodyEntered(Node2D body)
+	// --- MÉTODO: Entrada na área que desbloqueia o DASH (AreaDash) ---
+	private void OnAreaDashBodyEntered(Node2D body)
 	{
-		if (body == this && !_dicaDashMostrada)
+		if (body == this && !Global.Instance.HasDash)
 		{
-			dicaDash.Visible = true;
-			// Oculta outras dicas para focar no dash
+			Global.Instance.HasDash = true;
 			if (_textoInicial.Visible) { _textoInicial.Visible = false; }
 			if (dicaPuloSimples.Visible) { dicaPuloSimples.Visible = false; }
 
-			_dicaDashMostrada = true;
+			ShowTutorial("DASH DESBLOQUEADO!\n\n"
+				+ "Aperte " + Global.Instance.GetActionKeyText("dash") + " para dar um impulso rápido.\n"
+				+ "Durante o dash a Erika fica invencível e atravessa espinhos sem se machucar.");
 		}
 	}
 
-	// --- MÉTODO: Entrada na área de Ensino de Pulo Simples ---
-	private void OnEnsinarPuloBodyEntered(Node2D body)
+	// --- MÉTODO: Entrada na área de Ensino de Pulo Simples (AreaPuloSimples) ---
+	private void OnAreaPuloSimplesBodyEntered(Node2D body)
 	{
 		if (body == this && !_dicaPuloSimplesMostrada)
 		{
@@ -288,6 +279,20 @@ public partial class Erika : CharacterBody2D
 			}
 
 			_dicaPuloSimplesMostrada = true;
+		}
+	}
+
+	// --- MÉTODO: Entrada na área que desbloqueia a CORRIDA (AreaRun) ---
+	private void OnAreaRunBodyEntered(Node body)
+	{
+		if (body == this && !Global.Instance.HasRun)
+		{
+			Global.Instance.HasRun = true;
+			if (_textoInicial.Visible) { _textoInicial.Visible = false; }
+
+			ShowTutorial("CORRIDA DESBLOQUEADA!\n\n"
+				+ "Segure " + Global.Instance.GetActionKeyText("correr") + " enquanto anda para correr mais rápido.\n"
+				+ "Correr gasta estamina; pare um instante para ela voltar.");
 		}
 	}
 
@@ -306,18 +311,29 @@ public partial class Erika : CharacterBody2D
 		}
 	}
 
-	private void OnDuploAreaBodyEntered(Node body)
+	// --- MÉTODO: Entrada na área que desbloqueia o PULO DUPLO (AreaDoubleJump) ---
+	private void OnAreaDoubleJumpBodyEntered(Node body)
 	{
-		if (body == this) { dentroAreaDuplo = true; }
-	}
+		if (body == this && !Global.Instance.HasDoubleJump)
+		{
+			Global.Instance.HasDoubleJump = true;
 
-	private void OnDuploAreaBodyExited(Node body)
-	{
-		if (body == this) { dentroAreaDuplo = false; }
+			ShowTutorial("PULO DUPLO DESBLOQUEADO!\n\n"
+				+ "Aperte " + Global.Instance.GetActionKeyText("pular") + " duas vezes no ar para pular de novo.\n"
+				+ "Cada pulo duplo gasta um pouco de estamina.");
+		}
 	}
 
 	public override void _UnhandledInput(InputEvent @event)
 	{
+		// Fecha a caixa de tutorial e destrava o movimento
+		if (_tutorialLockActive && @event.IsActionPressed("ui_accept"))
+		{
+			GetViewport().SetInputAsHandled();
+			CloseTutorial();
+			return;
+		}
+
 		// Pausa com Esc (via _UnhandledInput para não conflitar com cliques da UI)
 		if (@event.IsActionPressed("ui_cancel"))
 		{
@@ -358,6 +374,9 @@ public partial class Erika : CharacterBody2D
 
 	private void PerformDash()
 	{
+		// O dash só funciona depois de desbloqueado (área AreaDash da fase)
+		if (!Global.Instance.HasDash) { return; }
+
 		if (CurrentStamina < DashStaminaCost)
 		{
 			return;
@@ -387,11 +406,6 @@ public partial class Erika : CharacterBody2D
 		// sem roubar o cooldown de dano (que é responsabilidade do blink)
 		_dashInvulnTimer = DashDuration;
 
-		// Oculta a dica de dash ao usar o Dash
-		if (dicaDash.Visible)
-		{
-			dicaDash.Visible = false;
-		}
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -430,7 +444,7 @@ public partial class Erika : CharacterBody2D
 
 		// --- 2. Dano contínuo de Espinhos ---
 		// Dano a cada 1.1s enquanto estiver em cima. Não machuca durante o dash.
-		if (_isTouchingSpikes && _damageCooldownTimer <= 0 && _dashInvulnTimer <= 0)
+		if (_isTouchingSpikes && !_noclip && _damageCooldownTimer <= 0 && _dashInvulnTimer <= 0)
 		{
 			if (_spikesSource != null)
 			{
@@ -438,8 +452,8 @@ public partial class Erika : CharacterBody2D
 			}
 		}
 
-		// --- 3. Lógica de Água e Afogamento ---
-		if (_isInWater)
+		// --- 3. Lógica de Água e Afogamento (ignorada no modo fantasma) ---
+		if (_isInWater && !_noclip)
 		{
 			if (CurrentStamina > 0)
 			{
@@ -470,7 +484,7 @@ public partial class Erika : CharacterBody2D
 		}
 
 		// --- 5. Input do Dash (por ação: funciona com mouse e gamepad) ---
-		if (Input.IsActionJustPressed("dash") && !_isDashing && _dashCooldownTimer <= 0)
+		if (!_tutorialLockActive && !_noclip && Input.IsActionJustPressed("dash") && !_isDashing && _dashCooldownTimer <= 0)
 		{
 			PerformDash();
 		}
@@ -485,6 +499,11 @@ public partial class Erika : CharacterBody2D
 		}
 		else // Movimento e Gravidade Normal
 		{
+			// Direção horizontal do input (zero durante o tutorial travado e no noclip)
+			float horizontalDirection = (_tutorialLockActive || _noclip)
+				? 0.0f
+				: Input.GetAxis("mover_esquerda", "mover_direita");
+
 			// Gravidade (mais fraca na água) com limite de velocidade de queda
 			if (_isInWater)
 			{
@@ -496,22 +515,34 @@ public partial class Erika : CharacterBody2D
 			}
 			velocity.Y = Mathf.Min(velocity.Y, TerminalFallSpeed);
 
+			// --- MODO FANTASMA (noclip): voo livre com WASD, a gravidade é sobrescrita ---
+			if (_noclip)
+			{
+				float flySpeed = Speed * Global.Instance.SpeedMultiplier * 1.5f;
+				// A/D (ações mover_esquerda/mover_direita) e W/S para cima/baixo.
+				// Setas e ESPAÇO também funcionam para cima/baixo.
+				float flyX = Input.GetAxis("mover_esquerda", "mover_direita");
+				float flyY = 0.0f;
+				if (Input.IsKeyPressed(Key.W) || Input.IsKeyPressed(Key.Up) || Input.IsActionPressed("pular"))
+				{
+					flyY -= 1.0f;
+				}
+				if (Input.IsKeyPressed(Key.S) || Input.IsKeyPressed(Key.Down))
+				{
+					flyY += 1.0f;
+				}
+				// Normaliza as diagonais para a velocidade ficar igual em qualquer direção
+				Vector2 direçãoVoo = new Vector2(flyX, flyY);
+				velocity = direçãoVoo == Vector2.Zero
+					? Vector2.Zero
+					: direçãoVoo.Normalized() * flySpeed;
+			}
+
 			// --- Coyote Time: permite pular um instante após sair da borda ---
 			if (IsOnFloor())
 			{
 				_coyoteTimer = CoyoteTime;
 				_canDoubleJump = true;
-
-				if (dentroAreaDuplo && !sabepular2)
-				{
-					sabepular2 = true;
-					if (!mostrouDica)
-					{
-						dicaPuloDuplo.Text = "Aperte duas vezes ESPAÇO para usar o pulo duplo";
-						dicaPuloDuplo.Visible = true;
-						mostrouDica = true;
-					}
-				}
 			}
 			else
 			{
@@ -519,7 +550,7 @@ public partial class Erika : CharacterBody2D
 			}
 
 			// --- Jump Buffer: registra o pulo apertado pouco antes de aterrissar ---
-			if (Input.IsActionJustPressed("pular"))
+			if (!_tutorialLockActive && !_noclip && Input.IsActionJustPressed("pular"))
 			{
 				_jumpBufferTimer = JumpBufferTime;
 			}
@@ -528,7 +559,7 @@ public partial class Erika : CharacterBody2D
 				_jumpBufferTimer -= dt;
 			}
 
-			if (_jumpBufferTimer > 0)
+			if (!_tutorialLockActive && !_noclip && _jumpBufferTimer > 0)
 			{
 				if (IsOnFloor() || _coyoteTimer > 0 || _isInWater)
 				{
@@ -542,7 +573,7 @@ public partial class Erika : CharacterBody2D
 						dicaPuloSimples.Visible = false;
 					}
 				}
-				else if (sabepular2 && _canDoubleJump && CurrentStamina >= DoubleJumpStaminaCost)
+				else if (Global.Instance.HasDoubleJump && _canDoubleJump && CurrentStamina >= DoubleJumpStaminaCost)
 				{
 					_jumpBufferTimer = 0.0f;
 					_canDoubleJump = false;
@@ -553,14 +584,13 @@ public partial class Erika : CharacterBody2D
 					{
 						_staminaRegenTimer = StaminaRegenDelay;
 					}
-
-					if (dicaPuloDuplo.Visible) { dicaPuloDuplo.Visible = false; }
 				}
 			}
 
 			// --- 7. Lógica de Estamina e Sprint ---
-			bool wantsToSprint = Input.IsActionPressed("correr");
-			float currentSpeed = Speed;
+			bool wantsToSprint = Global.Instance.HasRun && !_tutorialLockActive && !_noclip && Input.IsActionPressed("correr");
+			// O multiplicador de velocidade do console de cheats vale para andar e correr
+			float currentSpeed = Speed * Global.Instance.SpeedMultiplier;
 
 			bool canSprint = _staminaRegenTimer <= 0 && CurrentStamina > 0;
 
@@ -569,7 +599,7 @@ public partial class Erika : CharacterBody2D
 				float staminaToDrain = StaminaDrainRate * dt;
 				if (CurrentStamina > staminaToDrain)
 				{
-					currentSpeed = Speed * SprintMultiplier;
+					currentSpeed = Speed * SprintMultiplier * Global.Instance.SpeedMultiplier;
 					CurrentStamina -= staminaToDrain;
 				}
 				else
@@ -584,7 +614,7 @@ public partial class Erika : CharacterBody2D
 			}
 
 			// --- 8. Knockback ou movimento normal ---
-			if (_knockbackTimer > 0)
+			if (_knockbackTimer > 0 && !_noclip)
 			{
 				// Durante o knockback, o empurrão controla o movimento horizontal.
 				// O impulso vertical é aplicado uma única vez (como um soco pra cima).
@@ -593,10 +623,8 @@ public partial class Erika : CharacterBody2D
 				_knockbackVelocity.Y = 0;
 				_knockbackVelocity = _knockbackVelocity.MoveToward(Vector2.Zero, KnockbackDeceleration * dt);
 			}
-			else
+			else if (!_noclip)
 			{
-				float horizontalDirection = Input.GetAxis("mover_esquerda", "mover_direita");
-
 				if (horizontalDirection != 0)
 				{
 					// Aceleração suave até a velocidade alvo (antes era instantâneo)
@@ -627,7 +655,13 @@ public partial class Erika : CharacterBody2D
 		// Erikaparada, Erikaandando, Erikacorrendo, Erikapulando
 		string targetAnim;
 
-		if (_isDashing)
+		// No modo fantasma a Erika "flutua": mantém sempre a animação parada
+		if (_noclip)
+		{
+			targetAnim = "Erikaparada";
+			_animatedSprite.FlipH = _facingDirection < 0;
+		}
+		else if (_isDashing)
 		{
 			targetAnim = "Erikapulando"; // Ainda não existe animação de dash própria
 			_animatedSprite.FlipH = _dashDirection < 0;
@@ -639,7 +673,7 @@ public partial class Erika : CharacterBody2D
 		}
 		else if (Math.Abs(Velocity.X) > 0.1)
 		{
-			bool isSprintInput = Input.IsActionPressed("correr");
+			bool isSprintInput = Global.Instance.HasRun && Input.IsActionPressed("correr");
 			targetAnim = isSprintInput ? "Erikacorrendo" : "Erikaandando";
 			_animatedSprite.FlipH = Velocity.X < 0;
 		}
@@ -657,6 +691,139 @@ public partial class Erika : CharacterBody2D
 			{
 				_animatedSprite.Play(targetAnim);
 			}
+		}
+	}
+
+	// --- MÉTODOS: CAIXA DE TUTORIAL (trava o movimento da Erika) ---
+
+	// Constrói uma caixa de texto centralizada (CanvasLayer) usada quando
+	// uma habilidade é desbloqueada por uma área de tutorial.
+	private void CriarTutorialBox()
+	{
+		_tutorialLayer = new CanvasLayer
+		{
+			Layer = 30,
+			Visible = false,
+		};
+		AddChild(_tutorialLayer);
+
+		// Raiz cobrindo a tela inteira: garante a caixa no meio da câmera/viewport
+		_tutorialRaiz = new Control
+		{
+			MouseFilter = Control.MouseFilterEnum.Ignore,
+		};
+		_tutorialRaiz.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.FullRect);
+		_tutorialLayer.AddChild(_tutorialRaiz);
+
+		CenterContainer centro = new CenterContainer
+		{
+			MouseFilter = Control.MouseFilterEnum.Ignore,
+		};
+		centro.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.FullRect);
+		_tutorialRaiz.AddChild(centro);
+
+		_tutorialPainel = new PanelContainer();
+		StyleBoxFlat estilo = new StyleBoxFlat
+		{
+			BgColor = new Color(0.07f, 0.07f, 0.12f, 0.95f),
+			CornerRadiusTopLeft = 12,
+			CornerRadiusTopRight = 12,
+			CornerRadiusBottomLeft = 12,
+			CornerRadiusBottomRight = 12,
+			ContentMarginLeft = 28,
+			ContentMarginRight = 28,
+			ContentMarginTop = 20,
+			ContentMarginBottom = 20,
+		};
+		_tutorialPainel.AddThemeStyleboxOverride("panel", estilo);
+		_tutorialPainel.CustomMinimumSize = new Vector2(640, 0);
+		// Ponto de giro no centro da caixa para a animação de escala
+		_tutorialPainel.Resized += () => _tutorialPainel.PivotOffset = _tutorialPainel.Size / 2.0f;
+		centro.AddChild(_tutorialPainel);
+
+		VBoxContainer vbox = new VBoxContainer();
+		vbox.AddThemeConstantOverride("separation", 10);
+		_tutorialPainel.AddChild(vbox);
+
+		_tutorialLabel = new Label
+		{
+			AutowrapMode = TextServer.AutowrapMode.WordSmart,
+			CustomMinimumSize = new Vector2(640, 0),
+			HorizontalAlignment = HorizontalAlignment.Center,
+		};
+		_tutorialLabel.AddThemeFontSizeOverride("font_size", 20);
+		_tutorialLabel.AddThemeColorOverride("font_color", Colors.White);
+		vbox.AddChild(_tutorialLabel);
+
+		Label dica = new Label
+		{
+			Text = "Aperte ESPAÇO para continuar",
+			HorizontalAlignment = HorizontalAlignment.Center,
+		};
+		dica.AddThemeFontSizeOverride("font_size", 14);
+		dica.AddThemeColorOverride("font_color", new Color(0.7f, 0.7f, 0.7f));
+		vbox.AddChild(dica);
+	}
+
+	public void ShowTutorial(string texto)
+	{
+		_tutorialLabel.Text = texto;
+		_tutorialLockActive = true;
+		_tutorialLayer.Visible = true;
+
+		// Transição de entrada: fade + leve "pulinho" de escala
+		if (_tutorialTween != null && _tutorialTween.IsValid()) { _tutorialTween.Kill(); }
+		_tutorialRaiz.Modulate = new Color(1f, 1f, 1f, 0f);
+		_tutorialPainel.Scale = new Vector2(0.85f, 0.85f);
+		_tutorialTween = CreateTween().SetParallel();
+		_tutorialTween.TweenProperty(_tutorialRaiz, "modulate:a", 1.0f, 0.25f).SetEase(Tween.EaseType.Out);
+		_tutorialTween.TweenProperty(_tutorialPainel, "scale", Vector2.One, 0.3f)
+			.SetTrans(Tween.TransitionType.Back).SetEase(Tween.EaseType.Out);
+
+		// Zera a velocidade horizontal para a Erika "frear" ao travar o movimento
+		Velocity = new Vector2(0.0f, Velocity.Y);
+	}
+
+	private void CloseTutorial()
+	{
+		_tutorialLockActive = false;
+
+		// Transição de saída: fade + encolhendo, e só depois esconde a camada
+		if (_tutorialTween != null && _tutorialTween.IsValid()) { _tutorialTween.Kill(); }
+		_tutorialTween = CreateTween().SetParallel();
+		_tutorialTween.TweenProperty(_tutorialRaiz, "modulate:a", 0.0f, 0.2f).SetEase(Tween.EaseType.In);
+		_tutorialTween.TweenProperty(_tutorialPainel, "scale", new Vector2(0.85f, 0.85f), 0.2f)
+			.SetTrans(Tween.TransitionType.Back).SetEase(Tween.EaseType.In);
+		_tutorialTween.Finished += () =>
+		{
+			// Só esconde se nenhuma nova caixa tiver aparecido durante o fade
+			if (!_tutorialLockActive)
+			{
+				_tutorialLayer.Visible = false;
+			}
+		};
+	}
+
+	// --- MÉTODOS: MODO FANTASMA (noclip, controlado pelo console de cheats) ---
+
+	public void SetNoclip(bool enabled)
+	{
+		if (enabled && !_noclip)
+		{
+			// Guarda as camadas de colisão originais para poder restaurar
+			_originalCollisionLayer = CollisionLayer;
+			_originalCollisionMask = CollisionMask;
+			CollisionLayer = 0;
+			CollisionMask = 0;
+			_noclip = true;
+			// Solta a Erika parada no ar ao entrar no modo fantasma
+			Velocity = Vector2.Zero;
+		}
+		else if (!enabled && _noclip)
+		{
+			CollisionLayer = _originalCollisionLayer;
+			CollisionMask = _originalCollisionMask;
+			_noclip = false;
 		}
 	}
 

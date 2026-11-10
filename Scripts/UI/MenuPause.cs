@@ -26,7 +26,9 @@ public partial class MenuPause : CanvasLayer
 		quit_btn.Pressed += () =>
 		{
 			GetTree().Paused = false;
-			SceneTransitions.Instance.ChangeScene("res://Cenas/UI/title_screen.tscn");
+			// Limpa modificações de cheats antes de sair da partida
+		Global.Instance.ResetCheats();
+		SceneTransitions.Instance.ChangeScene("res://Cenas/UI/title_screen.tscn");
 		};
 		butão.Pressed += () =>
 		{
