@@ -25,10 +25,7 @@ Global="*res://Scripts/Core/Global.cs"
 
 [display]
 
-window/size/viewport_width=1152
-window/size/viewport_height=648
 window/stretch/mode="canvas_items"
-window/stretch/aspect="keep"
 
 [dotnet]
 
@@ -99,3 +96,4 @@ inventario={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+viewport/hdr_2d=true

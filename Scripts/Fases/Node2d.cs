@@ -29,6 +29,22 @@ public partial class Node2d : Node2D // O nome da classe deve ser igual ao nome 
 		}
 	}
 
+	// Esta função é chamada quando a Erika entra na área de cutscene final
+	private void _on_cutscene_final_ato_1_body_entered(Node2D body)
+	{
+		if (body is Erika)
+		{
+			// Para a música da fase
+			StopLevelMusic();
+
+			// Desativa a área para não disparar de novo
+			GetNode<Area2D>("CutsceneFinalAto1").SetDeferred(Area2D.PropertyName.Monitoring, false);
+
+			// Vai para a cutscene de créditos com transição suave
+			SceneTransitions.Instance.ChangeScene("res://Cenas/Fases/CutsceneCreditos.tscn");
+		}
+	}
+
 	// --- FUNÇÕES PARA A CUTSCENE CONTROLAR A MÚSICA ---
 
 	/// <summary>

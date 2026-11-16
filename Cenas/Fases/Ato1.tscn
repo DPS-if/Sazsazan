@@ -1815,6 +1815,9 @@ size = Vector2(10107, 28)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arearun"]
 size = Vector2(200, 600)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xb2m3"]
+size = Vector2(4000, 1000)
+
 [node name="Ato1" type="Node2D" unique_id=1878540346]
 position = Vector2(-1, 0)
 script = ExtResource("1_bjha6")
@@ -3630,6 +3633,13 @@ position = Vector2(1900, 400)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaRun" unique_id=406347290]
 shape = SubResource("RectangleShape2D_arearun")
 
+[node name="CutsceneFinalAto1" type="Area2D" parent="." unique_id=207194758]
+position = Vector2(-24000, 615)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CutsceneFinalAto1" unique_id=7099293]
+position = Vector2(858, -1023)
+shape = SubResource("RectangleShape2D_xb2m3")
+
 [connection signal="StatsChanged" from="Erika" to="Hud" method="OnPlayerStatsChanged"]
 [connection signal="body_entered" from="Ato1MusicTrigger" to="." method="_on_ato_1_music_trigger_body_entered"]
 [connection signal="body_entered" from="mapaBase/AguaTiraStamina" to="Erika" method="OnWaterAreaBodyEntered"]
@@ -3641,3 +3651,4 @@ shape = SubResource("RectangleShape2D_arearun")
 [connection signal="body_entered" from="AreaPuloSimples" to="Erika" method="OnAreaPuloSimplesBodyEntered"]
 [connection signal="body_entered" from="AreaDash" to="Erika" method="OnAreaDashBodyEntered"]
 [connection signal="body_entered" from="AreaRun" to="Erika" method="OnAreaRunBodyEntered"]
+[connection signal="body_entered" from="CutsceneFinalAto1" to="." method="_on_cutscene_final_ato_1_body_entered"]

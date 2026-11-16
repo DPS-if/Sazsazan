@@ -348,8 +348,18 @@ public partial class Erika : CharacterBody2D
 
 	private void TogglePause()
 	{
-		GetTree().Paused = !GetTree().Paused;
-		PauseMenu.Visible = GetTree().Paused;
+		if (GetTree().Paused)
+		{
+			// Já está pausado: despausar
+			GetTree().Paused = false;
+			PauseMenu.Visible = false;
+		}
+		else
+		{
+			// Pausar: mostra o menu com fade de entrada
+			GetTree().Paused = true;
+			PauseMenu.ShowWithFade();
+		}
 
 		// Se sair da pausa enquanto a tela de configuração estiver aberta, fecha ela também
 		if (!GetTree().Paused && _configInstance != null && _configInstance.Visible)
@@ -362,14 +372,14 @@ public partial class Erika : CharacterBody2D
 	// (agora são camadas sobre o jogo, não mais trocas de cena)
 	private void OnPauseConfigRequested()
 	{
-		PauseMenu.Visible = false;
+		// O MenuPause já faz fade out sozinho antes de emitir ConfigRequested
 		_configInstance.ShowWithFade();
 	}
 
 	private void OnConfigVoltarPressed()
 	{
 		_configInstance.Visible = false;
-		PauseMenu.Visible = true;
+		PauseMenu.ShowWithFade();
 	}
 
 	private void PerformDash()

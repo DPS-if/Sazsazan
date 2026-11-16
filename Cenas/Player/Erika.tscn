@@ -255,3 +255,5 @@ zoom = Vector2(1.5, 1.5)
 limit_enabled = false
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=327517675]
